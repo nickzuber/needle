@@ -1,0 +1,28 @@
+{
+  "name": "needle",
+  "version": "1.0.0-alpha",
+  "description": "A standalone extensive data structure library in JavaScript.",
+  "main": "needle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickzuber/needle.git"
+  },
+  "keywords": [
+    "needle",
+    "data structures",
+    "javascript"
+  ],
+  "author": "Nick Zuber <zuber.nicholas@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickzuber/needle/issues"
+  },
+  "homepage": "https://github.com/nickzuber/needle#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "uglifyjs": "^2.4.10"
+  }
+}
