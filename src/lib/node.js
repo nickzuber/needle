@@ -3,7 +3,7 @@
  */
 
 const Node = function(data){
-  this.data = data;
+  this.data = data || undefined;
   this.next = null;
 };
 
