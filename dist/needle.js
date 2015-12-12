@@ -3,9 +3,7 @@
 
 (function(){
 
-  // Create a reference to global scope
-  var global = this;
-
+  console.log("yo");
 
   if(typeof exports !== 'undefined'){
     if(typeof module !== 'undefined' && module.exports){
@@ -13,6 +11,6 @@
     }
     exports.Needle = Needle;
   }else{
-    global.Needle = Needle;
+    window.Needle = Needle;
   }
-}).call(window);
+})();
