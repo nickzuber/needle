@@ -1,4 +1,4 @@
-# Needle.js
+# Needle.js [![Build Status](https://secure.travis-ci.org/nickzuber/needle.png)](http://travis-ci.org/nickzuber/needle)
 
 ~~[View the API](https://github.com/nickzuber/)~~
 
