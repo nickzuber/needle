@@ -134,7 +134,35 @@ SinglyLinkedList.prototype.removeNth = function(index){
  * Find a node by a given value.
  */
 SinglyLinkedList.prototype.find = function(data){
+  if(typeof data === 'undefined'){
+    throw new Error("Too few arguments for SinglyLinkedList.find");
+  }
+  else if(this.size <= 0){
+    throw new Error("Attempted to find a node from an empty SinglyLinkedList");
+  }
+  else if(this.head === null && this.size > 0){
+    throw new Error("Null head in an unemptied list. Please report this to https://github.com/nickzuber/needle/issues");
+  }
 
+  // Find index of node to delete
+  var index = 0,
+      curNode = this.head,
+      nodeFound = false;
+
+  while(curNode !== null){
+    if(JSON.stringify(curNode.data) === JSON.stringify(data)){
+      nodeFound = true;
+      break;
+    }
+    ++index;
+    curNode = curNode.next;
+  }
+
+  if(nodeFound){
+    return curNode;
+  }else{
+    return false;
+  }
 }
 
 /**

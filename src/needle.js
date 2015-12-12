@@ -1,5 +1,5 @@
 
-// Main needle file that includes all of the data structures contained in a single Needle object
+// # Needle object that contains all core data structures
 
 const SinglyLinkedList = require('./lib/singlyLinkedList.js');
 
