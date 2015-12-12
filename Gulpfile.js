@@ -20,7 +20,7 @@ gulp.task('dispatch', function(){
 
 // Watch files
 gulp.task('watch', function(){
-    gulp.watch(['src/*.js'], ['dispatch']);
+    gulp.watch(['src/lib/*.js'], ['dispatch']);
 });
 
 // Set default to dispatch
