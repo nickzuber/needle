@@ -1,9 +1,18 @@
 # Needle.js [![Build Status](https://secure.travis-ci.org/nickzuber/needle.png)](http://travis-ci.org/nickzuber/needle)
 
-~~[View the API](https://github.com/nickzuber/)~~
+Needle is a standalone extensive data structure library in JavaScript.
 
-## Description
-Needle is an extensive data structure library in JavaScript. Each data structure is organized in its own module, so specific data structures can be imported to reduce file size.
+## Installation 
+
+*pending*
+
+## API Reference
+
+*pending*
+
+## Examples
+
+*pending*
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
