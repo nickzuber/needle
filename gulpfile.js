@@ -25,7 +25,6 @@ gulp.task('dispatch', function(){
     }))
     .pipe(header(banner, {pkg: pkg}))
     .pipe(gulp.dest('test/scripts/'))
-    .pipe(header(banner, {pkg: pkg}))
     .pipe(gulp.dest('dist'));
 });
 
