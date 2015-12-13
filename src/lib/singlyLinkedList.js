@@ -2,6 +2,17 @@
  * Linked List
  * {head} Node, the head of the linked list
  * {size} int, the number of nodes in the linked list
+ * 
+ * Time complexities (worst case)
+ * +----------------------+
+ * | insertFront |  O(1)  |
+ * | insertBack  |  O(n)  |
+ * | remove      |  O(n)  |
+ * | removeNth   |  O(n)  |
+ * | find        |  O(n)  |
+ * | findNth     |  O(n)  |
+ * +----------------------+
+ * 
  */
 
 const Node = require('./unidirectional_node.js');
@@ -29,7 +40,33 @@ const SinglyLinkedList = function(data){
  * @param {*} data for the new node
  * @return {void}
  */
-SinglyLinkedList.prototype.insert = function(data){
+SinglyLinkedList.prototype.insertFront = function(data){
+  if(typeof data === 'undefined'){
+    throw new Error("Too few arguments for SinglyLinkedList.insert");
+  }
+
+  var nodeToAdd = new Node(data);
+  
+  // If the head has not been set, add this node as the head 
+  if(this.head === null){
+    this.head = nodeToAdd;
+  }
+  // If head is set, add node to end of the list
+  else{
+    var prevHead = this.head;
+    this.head = nodeToAdd;
+    this.head.next = prevHead;
+  }
+  ++this.size;
+}
+
+/**
+ * Create a node from given data and insert to end
+ * of linked list.
+ * @param {*} data for the new node
+ * @return {void}
+ */
+SinglyLinkedList.prototype.insertBack = function(data){
   if(typeof data === 'undefined'){
     throw new Error("Too few arguments for SinglyLinkedList.insert");
   }
@@ -47,8 +84,8 @@ SinglyLinkedList.prototype.insert = function(data){
       curNode = curNode.next;
     }
     curNode.next = nodeToAdd;
-    ++this.size;
   }
+  ++this.size;
 }
 
 /**
