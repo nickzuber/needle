@@ -12,14 +12,14 @@ test('should run without errors', function(assert){
   sll.insertBack("three");
   sll.insertFront("one");
   sll.insertFront("two");
-  // =>(["two", "one", "three"]) 
+  
+  sll.find("three");
+  sll.findNth(1);
 
   sll.remove("two");
   sll.removeNth(1);
   sll.removeNth(0);
   
-  //sll.find();
-  //sll.findNth();
 
   var result = sll.size;
   console.log(result);

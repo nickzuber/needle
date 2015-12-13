@@ -1,5 +1,5 @@
 {
-  "name": "needle",
+  "name": "Needle",
   "version": "1.0.0-alpha",
   "description": "A standalone extensive data structure library in JavaScript.",
   "main": "dist/needle.js",
@@ -27,6 +27,7 @@
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
+    "gulp-header": "^1.7.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.1",
     "gulp-watch": "^4.3.5",
