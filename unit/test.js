@@ -5,6 +5,9 @@ var Needle = require('../src/needle.js');
 var test = require('tape');
 
 test('should run without errors', function(assert){
+
+  // Will make better unit tests in the future
+
   var sll = new Needle.SinglyLinkedList();
   sll.insert("one");
   sll.insert("two");
