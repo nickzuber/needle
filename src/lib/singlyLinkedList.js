@@ -107,20 +107,33 @@ SinglyLinkedList.prototype.remove = function(data){
 
   // Find index of node to delete
   var index = 0,
+      prevNode = null;
       curNode = this.head,
       nodeFound = false;
+
+  // Check if deleting head
+  if(JSON.stringify(curNode.data) === JSON.stringify(data)){
+    this.head = curNode.next;
+    curNode = null;
+    --this.size;
+    return true;
+  }
+
+  // Update nodes to account for head not being the node to delete
+  prevNode = curNode;
+  curNode = prevNode.next;
 
   while(curNode !== null){
     if(JSON.stringify(curNode.data) === JSON.stringify(data)){
       nodeFound = true;
+      prevNode.next = curNode.next;
+      curNode = null;
+      --this.size;
       break;
     }
     ++index;
+    prevNode = curNode;
     curNode = curNode.next;
-  }
-
-  if(nodeFound){
-    this.removeNth(index);
   }
 
   return nodeFound;

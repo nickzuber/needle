@@ -10,5 +10,7 @@ Needle.SinglyLinkedList = SinglyLinkedList;
 exports = module.exports = Needle;
 exports.Needle = Needle;
 
-// temporary for client side testing
-//window.Needle = Needle;
+// If attempting to run in browser, push Needle on global scope
+if(typeof window !== 'undefined'){
+  window.Needle = Needle;
+}
