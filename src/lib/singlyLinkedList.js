@@ -140,11 +140,7 @@ SinglyLinkedList.prototype.remove = function(data){
 
 }
 
-/**
- * Remove a node based on its position in the linked list
- * @param {int} index of node to remove
- * @returm {void}
- */
+
 SinglyLinkedList.prototype.removeNth = function(index){
   if(typeof index !== 'number'){
     throw new Error("Invalid argument for SinglyLinkedList.removeNth");
@@ -152,7 +148,11 @@ SinglyLinkedList.prototype.removeNth = function(index){
   // Check for bounds
   else if(index < 0 || index >= this.size){
     throw new Error("Index out of bounds; attempted to remove a node from a SinglyLinkedList that does not exist");
-  }
+  }/**
+ * Remove a node based on its position in the linked list
+ * @param {int} index of node to remove
+ * @returm {void}
+ */
 
   var prevNode = null;
   var curNode = this.head;
@@ -181,7 +181,9 @@ SinglyLinkedList.prototype.removeNth = function(index){
 }
 
 /**
- * Find a node by a given value.
+ * Find a node by a given value
+ * @param {*} data of node to find
+ * @return {boolean || Node} returns node found and false if not found
  */
 SinglyLinkedList.prototype.find = function(data){
   if(typeof data === 'undefined'){
@@ -195,8 +197,7 @@ SinglyLinkedList.prototype.find = function(data){
   }
 
   // Find index of node to delete
-  var index = 0,
-      curNode = this.head,
+  var curNode = this.head,
       nodeFound = false;
 
   while(curNode !== null){
@@ -204,7 +205,6 @@ SinglyLinkedList.prototype.find = function(data){
       nodeFound = true;
       break;
     }
-    ++index;
     curNode = curNode.next;
   }
 
@@ -216,10 +216,29 @@ SinglyLinkedList.prototype.find = function(data){
 }
 
 /**
- * Find a node at a given index.
+ * Find a node based on its position in the linked list
+ * @param {int} index of node to find
+ * @returm {Node} the node at the given position
  */
 SinglyLinkedList.prototype.findNth = function(index){
+  if(typeof index !== 'number'){
+    throw new Error("Invalid argument for SinglyLinkedList.findNth");
+  }
+  // Check for bounds
+  else if(index < 0 || index >= this.size){
+    throw new Error("Index out of bounds; attempted to find a node from a SinglyLinkedList that does not exist");
+  }
+  else if(this.head === null && this.size > 0){
+    throw new Error("Null head in an unemptied list. Please report this to https://github.com/nickzuber/needle/issues");
+  }
 
+  var curNode = this.head;
+
+  for(var i=0; i<index; ++i){
+    curNode = curNode.next;
+  }
+
+  return curNode;
 }
 
 module.exports = SinglyLinkedList;
