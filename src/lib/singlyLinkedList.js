@@ -4,14 +4,16 @@
  * {size} int, the number of nodes in the linked list
  * 
  * Time complexities (worst case)
- * +----------------------+
- * | insertFront |  O(1)  |
- * | insertBack  |  O(n)  |
- * | remove      |  O(n)  |
- * | removeNth   |  O(n)  |
- * | find        |  O(n)  |
- * | findNth     |  O(n)  |
- * +----------------------+
+ * +-----------------------+
+ * | insertFront  |  O(1)  |
+ * | insertNth    |  O(n)  |
+ * | insertAfter  |  O(n)  |
+ * | insertBack   |  O(n)  |
+ * | remove       |  O(n)  |
+ * | removeNth    |  O(n)  |
+ * | find         |  O(n)  |
+ * | findNth      |  O(n)  |
+ * +-----------------------+
  * 
  */
 
@@ -61,6 +63,81 @@ SinglyLinkedList.prototype.insertFront = function(data){
 }
 
 /**
+ * Create a node from given data and insert in given location
+ * of linked list.
+ * @param {int} position for new node to be added
+ * @param {*} data for the new node
+ * @return {void}
+ */
+SinglyLinkedList.prototype.insertNth = function(index, data){
+  if(typeof data === 'undefined' || typeof index === 'undefined'){
+    throw new Error("Too few arguments for SinglyLinkedList.insert");
+  }else if(typeof index !== 'number'){
+    throw new TypeError("Invalid argument for SinglyLinkedList.insert");
+  }
+  // Check for bounds
+  else if(index < 0 || index >= this.size){
+    throw new Error("Index out of bounds on SinglyLinkedList.insertNth");
+  }
+  // If head is empty, we obviously won't find the targetNode
+  if(this.head === null){
+    return false;
+  }
+
+  // Configure finder nodes
+  var nodeToAdd = new Node(data),
+      curNode = this.head;
+
+  for(var i=0; i<index; ++i){
+    curNode = curNode.next;
+  }
+
+  var tempNode = curNode.next;
+  curNode.next = nodeToAdd;
+  nodeToAdd.next = tempNode;
+  ++this.size;
+}
+
+/**
+ * Create a node from given data and inserts after a given node.
+ * of linked list.
+ * @param {*} the data of the node which the new node is to be inserted after
+ * @param {*} data for the new node
+ * @return {boolean} returns if node is inserted or not
+ */
+SinglyLinkedList.prototype.insertAfter = function(targetData, data){
+  if(typeof data === 'undefined' || typeof targetData === 'undefined'){
+    throw new Error("Too few arguments for SinglyLinkedList.insert");
+  }
+  // If head is empty, we obviously won't find the targetNode
+  if(this.head === null){
+    return false;
+  }
+
+  // Configure finder nodes
+  var nodeToAdd = new Node(data),
+      curNode = this.head,
+      nodeFound = false;
+
+  while(curNode.next !== null){
+    if(JSON.stringify(curNode.data) === JSON.stringify(targetData)){
+      nodeFound = true;
+      break;
+    }
+    curNode = curNode.next;
+  }
+
+  if(nodeFound){
+    var tempNode = curNode.next;
+    curNode.next = nodeToAdd;
+    nodeToAdd.next = tempNode;
+    ++this.size;
+  }else{
+    return false;
+  }
+}
+
+/**
  * Create a node from given data and insert to end
  * of linked list.
  * @param {*} data for the new node
@@ -105,9 +182,8 @@ SinglyLinkedList.prototype.remove = function(data){
     throw new Error("Null head in an unemptied list. Please report this to https://github.com/nickzuber/needle/issues");
   }
 
-  // Find index of node to delete
-  var index = 0,
-      prevNode = null;
+  // Configure finder nodes
+  var prevNode = null;
       curNode = this.head,
       nodeFound = false;
 
@@ -131,7 +207,6 @@ SinglyLinkedList.prototype.remove = function(data){
       --this.size;
       break;
     }
-    ++index;
     prevNode = curNode;
     curNode = curNode.next;
   }
@@ -142,12 +217,14 @@ SinglyLinkedList.prototype.remove = function(data){
 
 
 SinglyLinkedList.prototype.removeNth = function(index){
-  if(typeof index !== 'number'){
-    throw new Error("Invalid argument for SinglyLinkedList.removeNth");
+  if(typeof index === 'undefined'){
+    throw new Error("Too few arguments for SinglyLinkedList.removeNth");
+  }else if(typeof index !== 'number'){
+    throw new TypeError("Invalid argument for SinglyLinkedList.removeNth");
   }
   // Check for bounds
   else if(index < 0 || index >= this.size){
-    throw new Error("Index out of bounds; attempted to remove a node from a SinglyLinkedList that does not exist");
+    throw new Error("Index out of bounds on SinglyLinkedList.removeNth");
   }/**
  * Remove a node based on its position in the linked list
  * @param {int} index of node to remove
@@ -221,8 +298,10 @@ SinglyLinkedList.prototype.find = function(data){
  * @returm {Node} the node at the given position
  */
 SinglyLinkedList.prototype.findNth = function(index){
-  if(typeof index !== 'number'){
-    throw new Error("Invalid argument for SinglyLinkedList.findNth");
+  if(typeof index === 'undefined'){
+    throw new TypeError("Too few arguments for SinglyLinkedList.findNth");
+  }else if(typeof index !== 'number'){
+    throw new TypeError("Invalid argument for SinglyLinkedList.findNth");
   }
   // Check for bounds
   else if(index < 0 || index >= this.size){
