@@ -34,7 +34,7 @@ const SinglyLinkedList = function(data){
     this.head = null;
     this.size = 0;
   }
-};
+}
 
 /**
  * Create a node from given data and insert to end
@@ -117,9 +117,9 @@ SinglyLinkedList.prototype.insertAfter = function(targetData, data){
   // Configure finder nodes
   var nodeToAdd = new Node(data),
       curNode = this.head,
-      nodeFound = false;
+      nodeFound = false; 
 
-  while(curNode.next !== null){
+  while(curNode !== null){
     if(JSON.stringify(curNode.data) === JSON.stringify(targetData)){
       nodeFound = true;
       break;
@@ -132,6 +132,7 @@ SinglyLinkedList.prototype.insertAfter = function(targetData, data){
     curNode.next = nodeToAdd;
     nodeToAdd.next = tempNode;
     ++this.size;
+    return true;
   }else{
     return false;
   }
@@ -157,6 +158,7 @@ SinglyLinkedList.prototype.insertBack = function(data){
   // If head is set, add node to end of the list
   else{
     var curNode = this.head;
+    // Find the node without a next element (will be the tail)
     while(curNode.next !== null){
       curNode = curNode.next;
     }
@@ -215,7 +217,11 @@ SinglyLinkedList.prototype.remove = function(data){
 
 }
 
-
+/**
+ * Remove a node based on the given position in the linked list
+ * @param {int} index of node to remove
+ * @return {void}
+ */
 SinglyLinkedList.prototype.removeNth = function(index){
   if(typeof index === 'undefined'){
     throw new Error("Too few arguments for SinglyLinkedList.removeNth");
