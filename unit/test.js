@@ -6,7 +6,9 @@ var test = require('tape');
 
 test('should run without errors', function(t){
 
-  // # Singly Linked List
+  // ######################
+  // # Singly Linked List #
+  // ######################
   var sll = new Needle.SinglyLinkedList();
 
   // insertFront
@@ -73,6 +75,26 @@ test('should run without errors', function(t){
     sll.removeNth(1);
   }catch(e){
     t.fail("SinglyLinkedList.removeNth has failed.\n" + e.message);
+  }
+
+
+  // #########
+  // # Queue #
+  // #########
+  var q = new Needle.Queue();
+
+  // enqueue
+  try{
+    q.enqueue("d1");
+  }catch(e){
+    t.fail("Queue.enqueue has failed.\n" + e.message);
+  }
+
+  // dequeue
+  try{
+    q.dequeue();
+  }catch(e){
+    t.fail("Queue.enqueue has failed.\n" + e.message);
   }
   
   t.end();

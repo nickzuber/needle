@@ -26,6 +26,8 @@ const Queue = function(data){
   if(typeof data !== 'undefined'){
     this.front = new Node(data);
     this.back = this.front;
+    this.front.next = this.back;
+    this.back.next = null;
     this.size = 1;
   }else{
     this.front = null;
@@ -45,9 +47,39 @@ Queue.prototype.enqueue = function(data){
     throw new Error("Too few arguments in Queue.enqueue");
   }
   var newNode = new Node(data);
-  
-  // Add to end of the queue
-  var prevBack = this.back;
-  this.back = newNode;
-  prevBack.next = this.back;
+  // Check to see if front/back exist
+  if(this.front === null && this.back === null){
+    this.front = newNode;
+    this.back = this.front;
+    this.front.next = this.back;
+    this.back.next = null;
+    ++this.size;
+  }else if(this.front !== null && this.back !== null){
+    // Add to end of the queue
+    this.back.next = newNode;
+    this.back = newNode;
+    ++this.size;
+  }
+  // Both front and back should either be set or null; if not then something went wrong somewhere
+  else{
+    throw new Error("Either front or back is not set in an a queue at once. Please report this to https://github.com/nickzuber/needle/issues");
+  }
 }
+
+/**
+ * Removes the node at the front of the queue
+ * @param {void}
+ * @return {void}
+ */
+Queue.prototype.dequeue = function(){
+  if(this.size === 0){
+    throw new Error("Attempted to dequeue from empty queue in Queue.enqueue");
+  }
+  // If we will only be reduced to 1 element, we need to account for setting the
+  var newHead = this.front.next;
+  this.front = null;
+  this.front = newHead;
+  --this.size;
+}
+
+module.exports = Queue;
