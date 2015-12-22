@@ -101,6 +101,12 @@ DoublyLinkedList.prototype.insertNth = function(index, data){
     return;
   }
 
+  // Check if inserting at tail
+  if(index === this.size-1){
+    this.insertBack(data);
+    return;
+  }
+
   // Configure finder nodes
   // We can assume we are not inserting at head
   var nodeToAdd = new Node(data),
@@ -138,6 +144,12 @@ DoublyLinkedList.prototype.insertAfter = function(targetData, data){
   var nodeToAdd = new Node(data),
       curNode = this.head,
       nodeFound = false; 
+
+  // Check if inserting after tail
+  if(JSON.stringify(this.tail.data) === JSON.stringify(targetData)){
+    this.insertBack(data);
+    return true;
+  }
 
   while(curNode !== null){
     if(JSON.stringify(curNode.data) === JSON.stringify(targetData)){
@@ -210,10 +222,19 @@ DoublyLinkedList.prototype.remove = function(data){
       nodeFound = false;
 
   // Check if deleting head
-  if(JSON.stringify(curNode.data) === JSON.stringify(data)){
+  if(JSON.stringify(this.head.data) === JSON.stringify(data)){
     this.head = curNode.next;
     this.head.prev = null;
-    this.head.next = curNode.next.next;
+    curNode = null;
+    --this.size;
+    return true;
+  }
+
+  // Check if deleting tail
+  if(JSON.stringify(this.tail.data) === JSON.stringify(data)){
+    curNode = this.tail;
+    this.tail = curNode.prev;
+    this.tail.next = null;
     curNode = null;
     --this.size;
     return true;
@@ -253,23 +274,27 @@ DoublyLinkedList.prototype.removeNth = function(index){
   // Check for bounds
   else if(index < 0 || index >= this.size){
     throw new Error("Index out of bounds on DoublyLinkedList.removeNth");
-  }/**
- * Remove a node based on its position in the linked list
- * @param {int} index of node to remove
- * @returm {void}
- */
+  }
 
-  var prevNode = null;
   var curNode = this.head;
   
   // Check if deleting head
   if(index === 0){
     this.head = curNode.next;
     this.head.prev = null;
-    this.head.next = curNode.next.next;
     curNode = null;
     --this.size;
     return;
+  }
+
+  // Check if deleting tail
+  if(index === this.size-1){
+    curNode = this.tail;
+    this.tail = curNode.prev;
+    this.tail.next = null;
+    curNode = null;
+    --this.size;
+    return true;
   }
 
   curNode = curNode.next;
