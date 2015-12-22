@@ -2,7 +2,7 @@
   "name": "Needle",
   "version": "1.0.0-alpha",
   "description": "A standalone extensive data structure library in JavaScript.",
-  "main": "dist/needle.js",
+  "main": "dist/needle.min.js",
   "scripts": {
     "test": "node unit/test.js",
     "ci": "node unit/test.js"
