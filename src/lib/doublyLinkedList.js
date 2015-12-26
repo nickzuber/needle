@@ -17,6 +17,8 @@
  * +-----------------------+
  * 
  */
+ 
+'use strict';
 
 const Node = require('./bidirectional_node.js');
 

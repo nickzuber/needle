@@ -16,6 +16,8 @@
  * +-----------------------+
  * 
  */
+ 
+'use strict';
 
 const Node = require('./unidirectional_node.js');
 
@@ -191,7 +193,7 @@ SinglyLinkedList.prototype.remove = function(data){
   }
 
   // Configure finder nodes
-  var prevNode = null;
+  var prevNode = null,
       curNode = this.head,
       nodeFound = false;
 

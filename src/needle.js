@@ -1,6 +1,8 @@
 
 // # Needle object that contains all core data structures
 
+'use strict';
+
 const SinglyLinkedList = require('./lib/singlyLinkedList.js');
 const Queue = require('./lib/queue.js');
 const DoublyLinkedList = require('./lib/doublyLinkedList.js');

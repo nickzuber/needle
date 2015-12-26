@@ -4,6 +4,8 @@
  * {next} Bidirectional_node, points to the next node
  * {prev} Bidirectional_node, points to the previous node
  */
+ 
+'use strict';
 
 /**
  * Single argument constructor.

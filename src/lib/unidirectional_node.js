@@ -3,6 +3,8 @@
  * {data} *, any data for the node to hold
  * {next} Unidirectional_node, points to the next node
  */
+ 
+'use strict';
 
 /**
  * Single argument constructor.
