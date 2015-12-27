@@ -5,7 +5,9 @@ Needle is a standalone extensive data structure library in JavaScript.
 
 ## Installation 
 
-*pending*
+*Needle is still in development, therefore there is no official release yet, therefore no official installation. However, using the file located `/dist` directory will provide you with the latest version.*
+
+**Note:** *Be warned that Needle is still under development, therefore the use any unofficially released files may result in unexpected behavior if bugs in the code subsist.*
 
 ## API Reference
 
@@ -120,7 +122,31 @@ function defaultCompare(a, b){
 
 ## Examples
 
-*pending*
+Here are an assortment of examples using various data structures provided by Needle. If you wish there to be examples of a data structure in particular, [feel free to let me know what you have in mind](mailto:zuber.nicholas@gmail.com).
+
+```javascript
+// Priority Queue implementation using a binary heap
+
+var Level = function(key, value){
+  this.key = key;
+  this.value = value;
+}
+
+var priorityQueue = new Needle.BinaryHeap(function(a, b){
+  return a.key < b.key;
+});
+
+priorityQueue.insert(new Level(3, "Level 3"));
+priorityQueue.insert(new Level(1, "Level 1"));
+priorityQueue.insert(new Level(2, "Level 2"));
+
+priorityQueue.peek(); // => {1, "Level 1"}
+
+priorityQueue.delete();
+
+priorityQueue.peek(); // => {2, "Level 2"}
+
+```
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
