@@ -13,6 +13,8 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 
 *If you feel that there should be additional data structures added to this library, [send me a message and let me know your ideas.](mailto:zuber.nicholas@gmail.com)*
 
+**Note:** In the API, `*` refers to any type. This is commonly used when specifying the type of data; since all types of data are supported when inserting custom data into a data structure.
+
 ---
 
 #### Arrays
@@ -61,7 +63,20 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 
 ---
 
-####<a name="singlylinkedlist"></a>Singly Linked List
+### <a name="singlylinkedlist">Needle.SinglyLinkedList()</a>
+ - **(constructor)**([< * >data]) - *object* - Creates a Singly Linked List and inserts a node at the head of the newly created list if `data` is given.
+ 
+ - **insertFront**(< * >data) - *void* - Create a node from `data` and inserts at the front of the list.
+ 
+ - **insertNth**(< *number* >index, < * >data) - *boolean* - Create a node from `data` and insert in the location of the linked list specified by `index`.
+ 
+ - **insertAfter**(< * >targetData, < * >data) - *boolean* - Create a node from `data` and insert after the node which has the data specified by `targetData` and returns `true` if the element was successfully added to the linked list.
+ 
+ - **insertBack**(< * >data) - *void* - Create a node from `data` and inserts at the back of the list.
+ 
+ - **remove**(< * >data) - *boolean* - Removes the element specified by `data` and returns `true` if the element was successfully found and removed from the linked list.
+ 
+ - **removeNth**(< *number* >index) - *void* - Removes the element in the location of the linked list specified by `index`.
 
 ## Examples
 
