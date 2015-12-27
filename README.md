@@ -16,48 +16,52 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 ---
 
 #### Arrays
- - [Bit Array](#)
- - [Bitmap](#)
- - [Hashed Array Tree](#)
- - [Sorted Array](#)
+ - [Bit Array]()
+ - [Bitmap]()
+ - [Hashed Array Tree]()
+ - [Sorted Array]()
 
 #### Lists
  - [Doubly Linked List](https://github.com/nickzuber/needle#)
  - [Singly Linked List](https://github.com/nickzuber/needle#)
  - [Queue](https://github.com/nickzuber/needle#)
- - [Stack](#)
+ - [Stack]()
 
 #### Heaps
  - [Binary Heap](https://github.com/nickzuber/needle#)
- - [Binomial Heap](#)
- - [Soft Heap](#)
+ - [Binomial Heap]()
+ - [Soft Heap]()
 
 #### Binary Trees
- - [Binary Search Tree](#)
- - [AVL Tree](#)
- - [B Tree](#)
- - [B+ Tree](#)
- - [Red-Black Tree](#)
+ - [Binary Search Tree]()
+ - [AVL Tree]()
+ - [B Tree]()
+ - [B+ Tree]()
+ - [Red-Black Tree]()
 
 #### Trees
- - [Trie](#)
- - [Radix Tree](#)
- - [B Trie](#)
+ - [Trie]()
+ - [Radix Tree]()
+ - [B Trie]()
 
 #### Multiway Trees
- - [Ternary Tree](#)
- - [K-ary Tree](#)
- - [And-Or Tree](#)
+ - [Ternary Tree]()
+ - [K-ary Tree]()
+ - [And-Or Tree]()
 
 #### Hashes
- - [Hash list](#)
- - [Hash table](#)
- - [Hashmap](#)
+ - [Hash list]()
+ - [Hash table]()
+ - [Hashmap]()
 
 #### Graphs
- - [Adjacency Matrix](#)
- - [Directed Graph](#)
- - [Multigraph](#)
+ - [Adjacency Matrix]()
+ - [Directed Graph]()
+ - [Multigraph]()
+
+---
+
+*actual API pending*
 
 ## Examples
 
