@@ -12,6 +12,8 @@
  * 
  */
 
+'use strict';
+
 const Node = require('./unidirectional_node.js');
 
 /**
