@@ -162,34 +162,34 @@ test('should run without errors', function(t){
     t.fail("DoublyLinkedList.removeNth has failed.\n" + e.message);
   }
 
-  // ##################
-  // # Priority Queue #
-  // ##################
+  // ###############
+  // # Binary Heap #
+  // ###############
   var Node = function(key, value){
     this.key = key;
     this.value = value;
   }
 
-  var pq = new Needle.PriorityQueue(function(a, b){
+  var bh = new Needle.BinaryHeap(function(a, b){
     return a.key < b.key;
   });
 
   // insert
   try{
-    pq.insert(new Node(3, "Level 3"));
-    pq.insert(new Node(1, "Level 1"));
-    pq.insert(new Node(2, "Level 2"));
-    t.equal(pq.getMin().key, 1, "PriorityQueue.insert checking to see if inserted elements properly & if PriorityQueue.getMin works properly.");
+    bh.insert(new Node(3, "Level 3"));
+    bh.insert(new Node(1, "Level 1"));
+    bh.insert(new Node(2, "Level 2"));
+    t.equal(bh.getMin().key, 1, "BinaryHeap.insert checking to see if inserted elements properly & if BinaryHeap.getMin works properly.");
   }catch(e){
-    t.fail("PriorityQueue.insert / PriorityQueue.getMin has failed.\n" + e.message);
+    t.fail("BinaryHeap.insert / BinaryHeap.getMin has failed.\n" + e.message);
   }
 
   // removeMin
   try{
-    pq.removeMin();
-    t.equal(pq.getMin().key, 2, "PriorityQueue.removeMin checking to see if new min has been selected properly.");
+    bh.removeMin();
+    t.equal(bh.getMin().key, 2, "BinaryHeap.removeMin checking to see if new min has been selected properly.");
   }catch(e){
-    t.fail("PriorityQueue.removeMin has failed.\n" + e.message);
+    t.fail("BinaryHeap.removeMin has failed.\n" + e.message);
   }
   
   t.end();

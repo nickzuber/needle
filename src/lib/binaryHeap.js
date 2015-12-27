@@ -1,6 +1,6 @@
 /**
  * Priority Queue
- * {heap} Array, the array based heap acting as a priority queue
+ * {heap} Array, the array based heap acting as a binary heap
  * {compare} Function, compares two elements to eachother to determine the order
  *                     defaults to basic (a < b) => true
  * 
@@ -48,14 +48,14 @@ function defaultCompare(a, b){
  */
 function safeCompare(a, b, callback){
   if(typeof callback !== 'function'){
-    throw new TypeError("Compare must be a function in PriorityQueue");
+    throw new TypeError("Compare must be a function in BinaryHeap");
   }
   if((typeof a === 'undefined' && typeof b !== 'undefined') || (typeof b !== 'undefined' && typeof b === 'undefined')){
     return false;
   }else if(typeof a !== 'undefined' && typeof b !== 'undefined'){
     return callback(a, b);
   }else{
-    throw new TypeError("Comparing two undefined elements in PriorityQueue. Please report this to https://github.com/nickzuber/needle/issues");
+    throw new TypeError("Comparing two undefined elements in BinaryHeap. Please report this to https://github.com/nickzuber/needle/issues");
   }
 }
 
@@ -66,7 +66,7 @@ function safeCompare(a, b, callback){
  *                             custom way to determine their order
  * @return {void}
  */
-const PriorityQueue = function(compare){
+const BinaryHeap = function(compare){
   // Initialize heap with nulled first element
   // because we aren't using first element (index 0).
   // This is because of indexing reasons when finding 
@@ -81,9 +81,9 @@ const PriorityQueue = function(compare){
 /**
  * Returns the min node of the heap.
  * @param {void}
- * @return {*} the minimum element of the priority queue
+ * @return {*} the minimum element of the binary heap
  */
-PriorityQueue.prototype.getMin = function(){
+BinaryHeap.prototype.getMin = function(){
   return this.heap[1];
 };
 
@@ -92,9 +92,9 @@ PriorityQueue.prototype.getMin = function(){
  * @param {data} the data for the element that is to be inserted into the heap
  * @return {void}
  */
-PriorityQueue.prototype.insert = function(data){
+BinaryHeap.prototype.insert = function(data){
   if(typeof data === 'undefined'){
-    throw new Error("Too few arguments for PriorityQueue.insert");
+    throw new Error("Too few arguments for BinaryHeap.insert");
   }
   // Insert element to the end of the heap 
   this.heap.push(data);
@@ -126,10 +126,10 @@ PriorityQueue.prototype.insert = function(data){
  * @param {void}
  * @return {void}
  */
-PriorityQueue.prototype.removeMin = function(){
+BinaryHeap.prototype.removeMin = function(){
   // If the heap is empty
   if(this.heap.length <= 1){
-    throw new Error("Attempted to remove min element from an empty queue in PriorityQueue.removeMin")
+    throw new Error("Attempted to remove min element from an empty binary heap in BinaryHeap.removeMin")
   }
 
   // Swap min with last element
@@ -182,10 +182,10 @@ PriorityQueue.prototype.removeMin = function(){
 
       ++errorControl;
       if(errorControl > 1000){
-        throw new Error("Timeout error in PriorityQueue.removeMin. Please report this to https://github.com/nickzuber/needle/issues");
+        throw new Error("Timeout error in BinaryHeap.removeMin. Please report this to https://github.com/nickzuber/needle/issues");
       }
     }
   }
 };
 
-module.exports = PriorityQueue;
+module.exports = BinaryHeap;
