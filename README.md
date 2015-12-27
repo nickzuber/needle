@@ -9,7 +9,64 @@ Needle is a standalone extensive data structure library in JavaScript.
 
 ## API Reference
 
-*pending*
+Needle has a variety of different data structures at its disposal. Here is a reference to all of the currently available data structures that Needle supports. Some data structures have not been added yet and they will appear unavailable.
+
+*If you feel that there should be additional data structures added to this library, [send me a message and let me know your ideas.](mailto:zuber.nicholas@gmail.com)*
+
+---
+
+#### Arrays
+ - [Bit Array](#)
+ - [Bitmap](#)
+ - [Hashed Array Tree](#)
+ - [Sorted Array](#)
+
+---
+
+#### Lists
+ - [Doubly Linked List](https://github.com/nickzuber/needle#)
+ - [Singly Linked List](https://github.com/nickzuber/needle#)
+ - [Queue](https://github.com/nickzuber/needle#)
+ - [Stack](#)
+
+---
+
+#### Heaps
+ - [Binary Heap](https://github.com/nickzuber/needle#)
+ - [Binomial Heap](#)
+ - [Soft Heap](#)
+
+---
+
+#### Binary Trees
+ - [Binary Search Tree](#)
+ - [AVL Tree](#)
+ - [B Tree](#)
+ - [B+ Tree](#)
+ - [Red-Black Tree](#)
+
+---
+
+#### Trees
+ - [Trie](#)
+ - [Radix Tree](#)
+ - [B Trie](#)
+
+---
+
+#### Multiway Trees
+ - [Ternary Tree](#)
+ - [K-ary Tree](#)
+ - [And-Or Tree](#)
+
+---
+
+#### Hashes
+ - [Hash list](#)
+ - [Hash table](#)
+ - [Hashmap](#)
+
+---
 
 ## Examples
 
