@@ -29,7 +29,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - [Doubly Linked List](#doublylinkedlist)
  - [Singly Linked List](#singlylinkedlist)
  - [Queue](#queue)
- - Stack
+ - [Stack](#stack)
 
 #### Heaps
  - [Binary Heap](#binaryheap)
@@ -110,13 +110,23 @@ function defaultCompare(a, b){
  - **find**(< * >data) - *Node || false* - Finds the element specified by `data` and returns that `Node` if the element was successfully found but returns `false` if the node was not found.
  - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
 
+### <a href="#stack" name="stack">Needle.Stack()</a>
+**top** - *Node* - The top node in the stack.<br />
+**size** - *number* - The number of nodes in the stack.<br />
+ 
+ - **(constructor)**([< * >data]) - *object* - Creates a Stack and if data is passed given, the top element of the queue, defined by `data`, is created and inserted.
+ - **peek**() - *Node* - Returns the top `Node` of the stack.
+ - **push**(< * >data) - *void* - Adds and element, defined by `data`, to the top of the stack.
+ - **pop**() - *Node* - Removes the top element of the stack and returns the `Node` that was previously the top, and just deleted.
+
+
 ### <a href="#queue" name="queue">Needle.Queue()</a>
 **front** - *Node* - The first node in the queue.<br />
 **back** - *Node* - The last node in the queue.<br />
 **size** - *number* - The number of nodes in the queue.<br />
  
  - **(constructor)**([< * >data]) - *object* - Creates a Queue and if data is passed given, the first element of the queue, defined by `data`, is created and inserted.
- - **enqueue**(< * >data) - *void* - Adds and element to the queue.
+ - **enqueue**(< * >data) - *void* - Adds and element, defined by `data`, to the queue.
  - **dequeue**() - *void* - Removes the first element of the queue.
 
 
