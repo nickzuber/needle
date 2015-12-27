@@ -75,9 +75,8 @@ Queue.prototype.dequeue = function(){
   if(this.size === 0){
     throw new Error("Attempted to dequeue from empty queue in Queue.enqueue");
   }
-  // If we will only be reduced to 1 element, we need to account for setting the
+  // Remove from the front
   var newHead = this.front.next;
-  this.front = null;
   this.front = newHead;
   --this.size;
 }
