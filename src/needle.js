@@ -6,12 +6,14 @@
 const SinglyLinkedList = require('./lib/singlyLinkedList.js');
 const Queue = require('./lib/queue.js');
 const DoublyLinkedList = require('./lib/doublyLinkedList.js');
+const PriorityQueue = require('./lib/priorityQueue.js');
 
 const Needle = {};
 
 Needle.SinglyLinkedList = SinglyLinkedList;
 Needle.Queue = Queue;
 Needle.DoublyLinkedList = DoublyLinkedList;
+Needle.PriorityQueue = PriorityQueue;
 
 exports = module.exports = Needle;
 

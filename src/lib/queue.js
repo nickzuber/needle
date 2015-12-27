@@ -2,7 +2,7 @@
  * Queue
  * {front} Node, the first element in the queue
  * {back} Node, the last element in the queue
- * {size} int, the number of nodes in the queue
+ * {size} number, the number of nodes in the queue
  * 
  * Time complexities (worst case)
  * +-------------------+

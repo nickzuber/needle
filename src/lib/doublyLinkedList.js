@@ -2,7 +2,7 @@
  * Doubly Linked List
  * {head} Node, the head of the linked list
  * {tail} Node, the end of the linked list
- * {size} int, the number of nodes in the linked list
+ * {size} number, the number of nodes in the linked list
  * 
  * Time complexities (worst case)
  * +-----------------------+
@@ -78,7 +78,7 @@ DoublyLinkedList.prototype.insertFront = function(data){
 /**
  * Create a node from given data and insert in given location
  * of linked list.
- * @param {int} position for new node to be added
+ * @param {number} position for new node to be added
  * @param {*} data for the new node
  * @return {void}
  */
@@ -264,7 +264,7 @@ DoublyLinkedList.prototype.remove = function(data){
 
 /**
  * Remove a node based on the given position in the linked list
- * @param {int} index of node to remove
+ * @param {number} index of node to remove
  * @return {void}
  */
 DoublyLinkedList.prototype.removeNth = function(index){
@@ -351,7 +351,7 @@ DoublyLinkedList.prototype.find = function(data){
 
 /**
  * Find a node based on its position in the linked list
- * @param {int} index of node to find
+ * @param {number} index of node to find
  * @returm {Node} the node at the given position
  */
 DoublyLinkedList.prototype.findNth = function(index){

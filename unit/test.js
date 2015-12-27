@@ -161,6 +161,36 @@ test('should run without errors', function(t){
   }catch(e){
     t.fail("DoublyLinkedList.removeNth has failed.\n" + e.message);
   }
+
+  // ##################
+  // # Priority Queue #
+  // ##################
+  var Node = function(key, value){
+    this.key = key;
+    this.value = value;
+  }
+
+  var pq = new Needle.PriorityQueue(function(a, b){
+    return a.key < b.key;
+  });
+
+  // insert
+  try{
+    pq.insert(new Node(3, "Level 3"));
+    pq.insert(new Node(1, "Level 1"));
+    pq.insert(new Node(2, "Level 2"));
+    t.equal(pq.getMin().key, 1, "PriorityQueue.insert checking to see if inserted elements properly & if PriorityQueue.getMin works properly.");
+  }catch(e){
+    t.fail("PriorityQueue.insert / PriorityQueue.getMin has failed.\n" + e.message);
+  }
+
+  // removeMin
+  try{
+    pq.removeMin();
+    t.equal(pq.getMin().key, 2, "PriorityQueue.removeMin checking to see if new min has been selected properly.");
+  }catch(e){
+    t.fail("PriorityQueue.removeMin has failed.\n" + e.message);
+  }
   
   t.end();
 });
