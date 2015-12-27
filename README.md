@@ -65,18 +65,25 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 
 ### <a href="#singlylinkedlist" name="singlylinkedlist">Needle.SinglyLinkedList()</a>
  - **(constructor)**([< * >data]) - *object* - Creates a Singly Linked List and inserts a node at the head of the newly created list if `data` is given.
- 
  - **insertFront**(< * >data) - *void* - Create a node from `data` and inserts at the front of the list.
- 
  - **insertNth**(< *number* >index, < * >data) - *boolean* - Create a node from `data` and insert in the location of the linked list specified by `index`.
- 
  - **insertAfter**(< * >targetData, < * >data) - *boolean* - Create a node from `data` and insert after the node which has the data specified by `targetData` and returns `true` if the element was successfully added to the linked list.
- 
  - **insertBack**(< * >data) - *void* - Create a node from `data` and inserts at the back of the list.
- 
  - **remove**(< * >data) - *boolean* - Removes the element specified by `data` and returns `true` if the element was successfully found and removed from the linked list.
- 
  - **removeNth**(< *number* >index) - *void* - Removes the element in the location of the linked list specified by `index`.
+ - **find**(< * >data) - *Node || false* - Finds the element specified by `data` and returns that `Node` if the element was successfully found but returns `false` if the node was not found.
+ - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
+
+### <a href="#doublylinkedlist" name="doublylinkedlist">Needle.DoublyLinkedList()</a>
+ - **(constructor)**([< * >data]) - *object* - Creates a Doubly Linked List and inserts a node at the head of the newly created list if `data` is given.
+ - **insertFront**(< * >data) - *void* - Create a node from `data` and inserts at the front of the list.
+ - **insertNth**(< *number* >index, < * >data) - *boolean* - Create a node from `data` and insert in the location of the linked list specified by `index`.
+ - **insertAfter**(< * >targetData, < * >data) - *boolean* - Create a node from `data` and insert after the node which has the data specified by `targetData` and returns `true` if the element was successfully added to the linked list.
+ - **insertBack**(< * >data) - *void* - Create a node from `data` and inserts at the back of the list.
+ - **remove**(< * >data) - *boolean* - Removes the element specified by `data` and returns `true` if the element was successfully found and removed from the linked list.
+ - **removeNth**(< *number* >index) - *void* - Removes the element in the location of the linked list specified by `index`.
+ - **find**(< * >data) - *Node || false* - Finds the element specified by `data` and returns that `Node` if the element was successfully found but returns `false` if the node was not found.
+ - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
 
 ## Examples
 
