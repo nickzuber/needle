@@ -108,7 +108,6 @@ SinglyLinkedList.prototype.insertNth = function(index, data){
 
 /**
  * Create a node from given data and inserts after a given node.
- * of linked list.
  * @param {*} the data of the node which the new node is to be inserted after
  * @param {*} data for the new node
  * @return {boolean} returns if node is inserted or not

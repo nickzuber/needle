@@ -179,17 +179,17 @@ test('should run without errors', function(t){
     bh.insert(new Node(3, "Level 3"));
     bh.insert(new Node(1, "Level 1"));
     bh.insert(new Node(2, "Level 2"));
-    t.equal(bh.getMin().key, 1, "BinaryHeap.insert checking to see if inserted elements properly & if BinaryHeap.getMin works properly.");
+    t.equal(bh.peek().key, 1, "BinaryHeap.insert checking to see if inserted elements properly & if BinaryHeap.peek works properly.");
   }catch(e){
-    t.fail("BinaryHeap.insert / BinaryHeap.getMin has failed.\n" + e.message);
+    t.fail("BinaryHeap.insert / BinaryHeap.peek has failed.\n" + e.message);
   }
 
-  // removeMin
+  // delete
   try{
-    bh.removeMin();
-    t.equal(bh.getMin().key, 2, "BinaryHeap.removeMin checking to see if new min has been selected properly.");
+    bh.delete();
+    t.equal(bh.peek().key, 2, "BinaryHeap.delete checking to see if new min has been selected properly.");
   }catch(e){
-    t.fail("BinaryHeap.removeMin has failed.\n" + e.message);
+    t.fail("BinaryHeap.delete has failed.\n" + e.message);
   }
   
   t.end();

@@ -1,14 +1,14 @@
 /**
  * Priority Queue
  * {heap} Array, the array based heap acting as a binary heap
- * {compare} Function, compares two elements to eachother to determine the order
+ * {compare} function, compares two elements to each other to determine the ordering of the heap
  *                     defaults to basic (a < b) => true
  * 
  * Time complexities (worst case)
  * +-------------------------+
- * | getMin    |  O(1)       |
+ * | peek      |  O(1)       |
  * | insert    |  O(log(n))  |
- * | removeMin |  O(log(n))  |
+ * | delete    |  O(log(n))  |
  * +-------------------------+
  * 
  */
@@ -83,13 +83,13 @@ const BinaryHeap = function(compare){
  * @param {void}
  * @return {*} the minimum element of the binary heap
  */
-BinaryHeap.prototype.getMin = function(){
+BinaryHeap.prototype.peek = function(){
   return this.heap[1];
 };
 
 /**
  * Inserts a Node into the heap.
- * @param {data} the data for the element that is to be inserted into the heap
+ * @param {*} the data for the element that is to be inserted into the heap
  * @return {void}
  */
 BinaryHeap.prototype.insert = function(data){
@@ -126,10 +126,10 @@ BinaryHeap.prototype.insert = function(data){
  * @param {void}
  * @return {void}
  */
-BinaryHeap.prototype.removeMin = function(){
+BinaryHeap.prototype.delete = function(){
   // If the heap is empty
   if(this.heap.length <= 1){
-    throw new Error("Attempted to remove min element from an empty binary heap in BinaryHeap.removeMin")
+    throw new Error("Attempted to remove min element from an empty binary heap in BinaryHeap.delete")
   }
 
   // Swap min with last element

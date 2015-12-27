@@ -13,6 +13,8 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 
 *If you feel that there should be additional data structures added to this library, [send me a message and let me know your ideas.](mailto:zuber.nicholas@gmail.com)*
 
+**Note:** In the API, `*` refers to any type. This is commonly used when specifying the type of data; since all types of data are supported when inserting custom data into a data structure.
+
 ---
 
 #### Arrays
@@ -22,13 +24,13 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - Sorted Array
 
 #### Lists
- - [Doubly Linked List](https://github.com/nickzuber/needle#)
- - [Singly Linked List](https://github.com/nickzuber/needle#)
- - [Queue](https://github.com/nickzuber/needle#)
+ - [Doubly Linked List](#doublylinkedlist)
+ - [Singly Linked List](#singlylinkedlist)
+ - [Queue](#queue)
  - Stack
 
 #### Heaps
- - [Binary Heap](https://github.com/nickzuber/needle#)
+ - [Binary Heap](#binaryheap)
  - Binomial Heap
  - Soft Heap
 
@@ -61,7 +63,60 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 
 ---
 
-*actual API pending*
+### <a href="#binaryheap" name="binaryheap">Needle.BinaryHeap()</a>
+**heap** - *Array* - The array based heap acting as a binary heap.<br />
+**compare** - *function* - Compares two elements to each other to determine the ordering of the heap.<br />
+
+**Note:** The default `compare` function is defined as
+```javascript
+function defaultCompare(a, b){
+  return (a < b);
+}
+```
+ 
+ - **(constructor)**([< *function* >compare]) - *object* - Creates a Binary Heap and if a function is passed in, it overrides the default compare function with the function defined by `compare`.
+ - **peek**() - *element* - Returns the root or top element of the heap.
+ - **insert**(< * >data) - *void* - Inserts the element given by `data` into the heap and adjusts the heap accordingly.
+ - **delete**() - *void* - Removes the root or top element from the heap and adjusts the heap accordingly.
+
+### <a href="#doublylinkedlist" name="doublylinkedlist">Needle.DoublyLinkedList()</a>
+**head** - *Node* - The first node in the linked list.<br />
+**tail** - *Node* - The last node in the linked list.<br />
+**size** - *number* - The number of nodes in the linked list.<br />
+
+ - **(constructor)**([< * >data]) - *object* - Creates a Doubly Linked List and inserts a node at the head of the newly created list if `data` is given.
+ - **insertFront**(< * >data) - *void* - Create a node from `data` and inserts at the front of the list.
+ - **insertNth**(< *number* >index, < * >data) - *boolean* - Create a node from `data` and insert in the location of the linked list specified by `index`.
+ - **insertAfter**(< * >targetData, < * >data) - *boolean* - Create a node from `data` and insert after the node which has the data specified by `targetData` and returns `true` if the element was successfully added to the linked list.
+ - **insertBack**(< * >data) - *void* - Create a node from `data` and inserts at the back of the list.
+ - **remove**(< * >data) - *boolean* - Removes the element specified by `data` and returns `true` if the element was successfully found and removed from the linked list.
+ - **removeNth**(< *number* >index) - *void* - Removes the element in the location of the linked list specified by `index`.
+ - **find**(< * >data) - *Node || false* - Finds the element specified by `data` and returns that `Node` if the element was successfully found but returns `false` if the node was not found.
+ - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
+
+### <a href="#singlylinkedlist" name="singlylinkedlist">Needle.SinglyLinkedList()</a>
+**head** - *Node* - The first node in the linked list.<br />
+**size** - *number* - The number of nodes in the linked list.<br />
+
+ - **(constructor)**([< * >data]) - *object* - Creates a Singly Linked List and inserts a node at the head of the newly created list if `data` is given.
+ - **insertFront**(< * >data) - *void* - Create a node from `data` and inserts at the front of the list.
+ - **insertNth**(< *number* >index, < * >data) - *boolean* - Create a node from `data` and insert in the location of the linked list specified by `index`.
+ - **insertAfter**(< * >targetData, < * >data) - *boolean* - Create a node from `data` and insert after the node which has the data specified by `targetData` and returns `true` if the element was successfully added to the linked list.
+ - **insertBack**(< * >data) - *void* - Create a node from `data` and inserts at the back of the list.
+ - **remove**(< * >data) - *boolean* - Removes the element specified by `data` and returns `true` if the element was successfully found and removed from the linked list.
+ - **removeNth**(< *number* >index) - *void* - Removes the element in the location of the linked list specified by `index`.
+ - **find**(< * >data) - *Node || false* - Finds the element specified by `data` and returns that `Node` if the element was successfully found but returns `false` if the node was not found.
+ - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
+
+### <a href="#queue" name="queue">Needle.Queue()</a>
+**front** - *Node* - The first node in the queue.<br />
+**back** - *Node* - The last node in the queue.<br />
+**size** - *number* - The number of nodes in the queue.<br />
+ 
+ - **(constructor)**([< * >data]) - *object* - Creates a Queue and if data is passed given, the first element of the queue, defined by `data`, is created and inserted.
+ - **enqueue**(< * >data) - *void* - Adds and element to the queue.
+ - **dequeue**() - *void* - Removes the first element of the queue.
+
 
 ## Examples
 
