@@ -5,7 +5,9 @@ Needle is a standalone extensive data structure library in JavaScript.
 
 ## Installation 
 
-*pending*
+*Needle is still in development, therefore there is no official release yet, therefore no official installation. However, using the file located `/dist` directory will provide you with the latest version.*
+
+**Note:** *Be warned that Needle is still under development, therefore the use any unofficially released files may result in unexpected behavior if bugs in the code subsist.*
 
 ## API Reference
 
