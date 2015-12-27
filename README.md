@@ -125,6 +125,8 @@ function defaultCompare(a, b){
 Here are an assortment of examples using various data structures provided by Needle. If you wish there to be examples of a data structure in particular, [feel free to let me know what you have in mind](mailto:zuber.nicholas@gmail.com).
 
 ```javascript
+// Priority Queue implementation using a binary heap
+
 var Level = function(key, value){
   this.key = key;
   this.value = value;
