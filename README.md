@@ -112,13 +112,6 @@ function defaultCompare(a, b){
 **front** - *Node* - The first node in the queue.<br />
 **back** - *Node* - The last node in the queue.<br />
 **size** - *number* - The number of nodes in the queue.<br />
-
-**Note:** The default `compare` function is defined as
-```javascript
-function defaultCompare(a, b){
-  return (a < b);
-}
-```
  
  - **(constructor)**([< * >data]) - *object* - Creates a Queue and if data is passed given, the first element of the queue, defined by `data`, is created and inserted.
  - **enqueue**(< * >data) - *void* - Adds and element to the queue.
