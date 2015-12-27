@@ -101,6 +101,17 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  
  - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
 
+ ### <a href="#binaryheap" name="binaryheap">Needle.BinaryHeap()</a>
+ **Note:** The default `compare` function is defined as `(a < b) => true`.
+ 
+ - **(constructor)**([< *function* >compare]) - *object* - Creates a Binary Heap and if a function is passed in, it overrides the default compare function with the function defined by `compare`.
+ 
+ - **peek**() - *element* - Returns the root or top element of the heap.
+ 
+ - **insert**(< * >data) - *void* - Inserts the element given by `data` into the heap and adjusts the heap accordingly.
+ 
+ - **delete**() - *void* - Removes the root or top element from the heap and adjusts the heap accordingly.
+
 ## Examples
 
 *pending*
