@@ -21,22 +21,16 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - [Hashed Array Tree](#)
  - [Sorted Array](#)
 
----
-
 #### Lists
  - [Doubly Linked List](https://github.com/nickzuber/needle#)
  - [Singly Linked List](https://github.com/nickzuber/needle#)
  - [Queue](https://github.com/nickzuber/needle#)
  - [Stack](#)
 
----
-
 #### Heaps
  - [Binary Heap](https://github.com/nickzuber/needle#)
  - [Binomial Heap](#)
  - [Soft Heap](#)
-
----
 
 #### Binary Trees
  - [Binary Search Tree](#)
@@ -45,28 +39,25 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - [B+ Tree](#)
  - [Red-Black Tree](#)
 
----
-
 #### Trees
  - [Trie](#)
  - [Radix Tree](#)
  - [B Trie](#)
-
----
 
 #### Multiway Trees
  - [Ternary Tree](#)
  - [K-ary Tree](#)
  - [And-Or Tree](#)
 
----
-
 #### Hashes
  - [Hash list](#)
  - [Hash table](#)
  - [Hashmap](#)
 
----
+#### Graphs
+ - [Adjacency Matrix](#)
+ - [Directed Graph](#)
+ - [Multigraph](#)
 
 ## Examples
 
