@@ -1,12 +1,22 @@
 /**
  * Binary Search Tree
  * {root} Node, the root of the tree
- * {size} int, the number of nodes in the queue
+ * {compare} function, compares two elements to each other to determine the ordering of the heap
+ *                     defaults to basic (a < b) => true
  * 
  * Time complexities (worst case)
- * +-------------------------+
- * |                         |
- * +-------------------------+
+ * +------------------------------+
+ * | hasRight         | O(1)      |
+ * | hasLeft          | O(1)      |
+ * | isLeaf           | O(1)      |
+ * | emptySubtree     | O(n)      |
+ * | emptyTree        | O(n)      |
+ * | heightSubtree    | O(n)      |
+ * | numNodesSubtree  | O(1)      |
+ * | numLeavesSubtree | O(1)      |
+ * | insert           | O(log(n)) |
+ * | search           | O(log(n)) |
+ * +------------------------------+
  * 
  */
 
