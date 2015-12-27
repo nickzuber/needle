@@ -63,7 +63,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 
 ---
 
-### <a name="singlylinkedlist">Needle.SinglyLinkedList()</a>
+### <a href="#singlylinkedlist" name="singlylinkedlist">Needle.SinglyLinkedList()</a>
  - **(constructor)**([< * >data]) - *object* - Creates a Singly Linked List and inserts a node at the head of the newly created list if `data` is given.
  
  - **insertFront**(< * >data) - *void* - Create a node from `data` and inserts at the front of the list.
