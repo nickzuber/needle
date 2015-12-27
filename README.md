@@ -63,7 +63,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 
 ---
 
-### <a href="#singlylinkedlist" name="singlylinkedlist">Needle.SinglyLinkedList()</a>
+## <a href="#singlylinkedlist" name="singlylinkedlist">Needle.SinglyLinkedList()</a>
  - **(constructor)**([< * >data]) - *object* - Creates a Singly Linked List and inserts a node at the head of the newly created list if `data` is given.
  
  - **insertFront**(< * >data) - *void* - Create a node from `data` and inserts at the front of the list.
@@ -82,7 +82,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  
  - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
 
-### <a href="#doublylinkedlist" name="doublylinkedlist">Needle.DoublyLinkedList()</a>
+## <a href="#doublylinkedlist" name="doublylinkedlist">Needle.DoublyLinkedList()</a>
  - **(constructor)**([< * >data]) - *object* - Creates a Doubly Linked List and inserts a node at the head of the newly created list if `data` is given.
  
  - **insertFront**(< * >data) - *void* - Create a node from `data` and inserts at the front of the list.
@@ -101,7 +101,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  
  - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
 
-### <a href="#binaryheap" name="binaryheap">Needle.BinaryHeap()</a>
+## <a href="#binaryheap" name="binaryheap">Needle.BinaryHeap()</a>
 **Note:** The default `compare` function is defined as
 ```javascript
 function defaultCompare(a, b){
