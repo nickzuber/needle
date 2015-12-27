@@ -37,7 +37,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - Soft Heap
 
 #### Binary Trees
- - Binary Search Tree
+ - [Binary Search Tree](#bst)
  - AVL Tree
  - B Tree
  - B+ Tree
@@ -64,6 +64,29 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - Multigraph
 
 ---
+
+### <a href="#bst" name="bst">Needle.BinarySearchTree()</a>
+**root** - *Node* - The root node of the binary tree.<br />
+**compare** - *function* - Compares two elements to each other to determine the ordering of the heap.<br />
+
+**Note:** The default `compare` function is defined as
+```javascript
+function defaultCompare(a, b){
+  return (a < b);
+}
+```
+ 
+ - **(constructor)**([< *function* >compare]) - *object* - Creates a Binary Search Tree and if a function is passed in, it overrides the default compare function with the function defined by `compare`.
+ - **hasRight**(< *Node* >node) - *boolean* - Returns true if the given `Node` has a right component.
+ - **hasLeft**(< *Node* >node) - *boolean* - Returns true if the given `Node` has a left component.
+ - **isLeaf**(< *Node* >node) - *boolean* - Returns true if the given `Node` is a leaf.
+ - **emptySubtree**(< *Node* >node) - *void* - Empties the subtree of the given `Node`.
+ - **emptyTree**() - *void* - Empties the entire tree.
+ - **heightSubtree**(< *Node* >node) - *number* - Returns the height of the subtree derived from `Node`.
+ - **numNodesSubtree**(< *Node* >node) - *number* - Returns the number of nodes of the subtree derived from `Node`.
+ - **numLeavesSubtree**(< *Node* >node) - *number* - Returns the number of leaves of the subtree derived from `Node`.
+ - **insert**(< * >data [, < *Node* >node]) - *void* - Inserts a node into the binary search tree given by `data`. The `Node` argument will determine which subtree to attempt to insert the node at. Inserting at the root subtree is selected by default if this parameter is left blank (recommended).
+ - **search**(< * >data [, < *Node* >node]) - *Node || false* - Searched for the node given by `data` in the binary search tree. The `Node` argument will determine which subtree to attempt to search for the node. Searching at the root subtree is selected by default if this parameter is left blank (recommended).
 
 ### <a href="#binaryheap" name="binaryheap">Needle.BinaryHeap()</a>
 **heap** - *Array* - The array based heap acting as a binary heap.<br />
