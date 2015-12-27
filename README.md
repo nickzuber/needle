@@ -22,13 +22,13 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - Sorted Array
 
 #### Lists
- - [Doubly Linked List](https://github.com/nickzuber/needle#)
- - [Singly Linked List](https://github.com/nickzuber/needle#)
- - [Queue](https://github.com/nickzuber/needle#)
+ - [Doubly Linked List](#doublylinkedlist)
+ - [Singly Linked List](#singlylinkedlist)
+ - [Queue](#queue)
  - Stack
 
 #### Heaps
- - [Binary Heap](https://github.com/nickzuber/needle#)
+ - [Binary Heap](#binaryheap)
  - Binomial Heap
  - Soft Heap
 
@@ -61,7 +61,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 
 ---
 
-*actual API pending*
+####<a name="singlylinkedlist></a>Singly Linked List
 
 ## Examples
 
