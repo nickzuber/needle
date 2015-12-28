@@ -1,5 +1,5 @@
 /**
- * Priority Queue
+ * Binary Heap
  * {heap} Array, the array based heap acting as a binary heap
  * {compare} function, compares two elements to each other to determine the ordering of the heap
  *                     defaults to basic (a < b) => true
