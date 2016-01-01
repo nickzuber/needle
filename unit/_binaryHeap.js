@@ -39,10 +39,14 @@ test('Binary Heap should run without errors', function(t){
     t.fail("BinaryHeap.size / BinaryHeap.insert has failed.\n" + e.message);
   }
 
-  // delete
+  // delete / size
   try{
-    bh.delete();
-    t.equal(bh.peek().key, 2, "BinaryHeap.delete checking to see if new min has been selected properly.");
+    var size = newBh.size();
+    // delete all the elements without any issues
+    for(var i=0; i<size; ++i){
+      newBh.delete();
+    }
+    t.equal(bh.size(), 0, "BinaryHeap.delete checking to see if new min has been selected properly.");
   }catch(e){
     t.fail("BinaryHeap.delete has failed.\n" + e.message);
   }

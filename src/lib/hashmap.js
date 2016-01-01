@@ -22,8 +22,7 @@ const DoublyLinkedList = require('./doublyLinkedList.js');
  * @return {number} the unique key for the given data
  */
 function hash(data){
-  var key = parseInt(data) % size;
-  return key;
+  return ;
 }
 
 const Hashmap = function(){

@@ -142,6 +142,11 @@ BinaryHeap.prototype.delete = function(){
   if(this.heap.length <= 1){
     throw new Error("Attempted to remove min element from an empty binary heap in BinaryHeap.delete");
   }
+  // If only one element left before deletion, remove last element and exit
+  if(this.heap.length === 2){
+    this.heap.pop();
+    return;
+  }
 
   // Swap min with last element, and delete last element
   this.heap[1] = this.heap.pop();
@@ -181,10 +186,10 @@ BinaryHeap.prototype.delete = function(){
 
       var localMinIndex;
       // Get min of children
-      if(safeCompare(this.heap[i*2], this.heap[i*2+1], this.compare)){
-        localMinIndex = i*2;
-      }else{
+      if(!safeCompare(this.heap[i*2], this.heap[i*2+1], this.compare) && typeof this.heap[i*2+1] !== 'undefined'){
         localMinIndex = i*2+1;
+      }else{
+        localMinIndex = i*2;
       }
 
       this.heap.swap(i, localMinIndex);
