@@ -46,7 +46,7 @@ function safeCompare(a, b, callback){
   if(typeof callback !== 'function'){
     throw new TypeError("Compare must be a function in BinarySearchTree");
   }
-  if((typeof a === 'undefined' && typeof b !== 'undefined') || (typeof b !== 'undefined' && typeof b === 'undefined')){
+  if((typeof a === 'undefined' && typeof b !== 'undefined') || (typeof a !== 'undefined' && typeof b === 'undefined')){
     return false;
   }else if(typeof a !== 'undefined' && typeof b !== 'undefined'){
     return callback(a, b);
