@@ -54,9 +54,9 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - And-Or Tree
 
 #### Hashes
- - Hash list
- - Hash table
  - Hashmap
+ - Concurrent Hash Trie
+ - Rolling Hash
 
 #### Graphs
  - Adjacency Matrix
