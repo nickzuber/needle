@@ -46,7 +46,7 @@ test('Binary Heap should run without errors', function(t){
     for(var i=0; i<size; ++i){
       newBh.delete();
     }
-    t.equal(bh.size(), 0, "BinaryHeap.delete checking to see if new min has been selected properly.");
+    t.equal(newBh.size(), 0, "BinaryHeap.delete checking to see if new min has been selected properly.");
   }catch(e){
     t.fail("BinaryHeap.delete has failed.\n" + e.message);
   }
