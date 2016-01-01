@@ -44,14 +44,14 @@ function defaultCompare(a, b){
  */
 function safeCompare(a, b, callback){
   if(typeof callback !== 'function'){
-    throw new TypeError("Compare must be a function in BinaryHeap");
+    throw new TypeError("Compare must be a function in BinarySearchTree");
   }
   if((typeof a === 'undefined' && typeof b !== 'undefined') || (typeof b !== 'undefined' && typeof b === 'undefined')){
     return false;
   }else if(typeof a !== 'undefined' && typeof b !== 'undefined'){
     return callback(a, b);
   }else{
-    throw new TypeError("Comparing two undefined elements in BinaryHeap. Please report this to https://github.com/nickzuber/needle/issues");
+    throw new TypeError("Comparing two undefined elements in BinarySearchTree. Please report this to https://github.com/nickzuber/needle/issues");
   }
 }
 

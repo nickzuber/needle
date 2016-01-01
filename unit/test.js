@@ -212,6 +212,20 @@ test('should run without errors', function(t){
     t.fail("BinaryHeap.insert / BinaryHeap.peek has failed.\n" + e.message);
   }
 
+  // size (also tests insert)
+  try{
+    var newBh = new Needle.BinaryHeap();
+
+    // add 100 elements
+    for(var i=0; i<100; ++i){
+      var rand = Math.floor(Math.random() * 100) + 1;
+      newBh.insert(rand);
+    }
+    t.equal(newBh.size(), 100, "BinaryHeap.size checking to see if correct number of elements were inserted.");
+  }catch(e){
+    t.fail("BinaryHeap.size / BinaryHeap.insert has failed.\n" + e.message);
+  }
+
   // delete
   try{
     bh.delete();

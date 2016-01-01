@@ -101,6 +101,7 @@ function defaultCompare(a, b){
  
  - **(constructor)**([< *function* >compare]) - *object* - Creates a Binary Heap and if a function is passed in, it overrides the default compare function with the function defined by `compare`.
  - **peek**() - *element* - Returns the root or top element of the heap.
+ - **size**() - *number* - Returns the amount of elements stored in the heap.
  - **insert**(< * >data) - *void* - Inserts the element given by `data` into the heap and adjusts the heap accordingly.
  - **delete**() - *void* - Removes the root or top element from the heap and adjusts the heap accordingly.
 

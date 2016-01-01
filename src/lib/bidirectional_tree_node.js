@@ -1,8 +1,8 @@
 /**
  * Basic bidirectional tree node
  * {data} *, any data for the node to hold
- * {next} Bidirectional_node, points to the next node
- * {prev} Bidirectional_node, points to the previous node
+ * {right} Bidirectional_Tree_Node, points to the right child node
+ * {left} Bidirectional_Tree_Node, points to the left child node
  */
  
 'use strict';

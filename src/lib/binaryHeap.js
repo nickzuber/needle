@@ -1,12 +1,14 @@
 /**
  * Binary Heap
  * {heap} Array, the array based heap acting as a binary heap
+ * {size} number, the amount of elements inside of the binary heap
  * {compare} function, compares two elements to each other to determine the ordering of the heap
  *                     defaults to basic (a < b) => true
  * 
  * Time complexities (worst case)
  * +-------------------------+
  * | peek      |  O(1)       |
+ * | size      |  O(1)       |
  * | insert    |  O(log(n))  |
  * | delete    |  O(log(n))  |
  * +-------------------------+
@@ -50,7 +52,7 @@ function safeCompare(a, b, callback){
   if(typeof callback !== 'function'){
     throw new TypeError("Compare must be a function in BinaryHeap");
   }
-  if((typeof a === 'undefined' && typeof b !== 'undefined') || (typeof b !== 'undefined' && typeof b === 'undefined')){
+  if((typeof a === 'undefined' && typeof b !== 'undefined') || (typeof a !== 'undefined' && typeof b === 'undefined')){
     return false;
   }else if(typeof a !== 'undefined' && typeof b !== 'undefined'){
     return callback(a, b);
@@ -85,6 +87,15 @@ const BinaryHeap = function(compare){
  */
 BinaryHeap.prototype.peek = function(){
   return this.heap[1];
+};
+
+/**
+ * Returns the size of the heap.
+ * @param {void}
+ * @return {number} the size of the binary heap
+ */
+BinaryHeap.prototype.size = function(){
+  return this.heap.length - 1;
 };
 
 /**
@@ -129,14 +140,11 @@ BinaryHeap.prototype.insert = function(data){
 BinaryHeap.prototype.delete = function(){
   // If the heap is empty
   if(this.heap.length <= 1){
-    throw new Error("Attempted to remove min element from an empty binary heap in BinaryHeap.delete")
+    throw new Error("Attempted to remove min element from an empty binary heap in BinaryHeap.delete");
   }
 
-  // Swap min with last element
-  this.heap.swap(1, this.heap.length - 1);
-
-  // Remove last element
-  this.heap.pop();
+  // Swap min with last element, and delete last element
+  this.heap[1] = this.heap.pop();
 
   // If there's one element left in the heap
   if(this.heap.length === 2){
@@ -170,6 +178,7 @@ BinaryHeap.prototype.delete = function(){
     // Recurse down the tree doing this until we can't swap anymore
     var i = 1;
     while(safeCompare(this.heap[i*2], this.heap[i], this.compare) || safeCompare(this.heap[i*2+1], this.heap[i], this.compare)){
+
       var localMinIndex;
       // Get min of children
       if(safeCompare(this.heap[i*2], this.heap[i*2+1], this.compare)){
@@ -177,6 +186,7 @@ BinaryHeap.prototype.delete = function(){
       }else{
         localMinIndex = i*2+1;
       }
+
       this.heap.swap(i, localMinIndex);
       i = localMinIndex;
 
