@@ -4,8 +4,8 @@
   "description": "A standalone extensive data structure library in JavaScript.",
   "main": "dist/needle.min.js",
   "scripts": {
-    "test": "node unit/test.js",
-    "ci": "node unit/test.js"
+    "test": "node unit/*.js",
+    "ci": "node unit/*.js"
   },
   "repository": {
     "type": "git",
