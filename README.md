@@ -175,10 +175,12 @@ priorityQueue.insert(new Level(1, "Level 1"));
 priorityQueue.insert(new Level(2, "Level 2"));
 
 priorityQueue.peek(); // => {1, "Level 1"}
+priorityQueue.size(); // => 3
 
 priorityQueue.delete();
 
 priorityQueue.peek(); // => {2, "Level 2"}
+priorityQueue.size(); // => 2
 
 ```
 
