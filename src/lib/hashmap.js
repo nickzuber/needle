@@ -2,6 +2,7 @@
  * Hashmap
  * {buckets} Array, the container of all the entries in the hashmap
  * {size} number, the number of entries in the hashmap
+ * {current} 
  * 
  * Time complexities (average)
  * +------------------+
@@ -22,7 +23,7 @@ const DoublyLinkedList = require('./doublyLinkedList.js');
  * @return {number} the unique key for the given data
  */
 function hash(data){
-  return ;
+  return JSON.stringify(data);
 }
 
 const Hashmap = function(){
