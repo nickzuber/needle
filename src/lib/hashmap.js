@@ -9,7 +9,7 @@
  * | get      |  O(1)  |
  * | delete   |  O(1)  |
  * | next     |  O(1)  |
- * | iterater |  O(1)  |
+ * | iterator |  O(1)  |
  * | size     |  O(1)  |
  * +-------------------+
  * 
@@ -157,13 +157,13 @@ Hashmap.prototype.next = function(){
 }
 
 /**
- * Resets the internal iterater to the first entry and returns it.
+ * Resets the internal iterator to the first entry and returns it.
  * @param {void}
  * @return {object} an object composed of a pair of keys and values
  */
-Hashmap.prototype.iterater = function(){
+Hashmap.prototype.iterator = function(){
   if(list.size <= 0){
-    throw new Error("Cannot get an iterater of a map when it's empty in Hashmap.iterater()");
+    throw new Error("Cannot get an iterator of a map when it's empty in Hashmap.iterator()");
   }
   this.current = list.head;
   return this.current.data;

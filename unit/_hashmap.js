@@ -32,26 +32,26 @@ test('Hashmap should run without errors', function(t){
   // delete
   try{
     map.delete("key");
-    t.equal(map.size(), 3, "Hashmap.delete making sure delete affects the size (internal iterater).");
+    t.equal(map.size(), 3, "Hashmap.delete making sure delete affects the size (internal iterator).");
     var successfulDelete = map.delete("keyThatDoesNotExist");
     t.equal(successfulDelete, false, "Hashmap.delete checking behavior for attempting to delete a null key");
-    t.equal(map.size(), 3, "Hashmap.delete making sure delete affects the size (internal iterater).");
+    t.equal(map.size(), 3, "Hashmap.delete making sure delete affects the size (internal iterator).");
   }catch(e){
-    t.fail("Hashmap.get has failed.\n" + e.message);
+    t.fail("Hashmap.delete has failed.\n" + e.message);
   }
 
-  // next / iterater
+  // next / iterator
   try{
     var counter = 0;
-    // To check that the iterater is working properly, we can check
+    // To check that the iterator is working properly, we can check
     // the amount of unique key value pairs it picks up
-    for(var it = map.iterater(); it !== null; it = map.next()){
+    for(var it = map.iterator(); it !== null; it = map.next()){
       ++counter;
     }
     var result = map.size() === counter;
-    t.equal(result, true, "Hashmap.next / Hashmap.iterater checking the behavior of the internal iteraters.");
+    t.equal(result, true, "Hashmap.next / Hashmap.iterator checking the behavior of the internal iteraters.");
   }catch(e){
-    t.fail("Hashmap.next / Hashmap.iterater has failed.\n" + e.message);
+    t.fail("Hashmap.next / Hashmap.iterator has failed.\n" + e.message);
   }
 
   t.end();

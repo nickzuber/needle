@@ -129,7 +129,7 @@ function defaultCompare(a, b){
  - **put**(< * >key, < * >value) - *void* - Inserts an entry into the hashmap, which maps the given `key` to its respective `value`.
  - **get**(< * >key) - *value* - Returns the value that is paired with the given `key`.
  - **delete**(< * >key) - *boolean* - Deletes the entry that is associated with the given `key`, returns `true` if deletion was successful and `false` if the entry was not found.
- - **iterater**() - *object* - Resets the internal iterater `Node` to the first entry and returns an object composed of a pair of keys and values.
+ - **iterator**() - *object* - Resets the internal iterator `Node` to the first entry and returns an object composed of a pair of keys and values.
  - **next**() - *object* - Iterates to the next `Node` and returns an object composed of a pair of keys and values.
  - **size**() - *number* - Returns the amount of unique entries within the hashmap.
 
