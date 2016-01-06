@@ -25,7 +25,7 @@ gulp.task('dispatch', function(){
     }))
     .pipe(header(banner, {pkg: pkg}))
     .pipe(gulp.dest('test/scripts/'))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('bin'));
 });
 
 // Watch files

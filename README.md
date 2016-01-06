@@ -54,7 +54,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - And-Or Tree
 
 #### Hashes
- - Hashmap
+ - [Hashmap](#hashmap)
  - Concurrent Hash Trie
  - Rolling Hash
 
@@ -119,6 +119,20 @@ function defaultCompare(a, b){
  - **removeNth**(< *number* >index) - *void* - Removes the element in the location of the linked list specified by `index`.
  - **find**(< * >data) - *Node || false* - Finds the element specified by `data` and returns that `Node` if the element was successfully found but returns `false` if the node was not found.
  - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
+
+
+### <a href="#hashmap" name="stack">Needle.Hashmap()</a>
+**buckets** - *Array* - The container of all the entries in the hashmap.<br />
+**current** - *Node* - The node of the current entry in the hashmap.<br />
+ 
+ - **(constructor)**() - *object* - Creates and instatiates a Hashmap object.
+ - **put**(< * >key, < * >value) - *void* - Inserts an entry into the hashmap, which maps the given `key` to its respective `value`.
+ - **get**(< * >key) - *value* - Returns the value that is paired with the given `key`.
+ - **delete**(< * >key) - *boolean* - Deletes the entry that is associated with the given `key`, returns `true` if deletion was successful and `false` if the entry was not found.
+ - **iterater**() - *object* - Resets the internal iterater `Node` to the first entry and returns an object composed of a pair of keys and values.
+ - **next**() - *object* - Iterates to the next `Node` and returns an object composed of a pair of keys and values.
+ - **size**() - *number* - Returns the amount of unique entries within the hashmap.
+
 
 ### <a href="#singlylinkedlist" name="singlylinkedlist">Needle.SinglyLinkedList()</a>
 **head** - *Node* - The first node in the linked list.<br />

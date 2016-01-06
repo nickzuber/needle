@@ -9,6 +9,7 @@ const Stack = require('./lib/stack.js');
 const DoublyLinkedList = require('./lib/doublyLinkedList.js');
 const BinaryHeap = require('./lib/binaryHeap.js');
 const BinarySearchTree = require('./lib/binarySearchTree.js');
+const Hashmap = require('./lib/hashmap.js');
 
 const Needle = {};
 
@@ -18,6 +19,7 @@ Needle.Stack = Stack;
 Needle.DoublyLinkedList = DoublyLinkedList;
 Needle.BinaryHeap = BinaryHeap;
 Needle.BinarySearchTree = BinarySearchTree;
+Needle.Hashmap = Hashmap;
 
 exports = module.exports = Needle;
 
