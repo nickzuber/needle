@@ -129,8 +129,8 @@ function defaultCompare(a, b){
  - **put**(< * >key, < * >value) - *void* - Inserts an entry into the hashmap, which maps the given `key` to its respective `value`.
  - **get**(< * >key) - *value* - Returns the value that is paired with the given `key`.
  - **delete**(< * >key) - *boolean* - Deletes the entry that is associated with the given `key`, returns `true` if deletion was successful and `false` if the entry was not found.
- - **iterator**() - *object* - Resets the internal iterator `Node` to the first entry and returns an object composed of a pair of keys and values.
- - **next**() - *object* - Iterates to the next `Node` and returns an object composed of a pair of keys and values.
+ - **iterator**() - *key* - Resets the internal iterator `Node` to the first entry and returns the unhashed key.
+ - **next**() - *key* - Iterates to the next `Node` and returns an the unhashed key.
  - **size**() - *number* - Returns the amount of unique entries within the hashmap.
 
 
@@ -195,6 +195,22 @@ priorityQueue.delete();
 
 priorityQueue.peek(); // => {2, "Level 2"}
 priorityQueue.size(); // => 2
+
+```
+
+```javascript
+// Iterating through a Hashmap
+
+var map = new Needle.Hashmap();
+
+map.put(1, "Level 1");
+map.put("2", "Level 2");
+map.put({key: "three"}, "Level 3");
+
+// Insertion order is kept, despite key value
+for(var it = map.iterator(); it !== null; it = map.next()){
+  console.log(map.get(it)); // "Level 1" -> "Level 2" -> "Level 3"
+}
 
 ```
 

@@ -32,9 +32,10 @@ function hash(data){
 /** @private
  * Removes the element within the linked list that has the given key.
  * @param {*} the key to find
+ * @param {DoublyLinkedList} the linked list to delete from
  * @return {void}
  */
-function removeCustom(key){
+function removeCustom(key, list){
   var indexToDelete = 0,
       curNode = list.head,
       hashedKey = hash(key),
@@ -42,7 +43,7 @@ function removeCustom(key){
 
   // Search for node to delete by comparing key hashes
   while(curNode !== null){
-    if(hash(curNode.data.key) === hashedKey){
+    if(hash(curNode.data) === hashedKey){
       nodeFound = true;
       break;
     }
@@ -59,12 +60,6 @@ function removeCustom(key){
   }
 }
 
-/** @private
- * This linked list will cache our entries locally so we can
- * easily iterate through our entries.
- */
-const list = new DoublyLinkedList();
-
 /**
  * No argument constructor.
  * @param {void}
@@ -73,6 +68,10 @@ const list = new DoublyLinkedList();
 const Hashmap = function(){
   this.buckets = {};
   this.current = undefined;
+  
+  // This linked list will cache our entries locally so we can
+  // easily iterate through our entries.
+  this.list = new DoublyLinkedList();
 }
 
 /**
@@ -88,10 +87,9 @@ Hashmap.prototype.put = function(key, value){
 
   var hashedKey = hash(key);
 
-  // If item does not exist, add it to our linked list
+  // If item does not exist, add the key to our linked list
   if(this.buckets[hashedKey] === undefined){
-    var entry = {key: key, value: value};
-    list.insertBack(entry);
+    this.list.insertBack(key);
   }
 
   // Also update hashmap entries
@@ -101,7 +99,7 @@ Hashmap.prototype.put = function(key, value){
   // (if current is undefined that means no node has attempted to
   // have been inserted yet, so we know this instance is the first)
   if(this.current === undefined){
-    this.current = list.head;
+    this.current = this.list.head;
   }
 }
 
@@ -136,7 +134,7 @@ Hashmap.prototype.delete = function(key){
   var hashedKey = hash(key);
   if(this.buckets[hashedKey] !== undefined){
     delete this.buckets[hashedKey];
-    removeCustom(key);
+    removeCustom(key, this.list);
     return true;
   }else{
     return false;
@@ -146,10 +144,10 @@ Hashmap.prototype.delete = function(key){
 /**
  * Updates the current node to the next node after returning the current node.
  * @param {void}
- * @return {object} an object composed of a pair of keys and values
+ * @return {key} the unhashed key
  */
 Hashmap.prototype.next = function(){
-  if(list.size <= 0){
+  if(this.list.size <= 0){
     throw new Error("Cannot get next of an element when map is empty in Hashmap.next()");
   }
   this.current ? this.current = this.current.next : 0;
@@ -159,13 +157,13 @@ Hashmap.prototype.next = function(){
 /**
  * Resets the internal iterator to the first entry and returns it.
  * @param {void}
- * @return {object} an object composed of a pair of keys and values
+ * @return {key} the unhashed key
  */
 Hashmap.prototype.iterator = function(){
-  if(list.size <= 0){
+  if(this.list.size <= 0){
     throw new Error("Cannot get an iterator of a map when it's empty in Hashmap.iterator()");
   }
-  this.current = list.head;
+  this.current = this.list.head;
   return this.current.data;
 }
 
@@ -175,7 +173,7 @@ Hashmap.prototype.iterator = function(){
  * @return {number} the amount of entries within the hashmap
  */
 Hashmap.prototype.size = function(){
-  return list.size;
+  return this.list.size;
 }
 
 module.exports = Hashmap;
