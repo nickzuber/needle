@@ -236,6 +236,12 @@ DoublyLinkedList.prototype.remove = function(data){
   else if(this.size <= 0){
     throw new Error("Attempted to remove from an empty DoublyLinkedList");
   }
+  else if(this.size === 1){
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
+    return;
+  }
   else if(this.head === null && this.size > 0){
     throw new Error("Null head in an unemptied list. Please report this to https://github.com/nickzuber/needle/issues");
   }
@@ -310,12 +316,19 @@ DoublyLinkedList.prototype.remove = function(data){
 DoublyLinkedList.prototype.removeNth = function(index){
   if(typeof index === 'undefined'){
     throw new Error("Too few arguments for DoublyLinkedList.removeNth");
-  }else if(typeof index !== 'number'){
+  }
+  else if(typeof index !== 'number'){
     throw new TypeError("Invalid argument for DoublyLinkedList.removeNth");
   }
   // Check for bounds
   else if(index < 0 || index >= this.size){
     throw new Error("Index out of bounds on DoublyLinkedList.removeNth: " + index);
+  }
+  else if(this.size === 1){
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
+    return;
   }
 
   var curNode = this.head;

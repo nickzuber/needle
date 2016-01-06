@@ -203,6 +203,11 @@ SinglyLinkedList.prototype.remove = function(data){
   else if(this.size <= 0){
     throw new Error("Attempted to remove from an empty SinglyLinkedList");
   }
+  else if(this.size === 1){
+    this.head = null;
+    this.size = 0;
+    return;
+  }
   else if(this.head === null && this.size > 0){
     throw new Error("Null head in an unemptied list. Please report this to https://github.com/nickzuber/needle/issues");
   }
@@ -268,17 +273,19 @@ SinglyLinkedList.prototype.remove = function(data){
 SinglyLinkedList.prototype.removeNth = function(index){
   if(typeof index === 'undefined'){
     throw new Error("Too few arguments for SinglyLinkedList.removeNth");
-  }else if(typeof index !== 'number'){
+  }
+  else if(typeof index !== 'number'){
     throw new TypeError("Invalid argument for SinglyLinkedList.removeNth");
   }
   // Check for bounds
   else if(index < 0 || index >= this.size){
     throw new Error("Index out of bounds on SinglyLinkedList.removeNth: " + index);
-  }/**
- * Remove a node based on its position in the linked list
- * @param {number} index of node to remove
- * @returm {void}
- */
+  }
+  else if(this.size === 1){
+    this.head = null;
+    this.size = 0;
+    return;
+  }
 
   var prevNode = null;
   var curNode = this.head;

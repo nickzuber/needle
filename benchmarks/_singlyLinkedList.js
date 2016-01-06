@@ -145,7 +145,7 @@ list.findNth(iterations/2);
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SinglyLinkedList.find() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+console.warn("SinglyLinkedList.findNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
