@@ -13,7 +13,9 @@ iterations = 1000000;
 
 
 
-// push
+/** @benchmark
+ * push
+ */
 
 start = new Date().getTime();
 
@@ -28,7 +30,9 @@ console.warn("Stack.push() " + iterations.toLocaleString() + " iterations took "
 
 
 
-// peek
+/** @benchmark
+ * peek
+ */
 
 start = new Date().getTime();
 
@@ -43,7 +47,9 @@ console.warn("Stack.peek() " + iterations.toLocaleString() + " iterations took "
 
 
 
-// pop
+/** @benchmark
+ * pop
+ */
 
 start = new Date().getTime();
 

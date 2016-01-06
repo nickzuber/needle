@@ -88,19 +88,20 @@ DoublyLinkedList.prototype.insertNth = function(index, data){
   }else if(typeof index !== 'number'){
     throw new TypeError("Invalid argument for DoublyLinkedList.insertNth");
   }
-  // Check for bounds
-  else if(index < 0 || index >= this.size){
+  // Check for bounds (and if inserting at index 0 we want to allow)
+  else if(index < 0 || index >= this.size && index !== 0){
     throw new Error("Index out of bounds on DoublyLinkedList.insertNth");
-  }
-  // If head is empty, we obviously won't find the targetNode
-  if(this.head === null){
-    return false;
   }
   
   // Check if inserting at head
   if(index === 0){
     this.insertFront(data);
     return;
+  }
+  
+  // If head is empty, we obviously won't find the targetNode
+  if(this.head === null){
+    return false;
   }
 
   // Check if inserting at tail
@@ -145,7 +146,21 @@ DoublyLinkedList.prototype.insertAfter = function(targetData, data){
   // Configure finder nodes
   var nodeToAdd = new Node(data),
       curNode = this.head,
-      nodeFound = false; 
+      nodeFound = false,
+      _curNodedata,
+      _targetData;
+
+  // JSON.stringify is very expensive - only perform if necessary
+  if(typeof targetData === 'object'){
+    _targetData = JSON.stringify(targetData);
+  }else{
+    _targetData = targetData;
+  }
+  if(typeof curNode.data === 'object'){
+    _curNodedata = JSON.stringify(curNode.data);
+  }else{
+    _curNodedata = curNode.data;
+  }
 
   // Check if inserting after tail
   if(JSON.stringify(this.tail.data) === JSON.stringify(targetData)){
@@ -154,7 +169,13 @@ DoublyLinkedList.prototype.insertAfter = function(targetData, data){
   }
 
   while(curNode !== null){
-    if(JSON.stringify(curNode.data) === JSON.stringify(targetData)){
+    // JSON.stringify is very expensive - only perform if necessary
+    if(typeof curNode.data === 'object'){
+      _curNodedata = JSON.stringify(curNode.data);
+    }else{
+      _curNodedata = curNode.data;
+    }
+    if(_curNodedata === _targetData){
       nodeFound = true;
       break;
     }
@@ -221,7 +242,21 @@ DoublyLinkedList.prototype.remove = function(data){
 
   // Configure finder nodes
   var curNode = this.head,
-      nodeFound = false;
+      nodeFound = false,
+      _curNodedata,
+      _data;
+
+  // JSON.stringify is very expensive - only perform if necessary
+  if(typeof data === 'object'){
+    _data = JSON.stringify(data);
+  }else{
+    _data = data;
+  }
+  if(typeof curNode.data === 'object'){
+    _curNodedata = JSON.stringify(curNode.data);
+  }else{
+    _curNodedata = curNode.data;
+  }
 
   // Check if deleting head
   if(JSON.stringify(this.head.data) === JSON.stringify(data)){
@@ -246,7 +281,12 @@ DoublyLinkedList.prototype.remove = function(data){
   curNode = curNode.next;
 
   while(curNode !== null){
-    if(JSON.stringify(curNode.data) === JSON.stringify(data)){
+    if(typeof curNode.data === 'object'){
+      _curNodedata = JSON.stringify(curNode.data);
+    }else{
+      _curNodedata = curNode.data;
+    }
+    if(_curNodedata === _data){
       nodeFound = true;
       var prevNode = curNode.prev;
       prevNode.next = curNode.next;
@@ -275,7 +315,7 @@ DoublyLinkedList.prototype.removeNth = function(index){
   }
   // Check for bounds
   else if(index < 0 || index >= this.size){
-    throw new Error("Index out of bounds on DoublyLinkedList.removeNth");
+    throw new Error("Index out of bounds on DoublyLinkedList.removeNth: " + index);
   }
 
   var curNode = this.head;

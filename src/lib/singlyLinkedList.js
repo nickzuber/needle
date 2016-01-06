@@ -77,19 +77,20 @@ SinglyLinkedList.prototype.insertNth = function(index, data){
   }else if(typeof index !== 'number'){
     throw new TypeError("Invalid argument for SinglyLinkedList.insertNth");
   }
-  // Check for bounds
-  else if(index < 0 || index >= this.size){
+  // Check for bounds (and if inserting at index 0 we want to allow)
+  else if(index < 0 || index >= this.size && index !== 0){
     throw new Error("Index out of bounds on SinglyLinkedList.insertNth");
-  }
-  // If head is empty, we obviously won't find the targetNode
-  if(this.head === null){
-    return false;
   }
 
   // Check if inserting at head
   if(index === 0){
     this.insertFront(data);
     return;
+  }
+  
+  // If head is empty, we obviously won't find the targetNode
+  if(this.head === null){
+    return false;
   }
 
   // Configure finder nodes
@@ -124,10 +125,25 @@ SinglyLinkedList.prototype.insertAfter = function(targetData, data){
   // Configure finder nodes
   var nodeToAdd = new Node(data),
       curNode = this.head,
-      nodeFound = false; 
+      nodeFound = false,
+      _curNodedata,
+      _targetData;
+
+  // JSON.stringify is very expensive - only perform if necessary
+  if(typeof targetData === 'object'){
+    _targetData = JSON.stringify(targetData);
+  }else{
+    _targetData = targetData;
+  }
 
   while(curNode !== null){
-    if(JSON.stringify(curNode.data) === JSON.stringify(targetData)){
+    // JSON.stringify is very expensive - only perform if necessary
+    if(typeof curNode.data === 'object'){
+      _curNodedata = JSON.stringify(curNode.data);
+    }else{
+      _curNodedata = curNode.data;
+    }
+    if(_curNodedata === _targetData){
       nodeFound = true;
       break;
     }
@@ -194,10 +210,24 @@ SinglyLinkedList.prototype.remove = function(data){
   // Configure finder nodes
   var prevNode = null,
       curNode = this.head,
-      nodeFound = false;
+      nodeFound = false,
+      _curNodedata,
+      _data;
+
+  // JSON.stringify is very expensive - only perform if necessary
+  if(typeof data === 'object'){
+    _data = JSON.stringify(data);
+  }else{
+    _data = data;
+  }
+  if(typeof curNode.data === 'object'){
+    _curNodedata = JSON.stringify(curNode.data);
+  }else{
+    _curNodedata = curNode.data;
+  }
 
   // Check if deleting head
-  if(JSON.stringify(curNode.data) === JSON.stringify(data)){
+  if(_curNodedata === _data){
     this.head = curNode.next;
     curNode = null;
     --this.size;
@@ -209,7 +239,13 @@ SinglyLinkedList.prototype.remove = function(data){
   curNode = prevNode.next;
 
   while(curNode !== null){
-    if(JSON.stringify(curNode.data) === JSON.stringify(data)){
+    // JSON.stringify is very expensive - only perform if necessary
+    if(typeof curNode.data === 'object'){
+      _curNodedata = JSON.stringify(curNode.data);
+    }else{
+      _curNodedata = curNode.data;
+    }
+    if(_curNodedata === _data){
       nodeFound = true;
       prevNode.next = curNode.next;
       curNode = null;
@@ -237,7 +273,7 @@ SinglyLinkedList.prototype.removeNth = function(index){
   }
   // Check for bounds
   else if(index < 0 || index >= this.size){
-    throw new Error("Index out of bounds on SinglyLinkedList.removeNth");
+    throw new Error("Index out of bounds on SinglyLinkedList.removeNth: " + index);
   }/**
  * Remove a node based on its position in the linked list
  * @param {number} index of node to remove
