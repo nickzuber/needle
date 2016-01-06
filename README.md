@@ -209,6 +209,7 @@ map.put({key: "three"}, "Level 3");
 
 // Insertion order is kept, despite key value
 for(var it = map.iterator(); it !== null; it = map.next()){
+  console.log(it); // 1 -> "2" -> {key: "three"}
   console.log(map.get(it)); // "Level 1" -> "Level 2" -> "Level 3"
 }
 
