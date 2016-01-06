@@ -8,47 +8,51 @@ test('Hashmap should run without errors', function(t){
 
   var map = new Needle.Hashmap();
 
-  // enqueue
+  // put / size
   try{
-    q.enqueue("d1");
-    q.enqueue("d2");
-    q.enqueue("d3");
-    t.equal(q.front.data, "d1", "Queue.enqueue checking to see if order is kept.");
+    map.put("key", "string");
+    map.put(0, "number");
+    map.put({}, "object");
+    map.put({}, "another object, same key");
+    map.put(1, "another number");
+    map.put(0, "another number, same key");
+    t.equal(map.size(), 4, "Hashmap.put checking to see correct amount of items are added to hashmap.");
   }catch(e){
-    t.fail("Queue.enqueue has failed.\n" + e.message);
+    t.fail("Hashmap.put has failed.\n" + e.message);
   }
 
-  // dequeue
+  // get
   try{
-    q.dequeue();
-    t.equal(q.front.data, "d2", "Queue.enqueue checking to see if order is kept.");
+    var entry = map.get({});
+    t.equal(entry, "another object, same key", "Hashmap.get making sure key maps to correct value.");
   }catch(e){
-    t.fail("Queue.enqueue has failed.\n" + e.message);
-  }
-
-  // #########
-  // # Stack #
-  // #########
-  var s = new Needle.Stack();
-
-  // push / peek
-  try{
-    s.push("d1");
-    s.push("d2");
-    s.push("d3");
-    t.equal(s.peek().data, "d3", "Stack.push checking to see if order is kept & if Stack.peek is returning the top.");
-  }catch(e){
-    t.fail("Stack.push / Stack.peek has failed.\n" + e.message);
-  }
-
-  // pop
-  try{
-    var v = s.pop();
-    t.equal(v.data, "d3", "Stack.pop checking to see if previous top was returned.");
-    t.equal(s.peek().data, "d2", "Stack.peek checking to see if correct the top is returned.");
-  }catch(e){
-    t.fail("Stack.pop has failed.\n" + e.message);
+    t.fail("Hashmap.get has failed.\n" + e.message);
   }
   
+  // delete
+  try{
+    map.delete("key");
+    t.equal(map.size(), 3, "Hashmap.delete making sure delete affects the size (internal iterater).");
+    var successfulDelete = map.delete("keyThatDoesNotExist");
+    t.equal(successfulDelete, false, "Hashmap.delete checking behavior for attempting to delete a null key");
+    t.equal(map.size(), 3, "Hashmap.delete making sure delete affects the size (internal iterater).");
+  }catch(e){
+    t.fail("Hashmap.get has failed.\n" + e.message);
+  }
+
+  // next / iterater
+  try{
+    var counter = 0;
+    // To check that the iterater is working properly, we can check
+    // the amount of unique key value pairs it picks up
+    for(var it = map.iterater(); it !== null; it = map.next()){
+      ++counter;
+    }
+    var result = map.size() === counter;
+    t.equal(result, true, "Hashmap.next / Hashmap.iterater checking the behavior of the internal iteraters.");
+  }catch(e){
+    t.fail("Hashmap.next / Hashmap.iterater has failed.\n" + e.message);
+  }
+
   t.end();
 });

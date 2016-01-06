@@ -152,8 +152,8 @@ Hashmap.prototype.next = function(){
   if(list.size <= 0){
     throw new Error("Cannot get next of an element when map is empty in Hashmap.next()");
   }
-  this.current = this.current.next;
-  return this.current.data;
+  this.current ? this.current = this.current.next : 0;
+  return (this.current ? this.current.data : null);
 }
 
 /**
