@@ -121,7 +121,7 @@ function defaultCompare(a, b){
  - **findNth**(< *number* >index) - *Node* - Finds the element in the location of the linked list specified by `index` and returns that `Node`.
 
 
-### <a href="#hashmap" name="stack">Needle.Hashmap()</a>
+### <a href="#hashmap" name="hashmap">Needle.Hashmap()</a>
 **buckets** - *Array* - The container of all the entries in the hashmap.<br />
 **current** - *Node* - The node of the current entry in the hashmap.<br />
  
