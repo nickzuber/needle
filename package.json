@@ -4,6 +4,7 @@
   "description": "A standalone extensive data structure library in JavaScript.",
   "main": "bin/needle.min.js",
   "scripts": {
+    "build": "gulp",
     "test": "node unit/*.js",
     "ci": "node unit/*.js"
   },

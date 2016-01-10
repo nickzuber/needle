@@ -1,16 +1,16 @@
 
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var browserify = require('gulp-browserify');
-var header = require('gulp-header');
-var watch = require('gulp-watch');
+var uglify = require('gulp-uglify'); // minify build files
+var rename = require('gulp-rename'); // custom name for build files
+var browserify = require('gulp-browserify'); // compiles Needle module
+var header = require('gulp-header'); // custom comment header on build files
+var watch = require('gulp-watch'); // auto compile when editing
 
 // Set banner for production file
 var pkg = require('./package.json');
 var banner = ['/*!',
-  ' * <%= pkg.name %> v<%= pkg.version %> | <%= pkg.license %> ',
-  ' * Copyright (c) 2015 <%= pkg.author %>',
+  ' // <%= pkg.name %> v<%= pkg.version %> | <%= pkg.license %> ',
+  ' // Copyright (c) 2015 <%= pkg.author %>',
   ' */',
   ''].join('\n');
 
@@ -20,7 +20,7 @@ gulp.task('dispatch', function(){
     .pipe(browserify({}))
     .pipe(uglify())
     .pipe(rename({
-        basename: 'needle',
+        basename: 'needle-1.0.0',
         extname: '.min.js'
     }))
     .pipe(header(banner, {pkg: pkg}))

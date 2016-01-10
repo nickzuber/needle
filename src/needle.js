@@ -10,6 +10,7 @@ const DoublyLinkedList = require('./lib/doublyLinkedList.js');
 const BinaryHeap = require('./lib/binaryHeap.js');
 const BinarySearchTree = require('./lib/binarySearchTree.js');
 const Hashmap = require('./lib/hashmap.js');
+const SortedArray = require('./lib/sortedArray.js');
 
 const Needle = {};
 
@@ -20,6 +21,7 @@ Needle.DoublyLinkedList = DoublyLinkedList;
 Needle.BinaryHeap = BinaryHeap;
 Needle.BinarySearchTree = BinarySearchTree;
 Needle.Hashmap = Hashmap;
+Needle.SortedArray = SortedArray;
 
 exports = module.exports = Needle;
 
