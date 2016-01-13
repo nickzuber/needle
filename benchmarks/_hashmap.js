@@ -1,5 +1,5 @@
 
-// # Singly Linked List tests
+// # Hashmap tests
 
 'use strict';
 

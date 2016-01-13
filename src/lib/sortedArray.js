@@ -4,9 +4,9 @@
  * 
  * Time complexities (average)
  * +------------------------+
- * | push     |  O(log(n))  |
- * | delete   |  O(n)       |
- * | get      |  O(log(n))  |
+ * | insert   |  O(log(n))  |
+ * | delete   |  O(log(n))  |
+ * | get      |  O(1)       |
  * | size     |  O(1)       |
  * +------------------------+
  * 
@@ -25,7 +25,7 @@ function defaultCompare(a, b){
 }
 
 /** @private
- * TODO: make this a default
+ * TODO: let user set a custom equal
  * Compares two elements and returns if they're equal or not.
  * @param {*} first element to compare
  * @param {*} second element to compare
@@ -84,7 +84,7 @@ const SortedArray = function(compare){
  * @param {*} the element to be added
  * @return {void}
  */
-SortedArray.prototype.push = function(data){
+SortedArray.prototype.insert = function(data){
   if(typeof data === 'undefined'){
     throw new Error('Too few arguments in SortedArray.push');
   }
@@ -102,7 +102,8 @@ SortedArray.prototype.push = function(data){
   // a flaw in the algorithm that I couldn't figure out a good
   // way to fix. 4head)
   if(safeCompare(data, this.elements[0], this.compare)){
-    this.elements.splice(0, 0, data);
+    this.elements.unshift(data);
+    return;
   }
 
   // Keep track of the max and min index values
@@ -110,25 +111,16 @@ SortedArray.prototype.push = function(data){
       max = this.elements.length,
       mid = Math.floor(min + (max - min) / 2);
 
-  var errorControl = 0;
-
   while(Math.abs(max-min) > 1 && !equal(data, this.elements[mid])){
     // Get middle index from max and min
     mid = Math.floor(min + (max - min) / 2);
-
     // Compare elements and traverse array accordingly
     if(safeCompare(this.elements[mid], data, this.compare)){
       min = mid;
     }else{
       max = mid;
     }
-    // ERROR CONTROL WHILE TESTING
-    ++errorControl;
-    if(errorControl>100){
-      throw new Error('stack overflow: ' + min + ', ' + max + ' | ' + mid);
-    }
   }
-
   // Check if we need to insert the element before or after the element
   // in the array it targeted
   if(safeCompare(data, this.elements[mid], this.compare)){
@@ -139,12 +131,81 @@ SortedArray.prototype.push = function(data){
 }
 
 /**
+ * Deletes the first occurance of an element from the array.
+ * @param {*} the element to be removed
+ * @return {boolean} returns true if element was found and deleted
+ *                   returns false if the element was not found
+ */
+SortedArray.prototype.delete = function(data){
+  if(typeof data === 'undefined'){
+    throw new Error('Too few arguments in SortedArray.delete');
+  }
+
+  // If empty array, obviously not found
+  if(this.elements.length === 0){
+    return false;
+  }
+
+  // Keep track of the max and min index values
+  var min = 0,
+      max = this.elements.length,
+      mid = Math.floor(min + (max - min) / 2);
+
+  while(max >= min){
+    // Get middle index from max and min
+    mid = Math.floor(min + (max - min) / 2);
+    // Check if we've found element
+    if(equal(data, this.elements[mid])){
+      // Element was found
+      this.elements.splice(mid, 1);
+      return true;
+    }
+    // Compare elements and traverse array accordingly
+    if(safeCompare(this.elements[mid], data, this.compare)){
+      min = mid + 1;
+    }else{
+      max = mid - 1;
+    }
+  }
+  // Element was not found
+  return false;
+}
+
+/**
+ * Returns the element at the given index.
+ * @param {number} index to find
+ * @return {element} the element at the given index
+ */
+SortedArray.prototype.get = function(index){
+  if(typeof index === 'undefined'){
+    throw new Error('Too few arguments in SortedArray.get');
+  }else if(typeof index ==! 'number'){
+    throw new Error('Invalid argument; expected a number in SortedArray.get');
+  }
+  return this.elements[index];
+}
+
+/**
  * Returns the amount of elements in the sorted array.
  * @param {void}
  * @return {number} the amount of elements in the sorted array
  */
 SortedArray.prototype.size = function(){
-  return this.elements.size();
+  return this.elements.length;
+}
+
+/** @override
+ * Converts the object into its sorted elements.
+ * @param {void}
+ * @return {string} the sorted elements represented as a string
+ */
+SortedArray.prototype.toString = function(){
+  var string = "",
+      i;
+  for(i=0; i<this.elements.length; ++i){
+    string += this.elements[i] + ',';
+  }
+  return this.elements.length > 0 ? string.slice(0, -1) : string;
 }
 
 module.exports = SortedArray;

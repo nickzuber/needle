@@ -1,4 +1,4 @@
-/**
+/** 
  * Binary Search Tree
  * {root} Node, the root of the tree
  * {compare} function, compares two elements to each other to determine the ordering of the heap
@@ -17,6 +17,8 @@
  * | insert           | O(log(n)) |
  * | search           | O(log(n)) |
  * +------------------------------+
+ * 
+ * TODO: let user set a custom `equal` function
  * 
  */
 

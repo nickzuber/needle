@@ -13,6 +13,8 @@
  * | delete    |  O(log(n))  |
  * +-------------------------+
  * 
+ * TODO: let user set a custom `equal` function
+ * 
  */
  
 'use strict';

@@ -23,7 +23,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - Bit Array
  - Bitmap
  - Hashed Array Tree
- - Sorted Array
+ - [Sorted Array](#sortedarray)
 
 #### Lists
  - [Doubly Linked List](#doublylinkedlist)
