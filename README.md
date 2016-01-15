@@ -5,9 +5,33 @@ Needle is a standalone extensive data structure library in JavaScript.
 
 ## Installation 
 
-*Needle is still in development, therefore there is no official release yet, therefore no official installation. However, using the file located `/dist` directory will provide you with the latest version.*
+Installing Needle on the client side is simple. Just download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/bin/needle-1.0.0.min.js) and include it in your webpage:
+```html
+<!-- The complete Needle library -->
+<script src="path/to/needle-1.0.0.min.js"></script>
+```
+
+If you'd like to install Needle on the server side using [npm](https://www.npmjs.com), it's as easy as:
+```
+npm install node-needle --save
+```
 
 **Note:** *Be warned that Needle is still under development, therefore the use any unofficially released files may result in unexpected behavior if bugs in the code subsist.*
+
+## Usage
+
+When you have Needle installed, you can use it on the client like so:
+```javascript
+// Needle gets pushed onto the global scope under the alias "Needle"
+// You create instances of data structures which derive from the Needle object
+var rh = new Needle.RollingHash(256);
+```
+
+Or you can use it on the server in Node like so:
+```javascript
+var Needle = require('node-needle');
+```
+
 
 ## API Reference
 

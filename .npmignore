@@ -1,0 +1,11 @@
+
+# Node
+node_modules
+
+# Various other directories
+test
+benchmarks
+unit
+
+.travis.yml
+README.md
