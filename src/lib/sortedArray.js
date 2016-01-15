@@ -4,9 +4,9 @@
  * 
  * Time complexities (average)
  * +------------------------+
- * | insert   |  O(log(n))  |
- * | delete   |  O(log(n))  |
  * | get      |  O(1)       |
+ * | insert   |  O(log(n)) ---- TODO: optimize; currently running around O(n/2) - due to insertion speed bogging down (look up is fine)
+ * | delete   |  O(log(n))  |
  * | size     |  O(1)       |
  * +------------------------+
  * 

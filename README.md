@@ -56,7 +56,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 #### Hashes
  - [Hashmap](#hashmap)
  - Concurrent Hash Trie
- - Rolling Hash
+ - [Rolling Hash](#rollinghash)
 
 #### Graphs
  - Adjacency Matrix
