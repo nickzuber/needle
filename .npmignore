@@ -3,9 +3,10 @@
 node_modules
 
 # Various other directories
+bin
 test
 benchmarks
 unit
 
+.gulpfile
 .travis.yml
-README.md

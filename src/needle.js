@@ -13,21 +13,21 @@ const Hashmap = require('./lib/hashmap.js');
 const SortedArray = require('./lib/sortedArray.js');
 const RollingHash = require('./lib/rollingHash.js');
 
-const needle = {};
+const Needle = {};
 
-needle.SinglyLinkedList = SinglyLinkedList;
-needle.Queue = Queue;
-needle.Stack = Stack;
-needle.DoublyLinkedList = DoublyLinkedList;
-needle.BinaryHeap = BinaryHeap;
-needle.BinarySearchTree = BinarySearchTree;
-needle.Hashmap = Hashmap;
-needle.SortedArray = SortedArray;
-needle.RollingHash = RollingHash;
+Needle.SinglyLinkedList = SinglyLinkedList;
+Needle.Queue = Queue;
+Needle.Stack = Stack;
+Needle.DoublyLinkedList = DoublyLinkedList;
+Needle.BinaryHeap = BinaryHeap;
+Needle.BinarySearchTree = BinarySearchTree;
+Needle.Hashmap = Hashmap;
+Needle.SortedArray = SortedArray;
+Needle.RollingHash = RollingHash;
 
-exports = module.exports = needle;
+exports = module.exports = Needle;
 
 // If attempting to run in browser, push Needle on global scope
 if(typeof window !== 'undefined'){
-  window.needle = needle;
+  window.Needle = Needle;
 }

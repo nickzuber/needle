@@ -1,8 +1,8 @@
 {
   "name": "node-needle",
-  "version": "1.0.0-alpha",
+  "version": "1.0.3",
   "description": "A standalone extensive data structure library in JavaScript.",
-  "main": "bin/needle-1.0.0.min.js",
+  "main": "src/needle.js",
   "scripts": {
     "build": "gulp",
     "test": "node unit/*.js",

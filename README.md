@@ -11,7 +11,7 @@ Installing Needle on the client side is simple. Just download the [minified file
 <script src="path/to/needle-1.0.0.min.js"></script>
 ```
 
-If you'd like to install Needle on the server side using [npm](https://www.npmjs.com), it's as easy as:
+If you'd like to install Needle on the server side using [npm](https://www.npmjs.com/package/node-needle), it's as easy as:
 ```
 npm install node-needle --save
 ```
