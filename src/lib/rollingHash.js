@@ -76,7 +76,7 @@ String.prototype.ascii = function(){
  * This is the closest prime number to 2^32
  * without going over.
  */
-const PRIME_BASE = 113//4294967291;
+const PRIME_BASE = 4294967291;
 
 /**
  * Single argument constructor which defines the base of the working 
@@ -232,7 +232,5 @@ RollingHash.prototype.set = function(k){
     throw new TypeError("Invalid argument; expecting number or string in RollingHash.set");
   }
 }
-
-
 
 module.exports = RollingHash;
