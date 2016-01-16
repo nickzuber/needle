@@ -9,7 +9,7 @@ var watch = require('gulp-watch'); // auto compile when editing
 // Set banner for production file
 var pkg = require('./package.json');
 var banner = ['/*!',
-  ' // <%= pkg.name %> v<%= pkg.version %> | <%= pkg.license %> ',
+  ' // Needle v<%= pkg.version %> | <%= pkg.license %> ',
   ' // Copyright (c) 2015 <%= pkg.author %>',
   ' */',
   ''].join('\n');
