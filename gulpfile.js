@@ -20,7 +20,7 @@ gulp.task('dispatch', function(){
     .pipe(browserify({}))
     .pipe(uglify())
     .pipe(rename({
-        basename: 'needle-1.0.0',
+        basename: 'needle',
         extname: '.min.js'
     }))
     .pipe(header(banner, {pkg: pkg}))

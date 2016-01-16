@@ -5,10 +5,10 @@ Needle is a standalone extensive data structure library in JavaScript.
 
 ## Installation 
 
-Installing Needle on the client side is simple. Just download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/bin/needle-1.0.0.min.js) and include it in your webpage:
+Installing Needle on the client side is simple. Just download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/bin/needle.min.js) and include it in your webpage:
 ```html
 <!-- The complete Needle library -->
-<script src="path/to/needle-1.0.0.min.js"></script>
+<script src="path/to/needle.min.js"></script>
 ```
 
 If you'd like to install Needle on the server side using [npm](https://www.npmjs.com/package/node-needle), it's as easy as:
