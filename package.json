@@ -1,12 +1,12 @@
 {
   "name": "node-needle",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A standalone extensive data structure library in JavaScript.",
   "main": "src/needle.js",
   "scripts": {
     "build": "gulp",
-    "test": "node unit/*.js",
-    "ci": "node unit/*.js"
+    "test": "node --harmony unit/*.js",
+    "ci": "node --harmony unit/*.js"
   },
   "repository": {
     "type": "git",
