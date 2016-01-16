@@ -21,7 +21,7 @@ iterations = 1000000;
 
 start = new Date().getTime();
 
-var needle = "_END_";
+var needle = "A REALLING BIG WINDOW TO SERACH FOR BUT THE LENGTH OF STRING LENGTH WON'T HINDER PERFORMANCE FOR ROLLING HASH";
 
 var found = false;
 var hashedNeedle = rh.hash(needle);
@@ -42,7 +42,7 @@ for(var i=0; i<LONG_TEXT.length-needle.length; ++i){
 if(found){
   console.warn("Item was successfully found.");
 }else{
-  console.warn("Warning: Item was not found.");
+  console.warn("Warning: Item was not found. If this was not intentional, then something is wrong with the rolling hash.");
 }
 
 end = new Date().getTime();
@@ -50,9 +50,33 @@ time = end - start;
 
 console.warn("RollingHash.slide() rolled over " + LONG_TEXT.length.toLocaleString() + " characters in " + (end-start)/1000 + " seconds.");
 
+
+
+/** @sample
+ * This will run incredibly fast (even faster than the rolling hash) because 
+ */
+
+start = new Date().getTime();
+
+for(var i=0; i<LONG_TEXT.length-needle.length; ++i){
+  var attempt = LONG_TEXT.substr(i+1, needle.length);
+    if(needle === attempt){
+      found = true;
+      break;
+    }
+}
+
+end = new Date().getTime();
+time = end - start;
+
+console.warn("Brute string matching searched through " + LONG_TEXT.length.toLocaleString() + " characters in " + (end-start)/1000 + " seconds.");
+
+
 /** @sample
  * This will run in O(n * m) where m relates to the amount of time it takes to rehash in a traditional approach.
- * This should take roughly twice the time as our rolling hash. 
+ * This should take much longer than the rolling hash DEPENDING on how large the window we're searching in is, because
+ * if the window is big then the rehashing will take longer in the traditional approach (but will not affect the speed of the
+ * rolling hash)
  */
 
 start = new Date().getTime();

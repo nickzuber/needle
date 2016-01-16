@@ -8,10 +8,6 @@
  * | hash     |  O(1)  |
  * | set      |  O(1)  |
  * +-------------------+
- *
- * TODO: There is a known bug that causes the internal hash to be off
- * by exactly 1 when the window size is 7, therefore breaking the hash
- * when the window size is 7 or greater.
  * 
  */
 
@@ -112,29 +108,40 @@ const RollingHash = function(base){
 /**
  * Computes a hash on the input assuming it is of the same base of
  * the instance of the rolling hash. 
- * @param {number || string} the item to hash
+ * @param {number || string || Array} the item to hash; if array
  * @return {void}
  */
 RollingHash.prototype.hash = function(k){
   if(typeof k === 'undefined'){
     throw new Error("Too few arguments in RollingHash.hash");
   }
+  // Check for integer overflow
+  if(!!!parseInt(Math.pow(this.BASE, (k.length-1)))) {
+    throw new Error("Integer overflow while trying to hash \"" + k + "\" in RollingHash.hash\nThis hashing window is too large\nIf this issue is breaking to your program, please report this to https://github.com/nickzuber/needle/issues");
+  }
 
   // Initialize hash value
-  var _hash = 0;
+  var hash = 0;
 
   // If argument is a string, we need to convert to a number the hash
   if(typeof k === 'string'){
     for(var i=0; i<k.length; ++i){
-      _hash += k[i].ascii() * Math.pow(this.BASE, (k.length-1-i));
+      hash += (k[i].ascii() % PRIME_BASE) * (Math.pow(this.BASE, (k.length-1-i)) % PRIME_BASE) % PRIME_BASE;
     }
-  }else if(typeof k === 'number'){
-    _hash = k;
-  }else{
+  }
+  else if( k.constructor === Array){
+    for(var i=0; i<k.length; ++i){
+      hash += (k[i] % PRIME_BASE * (Math.pow(this.BASE, (k.length-1-i)) % PRIME_BASE) % PRIME_BASE);
+    }
+  }
+  else if(typeof k === 'number'){
+    hash = k;
+  }
+  else{
     throw new TypeError("Invalid argument; expecting number or string in RollingHash.hash\nk: "+k);
   }
 
-  return _hash % PRIME_BASE;
+  return hash % PRIME_BASE;
 }
 
 /**
@@ -151,11 +158,11 @@ RollingHash.prototype.append = function(n){
     throw new Error("Argument overflow in RollingHash.append\n"+"n: "+n);
   }
 
+  // Update the cached chunk
+  this.CACHE = this.CACHE * this.BASE % PRIME_BASE;
+
   // Append an item to the front of the window
   this.state = (this.state * this.BASE + n) % PRIME_BASE;
-
-  // Update the cached chunk
-  this.CACHE = (this.CACHE * this.BASE) % PRIME_BASE;
 }
 
 /**
