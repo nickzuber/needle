@@ -164,8 +164,8 @@ function defaultCompare(a, b){
  - **(constructor)**(< *number* >base) - *object* - Creates and instatiates a rolling hash object and an argument is passed in which assigns the `base` of the rolling hash.
  - **set**(< *string || Array* >arg) - *void* - Sets the internal window of the rolling hash given `arg` in the relative base.
  - **slide**(< *string || number* >old, < *string || number* >new) - *number* - Shifts the internal window a single rotation by removing the `old` segment and appending on the `new` segment, then returns the newly updates `state` of the internal window.
- - **skip**(< *string || number* >old) - *void* - Disjoins the last segment from the internal window.
- - **append**(< *string || number* >new) - *void* - Appends a new segment onto the internal window.
+ - **skip**(< *string || number* >old) - *void* - Disjoins the `old` segment from the internal window.
+ - **append**(< *string || number* >new) - *void* - Appends a `new` segment onto the internal window.
  - **hash**(< *number || string || Array*arg>) - *number* - Takes in either a `string`, `number` (assumed in the relative `base`), or `Array` of elements in the relative base, and returns the hash of the argument.
 
 
