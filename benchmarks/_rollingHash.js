@@ -53,13 +53,14 @@ console.warn("RollingHash.slide() rolled over " + LONG_TEXT.length.toLocaleStrin
 
 
 /** @sample
- * This will run incredibly fast (even faster than the rolling hash) because 
+ * This will run incredibly fast (even faster than the rolling hash) probably because a string is a primitive type in javascript,
+ * therefore the language is able to compare them at an extremely low level with very high performance
  */
 
 start = new Date().getTime();
 
 for(var i=0; i<LONG_TEXT.length-needle.length; ++i){
-  var attempt = LONG_TEXT.substr(i+1, needle.length);
+  var attempt = new String(LONG_TEXT.substr(i+1, needle.length));
     if(needle === attempt){
       found = true;
       break;

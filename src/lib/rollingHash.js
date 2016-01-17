@@ -1,5 +1,6 @@
 /**
  * Rolling Hash
+ * {state} number, the internal hash value of the window
  * 
  * Time complexities (average)
  * +-------------------+
@@ -7,6 +8,7 @@
  * | append   |  O(1)  |
  * | hash     |  O(1)  |
  * | set      |  O(1)  |
+ * | slide    |  O(1)  |
  * +-------------------+
  * 
  */
@@ -109,7 +111,7 @@ const RollingHash = function(base){
  * Computes a hash on the input assuming it is of the same base of
  * the instance of the rolling hash. 
  * @param {number || string || Array} the item to hash; if array
- * @return {void}
+ * @return {number} the hash of the argument
  */
 RollingHash.prototype.hash = function(k){
   if(typeof k === 'undefined'){

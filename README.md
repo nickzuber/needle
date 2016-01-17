@@ -147,8 +147,7 @@ function defaultCompare(a, b){
 
 
 ### <a href="#hashmap" name="hashmap">Needle.Hashmap()</a>
-**buckets** - *Array* - The container of all the entries in the hashmap.<br />
-**current** - *Node* - The node of the current entry in the hashmap.<br />
+**state** - *number* - Holds the current hash of the internal window.<br />
  
  - **(constructor)**() - *object* - Creates and instatiates a Hashmap object.
  - **put**(< * >key, < * >value) - *void* - Inserts an entry into the hashmap, which maps the given `key` to its respective `value`.
@@ -157,6 +156,17 @@ function defaultCompare(a, b){
  - **iterator**() - *key* - Resets the internal iterator `Node` to the first entry and returns the unhashed key.
  - **next**() - *key* - Iterates to the next `Node` and returns an the unhashed key.
  - **size**() - *number* - Returns the amount of unique entries within the hashmap.
+
+
+### <a href="#rollinghash" name="rollinghash">Needle.RollingHash()</a>
+**state** - *number* - The internal hash value of the current window.<br />
+
+ - **(constructor)**(< *number* >base) - *object* - Creates and instatiates a rolling hash object and an argument is passed in which assigns the `base` of the rolling hash.
+ - **set**(< *string || Array* >arg) - *void* - Sets the internal window of the rolling hash given `arg` in the relative base.
+ - **slide**(< *string || number* >old, < *string || number* >new) - *number* - Shifts the internal window a single rotation by removing the `old` segment and appending on the `new` segment, then returns the newly updates `state` of the internal window.
+ - **skip**(< *string || number* >old) - *void* - Disjoins the last segment from the internal window.
+ - **append**(< *string || number* >new) - *void* - Appends a new segment onto the internal window.
+ - **hash**(< *number || string || Array*arg>) - *number* - Takes in either a `string`, `number` (assumed in the relative `base`), or `Array` of elements in the relative base, and returns the hash of the argument.
 
 
 ### <a href="#singlylinkedlist" name="singlylinkedlist">Needle.SinglyLinkedList()</a>
