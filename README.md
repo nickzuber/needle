@@ -1,5 +1,5 @@
 # [Needle.js](https://github.com/nickzuber/needle) 
-[![Build Status](https://travis-ci.org/nickzuber/needle.svg?branch=master)](https://travis-ci.org/nickzuber/needle) [![GitHub version](https://badge.fury.io/gh/nickzuber%2Fneedle.svg)](https://badge.fury.io/gh/nickzuber%2Fneedle)
+[![Build Status](https://travis-ci.org/nickzuber/needle.svg?branch=master)](https://travis-ci.org/nickzuber/needle) [![npm version](https://badge.fury.io/js/node-needle.svg)](https://badge.fury.io/js/node-needle)
 
 Needle is a standalone extensive data structure library in JavaScript.
 
