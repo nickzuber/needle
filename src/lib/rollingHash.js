@@ -74,7 +74,7 @@ String.prototype.ascii = function(){
  * This is the closest prime number to 2^32
  * without going over.
  */
-const PRIME_BASE = 4294967291;
+const PRIME_BASE = 2147483647;
 
 /**
  * Single argument constructor which defines the base of the working 
@@ -161,10 +161,10 @@ RollingHash.prototype.append = function(n){
   }
 
   // Update the cached chunk
-  this.CACHE = this.CACHE * this.BASE % PRIME_BASE;
+  this.CACHE = this.CACHE * this.BASE % PRIME_BASE | 0;
 
   // Append an item to the front of the window
-  this.state = (this.state * this.BASE + n) % PRIME_BASE;
+  this.state = (this.state * this.BASE + n) % PRIME_BASE | 0;
 }
 
 /**
@@ -182,10 +182,10 @@ RollingHash.prototype.skip = function(o){
   }
   
   // Update the cached chunk
-  this.CACHE = (this.CACHE * this.INVERSE_BASE) % PRIME_BASE;
+  this.CACHE = (this.CACHE * this.INVERSE_BASE) % PRIME_BASE | 0;
 
   // Remove trailing item from window
-  this.state = (this.state - o * this.CACHE + this.OFFSET_IF_NEGATIVE) % PRIME_BASE;
+  this.state = (this.state - o * this.CACHE + this.OFFSET_IF_NEGATIVE) % PRIME_BASE | 0;
 }
 
 /**
