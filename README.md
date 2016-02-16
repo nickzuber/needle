@@ -30,7 +30,10 @@ var rh = new Needle.RollingHash(256);
 
 Or you can use it on the server in Node like so:
 ```javascript
-var Needle = require('node-needle');
+const Needle = require('node-needle');
+
+// Example: Create a new instance of a hashmap
+var map = Needle.Hashmap();
 ```
 
 
