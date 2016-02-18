@@ -3,10 +3,11 @@
 node_modules
 
 # Various other directories
-bin
-test
+build
+examples
 benchmarks
 unit
 
 .gulpfile
 .travis.yml
+npm-debug.log

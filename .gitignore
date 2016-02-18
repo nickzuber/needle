@@ -2,5 +2,5 @@
 # Node
 node_modules
 
-# Testing
-test
+# Other
+npm-debug.log

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Needle | ALPHA</title>
+  <link rel="shortcut icon" href="logo.png">
+</head>
+<body>
+  <p>Testing done in the console</p>
+  <script type="text/javascript" src="needle.min.js"></script>
+  <script>
+
+    var rh = new Needle.RollingHash(256);
+
+    rh.set("A REALLING BIG WINDOW TO SERACH FOR BUT THE LENGTH OF STRING LENGTH WON'T HINDER PERFORMANCE FOR ROLLING HASH");
+    //rh.set([11, 22, 33, 44, 55, 66, 77, 88, 99]);
+
+    console.log("state: "+rh.state);
+    //console.log("hash:  "+rh.hash([11, 22, 33, 44, 55, 66, 77, 88, 99]));
+    console.log("hash:  "+rh.hash("A REALLING BIG WINDOW TO SERACH FOR BUT THE LENGTH OF STRING LENGTH WON'T HINDER PERFORMANCE FOR ROLLING HASH"));
+
+    
+    window.rh = rh;
+
+  </script>
+</body>
+</html>
