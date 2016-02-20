@@ -1,1 +1,6 @@
-# linting ignore list will go here
+build
+node_modules
+examples/scripts
+*.json
+*.md
+LICENSE
