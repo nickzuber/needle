@@ -13,19 +13,15 @@ Installing Needle on the client side is simple. Just download the [minified file
 
 If you'd like to install Needle on the server side using [npm](https://www.npmjs.com/package/node-needle), it's as easy as:
 ```
-npm install node-needle --save
+$ npm install node-needle --save
 ```
-
-**Note:** *Needle is still under development, therefore there is a possibility that there may be some unexpected behavior if bugs in the code subsist.*
 
 ## Usage
 
 When you have Needle installed, you can use it on the client like so:
 ```javascript
 // Needle gets pushed onto the global scope under the alias "Needle"
-// You create instances of data structures which derive from the Needle object
-// Here is an example of creating a rolling hash with a base of 256 (ascii)
-var rh = new Needle.RollingHash(256);
+var bst = new Needle.BinarySearchTree();
 ```
 
 Or you can use it on the server in Node like so:
@@ -213,6 +209,8 @@ Here are an assortment of examples using various data structures provided by Nee
 ```javascript
 // Priority Queue implementation using a binary heap
 
+const Needle = require('node-needle');
+
 var Level = function(key, value){
   this.key = key;
   this.value = value;
@@ -238,6 +236,8 @@ priorityQueue.size(); // => 2
 
 ```javascript
 // Iterating through a Hashmap
+
+const Needle = require('node-needle');
 
 var map = new Needle.Hashmap();
 
