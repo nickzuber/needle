@@ -24,7 +24,7 @@ gulp.task('dispatch', function(){
         extname: '.min.js'
     }))
     .pipe(header(banner, {pkg: pkg}))
-    .pipe(gulp.dest('test/scripts/'))
+    .pipe(gulp.dest('examples/scripts/'))
     .pipe(gulp.dest('build'));
 });
 
