@@ -13,6 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/nickzuber/needle.git"
   },
+  "author": "Nick Zuber <zuber.nicholas@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickzuber/needle/issues"
+  },
   "keywords": [
     "needle",
     "data structures",
@@ -23,11 +28,6 @@
     "javascript",
     "library"
   ],
-  "author": "Nick Zuber <zuber.nicholas@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nickzuber/needle/issues"
-  },
   "homepage": "https://github.com/nickzuber/needle#readme",
   "dependencies": {},
   "devDependencies": {
