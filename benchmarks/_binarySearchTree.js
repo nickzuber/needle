@@ -1,5 +1,6 @@
 
 // # Binary Search Tree tests
+// TODO: finish this benchmark
 
 'use strict';
 

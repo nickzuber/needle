@@ -3,7 +3,7 @@
  * {buckets} Array, the container of all the entries in the hashmap
  * {current} Node, the node of the current entry in the hashmap
  * 
- * Time complexities (average)
+ * Asymptotic time complexities
  * +-------------------+
  * | put      |  O(1)  |
  * | get      |  O(1)  |

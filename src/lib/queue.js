@@ -4,7 +4,7 @@
  * {back} Node, the last element in the queue
  * {size} number, the number of nodes in the queue
  * 
- * Time complexities (worst case)
+ * Asymptotic time complexities
  * +-------------------+
  * | enqueue  |  O(1)  |
  * | dequeue  |  O(1)  |

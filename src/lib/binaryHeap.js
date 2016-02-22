@@ -5,7 +5,7 @@
  * {compare} function, compares two elements to each other to determine the ordering of the heap
  *                     defaults to basic (a < b) => true
  * 
- * Time complexities (worst case)
+ * Asymptotic time complexities
  * +-------------------------+
  * | peek      |  O(1)       |
  * | size      |  O(1)       |

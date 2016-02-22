@@ -3,7 +3,7 @@
  * {head} Node, the head of the linked list
  * {size} number, the number of nodes in the linked list
  * 
- * Time complexities (worst case)
+ * Asymptotic time complexities
  * +-----------------------+
  * | insertFront  |  O(1)  |
  * | insertNth    |  O(n)  |

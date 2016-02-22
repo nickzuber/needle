@@ -1,5 +1,6 @@
 
 // # Binary Heap tests
+// TODO: finish this benchmark
 
 'use strict';
 

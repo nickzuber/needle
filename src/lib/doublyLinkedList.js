@@ -4,7 +4,7 @@
  * {tail} Node, the end of the linked list
  * {size} number, the number of nodes in the linked list
  * 
- * Time complexities (average)
+ * Asymptotic time complexities
  * +-----------------------+
  * | insertFront  |  O(1)  |
  * | insertNth    |  O(n)  |

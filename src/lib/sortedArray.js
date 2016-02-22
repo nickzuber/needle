@@ -2,7 +2,7 @@
  * Sorted Array
  * {elements} Array, holds all of the sorted elements
  * 
- * Time complexities (average)
+ * Asymptotic time complexities
  * +------------------------+
  * | get      |  O(1)       |
  * | insert   |  O(log(n)) ---- TODO: optimize; currently running around O(n/2) - due to insertion speed bogging down (look up is fine)

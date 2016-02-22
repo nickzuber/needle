@@ -3,7 +3,7 @@
  * {top} Node, the first element in the stack
  * {size} number, the number of nodes in the stack
  * 
- * Time complexities (worst case)
+ * Asymptotic time complexities
  * +----------------+
  * | peek  |  O(1)  |
  * | push  |  O(1)  |

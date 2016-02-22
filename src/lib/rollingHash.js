@@ -2,7 +2,7 @@
  * Rolling Hash
  * {state} number, the internal hash value of the window
  * 
- * Time complexities (average)
+ * Asymptotic time complexities
  * +-------------------+
  * | skip     |  O(1)  |
  * | append   |  O(1)  |
