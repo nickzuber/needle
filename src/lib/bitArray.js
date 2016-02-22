@@ -18,119 +18,75 @@
 
 'use strict';
 
-/** @private
- * Convert an integer into an array of its bits.
- * @param {number}
- * @return {array} the array of bits
- */
-const shred = function(n){
-  var bits = [];
-  do{
-    bits.push(n & 1);
-  }while(n >>=1 > 0);
-  return bits;
-}
-
 /**
- * Instantiates a bit array with either an optional size parameter which
- * will trim or expand the input bit sequence if implied.
- * @param {number|array} the input sequence of bits
- * @param {number} [size] the size of the bit array
- * @param {number} [bit_type = 0] grow with 0s or 1s
- * @return {array} the array of bits
+ * Transforms input into a number.
+ * @param {*} input to become a number
+ * @return {number} number version of input
  */
-const BitArray = function(bits, size, bit_type){
-  // Empty bit array
-  if(typeof bits === 'undefined'){
-    this.bits = [];
-    return;
+var shred = function(n){
+  if(typeof n !== 'string'){
+    n = JSON.stringify(n)
   }
-  if(!(bits instanceof Array || typeof bits === 'number')){
-    throw new TypeError("Invalid argument: expecting an array or number in BitArray constructor.");
+  if(typeof n === 'number'){
+    return n;
   }
-  this.bits = [];
-  if(bits.length){
-    bits.map(function(bit){
-      this.bits.push(bit ? 1 : 0);
-    });
-  }else{
-    this.bits = shred(bits);
-  }
-  if(typeof size === 'number'){
-    bit_type = bit_type || 0;
-    this.resize(size, bit_type);
-  }
-  // Resolve backwards insertion of bits
-  this.bits.reverse();
-}
-
-/**
- * Resolve the complement bit array.
- * @param {BitArray} [bitarray = this] input bit array to complement
- * @return {BitArray} the complement bit array
- */
-BitArray.prototype.complement = function(bitarray){
-  if(typeof bitarray === 'undefined'){
-    bitarray = this;
-  }
-  // If not bit array, attempt to convert
-  else if(!(bitarray instanceof BitArray)){
-    bitarray = new BitArray(bitarray);
-  }
-  var _bitarray = new BitArray();
-  bitarray = bitarray.bits.map(function(bit){
-    _bitarray.bits.push(!bit ? 1 : 0);
+  var res = 0;
+  n.split("").map(function(bit){
+    res += bit.charCodeAt(0);
   });
-  return _bitarray.bits;
-};
+  return res;
+}
+
+/** Bitwise operators treat their operands as a sequence of 32 bits (zeros and ones) */
+const INTEGER_SIZE = 32;
 
 /**
- * Shrinks or grows the bit array.
- * @param {number} the size to convert to
- * @param {number} [bit_type = 0] grow with 0s or 1s
+ * Instantiates a bit array with given size.
+ * @param {number} the size of the bit array
  * @return {void}
  */
-BitArray.prototype.resize = function(size, bit_type){
-  var bit = !!bit_type ? 1 : 0;
+const BitArray = function(size){
+  this.data = [];
   if(typeof size !== 'number'){
-
+    size = shred(size);
   }
-  if(size >= this.bits.length){
-    for(var i=0; i<size; ++i){
-      this.bits.push(bit_type);
-    }
+  for(var i=0; i<Math.ceil(size/INTEGER_SIZE); ++i){
+    this.data.push(0);
+  }
+}
+
+/**
+ * Sets the bit from the bit array at desired location. It is important to
+ * note that indexing starts at 0 (where 0 refers to the first element).
+ * @param {number} the position of bit 
+ * @param {boolean} the new value of bit
+ * @return {void}
+ */
+BitArray.prototype.set = function(index, value){
+  var _index = Math.floor(index++/INTEGER_SIZE);
+  if(value){
+    this.data[_index] |= 1 << (INTEGER_SIZE - index);
   }else{
-    for(var i=size; i<this.bits.length; ++i){
-      this.bits.pop();
+    this.data[_index] &= ~(1 << (INTEGER_SIZE- index));
+  }
+};
+
+/**
+ * Converts the bit array into a string of bits.
+ * @param {void}
+ * @return {string} the string of bits for the bit array
+ */
+BitArray.prototype.toString = function(){
+  var bitString = "";
+  this.data.map(function(sequence){
+    for (var i = 0; i<INTEGER_SIZE; i++){
+      bitString += String(sequence >>> 31);
+      sequence <<= 1;
     }
-  }
-};
-
-/**
- * Returns the bit from the bit array at desired location.
- * @param {number} the bit to find
- * @return {number} the bit at desired index
- */
-BitArray.prototype.get = function(index){
-  if(index < 0 || index >= this.bits.length){
-    throw new Error("Index out of bounds in BitArray.get");
-  }
-  return this.bits[index];
-};
-
-/**
- * Sets the bit from the bit array at desired location.
- * @param {number} the bit to find
- * @param {number} the value of bit
- * @return {void} 
- */
-BitArray.prototype.set = function(index, bit_type){
-  if(index < 0 || index >= this.bits.length){
-    throw new Error("Index out of bounds in BitArray.get");
-  }
-  var bit = !!bit_type ? 1 : 0;
-  this.bits[index] = bit;
-};
+    bitString.split("").reverse().join("");
+  });
+  return bitString;
+}
 
 /**
  * Returns the size of the bit array.
@@ -138,5 +94,5 @@ BitArray.prototype.set = function(index, bit_type){
  * @return {number} the size of the bit array
  */
 BitArray.prototype.size = function(){
-  return this.bits.length;
+  return this.data.length * INTEGER_SIZE;
 };
