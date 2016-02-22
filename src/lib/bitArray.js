@@ -63,12 +63,29 @@ const BitArray = function(size){
  * @return {void}
  */
 BitArray.prototype.set = function(index, value){
+  if(index < 0 || index >= this.data.length * INTEGER_SIZE){
+    throw new Error("Index out of bounds in BitArray.set");
+  }
   var _index = Math.floor(index++/INTEGER_SIZE);
-  if(value){
+  if(!!value){
     this.data[_index] |= 1 << (INTEGER_SIZE - index);
   }else{
     this.data[_index] &= ~(1 << (INTEGER_SIZE- index));
   }
+};
+
+/**
+ * Returns the bit from the bit array at desired location.
+ * @param {number} the bit to find
+ * @return {number} the bit at desired index
+ */
+BitArray.prototype.get = function(index){
+  if(index < 0 || index >= this.data.length * INTEGER_SIZE){
+    throw new Error("Index out of bounds in BitArray.get");
+  }
+  var _index = Math.floor(index++/INTEGER_SIZE);
+  var seqCpy = this.data[_index];
+  return (seqCpy >> INTEGER_SIZE-index) & 1;
 };
 
 /**
@@ -96,3 +113,5 @@ BitArray.prototype.toString = function(){
 BitArray.prototype.size = function(){
   return this.data.length * INTEGER_SIZE;
 };
+
+module.exports = BitArray;
