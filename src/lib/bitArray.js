@@ -24,11 +24,11 @@
  * @return {number} number version of input
  */
 var shred = function(n){
-  if(typeof n !== 'string'){
-    n = JSON.stringify(n)
-  }
   if(typeof n === 'number'){
     return n;
+  }
+  if(typeof n !== 'string'){
+    n = JSON.stringify(n)
   }
   var res = 0;
   n.split("").map(function(bit){
@@ -39,13 +39,15 @@ var shred = function(n){
 
 /** Bitwise operators treat their operands as a sequence of 32 bits (zeros and ones) */
 const INTEGER_SIZE = 32;
+const INT_MIN = -2147483648;
+const INT_MAX = 2147483647;
 
-/** TODO: defaultValue is backwards
+/** 
  * Instantiates a bit array with given size.
  * @param {number} the size of the bit array
  * @return {void}
  */
-const BitArray = function(size, defaultValue){
+const BitArray = function(size){
   this.data = [];
   if(typeof size === 'undefined'){
     return; // Empty instance of a bit array
@@ -53,16 +55,8 @@ const BitArray = function(size, defaultValue){
   if(typeof size !== 'number'){
     size = shred(size);
   }
-  if(typeof defaultValue === 'number'){
-    if(defaultValue < -2147483648 || defaultValue > 2147483647){
-      throw new Error("Default value for BitArray is out of range in BitArray constructor");
-    }
-  }else if(typeof defaultValue !== 'undefined'){
-    throw new TypeError("Invalid argument: expected a number for default value in BitArray constructor");
-  }
-  var dv = defaultValue || 0;
   for(var i=0; i<Math.ceil(size/INTEGER_SIZE); ++i){
-    this.data.push(dv);
+    this.data.push(0);
   }
 }
 
