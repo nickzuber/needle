@@ -40,18 +40,29 @@ var shred = function(n){
 /** Bitwise operators treat their operands as a sequence of 32 bits (zeros and ones) */
 const INTEGER_SIZE = 32;
 
-/**
+/** TODO: defaultValue is backwards
  * Instantiates a bit array with given size.
  * @param {number} the size of the bit array
  * @return {void}
  */
-const BitArray = function(size){
+const BitArray = function(size, defaultValue){
   this.data = [];
+  if(typeof size === 'undefined'){
+    return; // Empty instance of a bit array
+  }
   if(typeof size !== 'number'){
     size = shred(size);
   }
+  if(typeof defaultValue === 'number'){
+    if(defaultValue < -2147483648 || defaultValue > 2147483647){
+      throw new Error("Default value for BitArray is out of range in BitArray constructor");
+    }
+  }else if(typeof defaultValue !== 'undefined'){
+    throw new TypeError("Invalid argument: expected a number for default value in BitArray constructor");
+  }
+  var dv = defaultValue || 0;
   for(var i=0; i<Math.ceil(size/INTEGER_SIZE); ++i){
-    this.data.push(0);
+    this.data.push(dv);
   }
 }
 
@@ -86,6 +97,26 @@ BitArray.prototype.get = function(index){
   var _index = Math.floor(index++/INTEGER_SIZE);
   var seqCpy = this.data[_index];
   return (seqCpy >> INTEGER_SIZE-index) & 1;
+};
+
+/**
+ * Resolve the complement bit array.
+ * @param {BitArray} [bitarray = this] input bit array to complement
+ * @return {BitArray} the complement bit array
+ */
+BitArray.prototype.complement = function(bitarray){
+  if(typeof bitarray === 'undefined'){
+    bitarray = this;
+  }
+  // If not bit array, attempt to convert
+  else if(!(bitarray instanceof BitArray)){
+    bitarray = new BitArray(bitarray);
+  }
+  var _bitarray = new BitArray();
+  bitarray.data.map(function(sequence){
+    _bitarray.data.push(~sequence);
+  });
+  return _bitarray;
 };
 
 /**

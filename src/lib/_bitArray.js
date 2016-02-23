@@ -1,8 +1,9 @@
 
 /** @deprecated
- *  @probablyWrong
+ * 
  * Bit Array
  * {bits} Array, the array of bits
+ * currently using this as a reference while converting to an *actual* bit array
  * 
  * Asymptotic time complexities
  * +-----------------------+
