@@ -1,6 +1,6 @@
 /**
  * Bit Array
- * {bits} Array, the array of bits
+ * {data} Array, the array of bit sequences
  * 
  * Asymptotic time complexities
  * +-----------------------+
@@ -44,7 +44,7 @@ const INT_MAX = 2147483647;
 
 /** 
  * Instantiates a bit array with given size.
- * @param {number} the size of the bit array
+ * @param {number} [size = 0] the size of the bit array
  * @return {void}
  */
 const BitArray = function(size){
@@ -94,6 +94,27 @@ BitArray.prototype.get = function(index){
 };
 
 /**
+ * Returns the size of the bit array.
+ * @param {void} 
+ * @return {number} the size of the bit array
+ */
+BitArray.prototype.size = function(){
+  return this.data.length * INTEGER_SIZE;
+};
+
+/**
+ * Adjusts the size of the bit array.
+ * @param {number} the new size of the bit array
+ * @return {void} 
+ */
+BitArray.prototype.resize = function(size){
+  if(typeof bitarray !== 'number'){
+    throw new TypeError("");
+  }
+  return this.data.length * INTEGER_SIZE;
+};
+
+/**
  * Resolve the complement bit array.
  * @param {BitArray} [bitarray = this] input bit array to complement
  * @return {BitArray} the complement bit array
@@ -114,6 +135,66 @@ BitArray.prototype.complement = function(bitarray){
 };
 
 /**
+ * Resolve the union bit array.
+ * @param {BitArray} [bitarray = this] input bit array to unionize
+ * @return {BitArray} the complement bit array
+ */
+BitArray.prototype.union = function(bitarray){
+  if(typeof bitarray === 'undefined'){
+    throw new Error("Undefined bitarray argument in BitArray.union");
+  }else if(!(bitarray instanceof BitArray)){
+    throw new TypeError("Invalid argument: expected BitArray as an argument in BitArray.union");
+  }else if(bitarray.size() !== this.size()){
+    throw new Error("BitArrays must be of same size to resolve a union in BitArray.union");
+  }
+  var _bitarray = new BitArray();
+  for(var i=0; i<this.data.length; ++i){
+    _bitarray.data.push(this.data[i] | bitarray.data[i]);
+  }
+  return _bitarray;
+};
+
+/**
+ * Resolve the intersection bit array.
+ * @param {BitArray} [bitarray = this] input bit array to intersect
+ * @return {BitArray} the complement bit array
+ */
+BitArray.prototype.intersection = function(bitarray){
+  if(typeof bitarray === 'undefined'){
+    throw new Error("Undefined bitarray argument in BitArray.union");
+  }else if(!(bitarray instanceof BitArray)){
+    throw new TypeError("Invalid argument: expected BitArray as an argument in BitArray.union");
+  }else if(bitarray.size() !== this.size()){
+    throw new Error("BitArrays must be of same size to resolve a union in BitArray.union");
+  }
+  var _bitarray = new BitArray();
+  for(var i=0; i<this.data.length; ++i){
+    _bitarray.data.push(this.data[i] & bitarray.data[i]);
+  }
+  return _bitarray;
+};
+
+/**
+ * Resolve the difference bit array.
+ * @param {BitArray} [bitarray = this] input bit array to differentiate
+ * @return {BitArray} the complement bit array
+ */
+BitArray.prototype.difference = function(bitarray){
+  if(typeof bitarray === 'undefined'){
+    throw new Error("Undefined bitarray argument in BitArray.union");
+  }else if(!(bitarray instanceof BitArray)){
+    throw new TypeError("Invalid argument: expected BitArray as an argument in BitArray.union");
+  }else if(bitarray.size() !== this.size()){
+    throw new Error("BitArrays must be of same size to resolve a union in BitArray.union");
+  }
+  var _bitarray = new BitArray();
+  for(var i=0; i<this.data.length; ++i){
+    _bitarray.data.push(this.data[i] & ~(bitarray.data[i]));
+  }
+  return _bitarray;
+};
+
+/**
  * Converts the bit array into a string of bits.
  * @param {void}
  * @return {string} the string of bits for the bit array
@@ -129,14 +210,5 @@ BitArray.prototype.toString = function(){
   });
   return bitString;
 }
-
-/**
- * Returns the size of the bit array.
- * @param {void} 
- * @return {number} the size of the bit array
- */
-BitArray.prototype.size = function(){
-  return this.data.length * INTEGER_SIZE;
-};
 
 module.exports = BitArray;

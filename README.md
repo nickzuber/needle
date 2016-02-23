@@ -44,7 +44,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 ---
 
 #### Arrays
- - Bit Array
+ - [Bit Array](#bitarray)
  - Bitmap
  - Hashed Array Tree
  - [Sorted Array](#sortedarray)
@@ -128,6 +128,19 @@ function defaultCompare(a, b){
  - **size**() - *number* - Returns the amount of elements stored in the heap.
  - **insert**(< * >data) - *void* - Inserts the element given by `data` into the heap and adjusts the heap accordingly.
  - **delete**() - *void* - Removes the root or top element from the heap and adjusts the heap accordingly.
+
+### <a href="#bitarray" name="bitarray">Needle.BitArray()</a>
+**data** - *Array* - The array of bit sequences.<br />
+ 
+ - **(constructor)**([< *number* >size = 0]) - *object* - Creates a Bit Array and allocates memory for the `size` if argument is given.
+ - **get**(< *number* >index) - *number* - Returns the bit in the BitArray at location `index`.
+ - **set**(< *number* >index, < *boolean* >value) - *void* - 
+ - **size**(< *number* >size) - *void* - 
+ - **resize**() - *void* - Adjusts the BitArray size to the given argument `size`.
+ - **complement**() - *BitArray* - Resolves the complement of the calling BitArray.
+ - **union**(< *BitArray* >bitarray) - *BitArray* - Resolves the union between the calling BitArray and the argument `bitarray`.
+ - **intersection**(< *BitArray* >bitarray) - *BitArray* - Resolves the intersection between the calling BitArray and the argument `bitarray`.
+ - **difference**(< *BitArray* >bitarray) - *BitArray* - Resolves the difference between the calling BitArray and the argument `bitarray`.
 
 ### <a href="#doublylinkedlist" name="doublylinkedlist">Needle.DoublyLinkedList()</a>
 **head** - *Node* - The first node in the linked list.<br />

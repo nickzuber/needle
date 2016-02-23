@@ -12,6 +12,7 @@ const BinarySearchTree = require('./lib/binarySearchTree.js');
 const Hashmap = require('./lib/hashmap.js');
 const SortedArray = require('./lib/sortedArray.js');
 const RollingHash = require('./lib/rollingHash.js');
+const BitArray = require('./lib/bitArray.js');
 
 const Needle = {};
 
@@ -24,6 +25,7 @@ Needle.BinarySearchTree = BinarySearchTree;
 Needle.Hashmap = Hashmap;
 Needle.SortedArray = SortedArray;
 Needle.RollingHash = RollingHash;
+Needle.BitArray = BitArray;
 
 exports = module.exports = Needle;
 
