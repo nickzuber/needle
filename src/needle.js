@@ -13,6 +13,7 @@ const Hashmap = require('./lib/hashmap.js');
 const SortedArray = require('./lib/sortedArray.js');
 const RollingHash = require('./lib/rollingHash.js');
 const BitArray = require('./lib/bitArray.js');
+const KaryTree = require('./lib/karyTree.js');
 
 const Needle = {};
 
@@ -26,6 +27,7 @@ Needle.Hashmap = Hashmap;
 Needle.SortedArray = SortedArray;
 Needle.RollingHash = RollingHash;
 Needle.BitArray = BitArray;
+Needle.KaryTree = KaryTree;
 
 exports = module.exports = Needle;
 
