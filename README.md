@@ -1,13 +1,9 @@
 <p align="center">
-  <img src="./examples/scripts/logo.png" /><br />
-  <img src="https://travis-ci.org/nickzuber/Needle.svg?branch=master" /> <img src="https://badge.fury.io/js/node-needle.svg" />
+  <img src="./examples/scripts/logo.png" /><br /><br />
+  <img src="https://travis-ci.org/nickzuber/Needle.svg?branch=master" /> <img src="https://badge.fury.io/js/node-needle.svg" /><br />
+  Needle is a standalone extensive data structure library in JavaScript.
 </p>
 
----
-
-<h1><a href="https://github.com/nickzuber/needle">Needle.js</a></h1>
-
-Needle is a standalone extensive data structure library in JavaScript.
 
 ## Installation 
 
