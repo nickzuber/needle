@@ -74,7 +74,7 @@ Needle has a variety of different data structures at its disposal. Here is a ref
 
 #### Multiway Trees
  - Ternary Tree
- - K-ary Tree
+ - [K-ary Tree](#karytree)
  - And-Or Tree
 
 #### Hashes

@@ -1,6 +1,6 @@
 {
   "name": "node-needle",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A standalone extensive data structure library in JavaScript.",
   "main": "src/needle.js",
   "scripts": {
