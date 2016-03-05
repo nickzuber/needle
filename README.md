@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./examples/scripts/logo.png" />
+  <img src="./examples/scripts/logo.png" /><br />
   <img src="https://travis-ci.org/nickzuber/Needle.svg?branch=master" /> <img src="https://badge.fury.io/js/node-needle.svg" />
 </p>
 
