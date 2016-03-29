@@ -11,31 +11,31 @@
 
 ## Installation 
 
+
+You can install Needle inside your [Node environment with NPM](https://www.npmjs.com/package/node-needle), and it's as easy as:
+```
+$ npm install --save node-needle
+```
 Installing Needle on the client side is simple. Just download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/build/needle.min.js) and include it in your webpage:
 ```html
 <!-- The complete Needle library -->
 <script src="path/to/needle.min.js"></script>
 ```
 
-If you'd like to install Needle on the server side using [npm](https://www.npmjs.com/package/node-needle), it's as easy as:
-```
-$ npm install node-needle --save
-```
-
 ## Usage
 
-When you have Needle installed, you can use it on the client like so:
-```javascript
-// Needle gets pushed onto the global scope under the alias "Needle"
-var bst = new Needle.BinarySearchTree();
-```
-
-Or you can use it on the server in Node like so:
+When you have Needle installed, you can use it on the server in Node like so:
 ```javascript
 const Needle = require('node-needle');
 
 // Example: Create a new instance of a hashmap
 var map = Needle.Hashmap();
+```
+
+or you can just use it on the client side like so:
+```javascript
+// Needle gets pushed onto the global scope under the alias "Needle"
+var bst = new Needle.BinarySearchTree();
 ```
 
 
