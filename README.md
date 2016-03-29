@@ -16,7 +16,8 @@ You can install Needle inside your [Node environment with NPM](https://www.npmjs
 ```
 $ npm install --save node-needle
 ```
-Installing Needle on the client side is simple. Just download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/build/needle.min.js) and include it in your webpage:
+
+If you prefer to use Needle on the client side, just download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/build/needle.min.js) and include it in your webpage:
 ```html
 <!-- The complete Needle library -->
 <script src="path/to/needle.min.js"></script>
@@ -134,6 +135,7 @@ function defaultCompare(a, b){
  - **size**() - *number* - Returns the amount of elements stored in the heap.
  - **insert**(< * >data) - *void* - Inserts the element given by `data` into the heap and adjusts the heap accordingly.
  - **delete**() - *void* - Removes the root or top element from the heap and adjusts the heap accordingly.
+ - **heapify**(< *array* >arr) - *void* - Converts the input array into a legal binary heap.
 
 ### <a href="#bitarray" name="bitarray">Needle.BitArray()</a>
 **data** - *Array* - The array of bit sequences.<br />
