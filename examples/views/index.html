@@ -9,8 +9,11 @@
   <script type="text/javascript" src="needle.min.js"></script>
   <script>
 
-    var heap = new Needle.BinaryHeap();
+    var heap = new Needle.BinaryHeap(function(a, b){
+      return (a > b);
+    });
 
+    heap.heapify([1, 2, 3, 4, 7, 8, 9, 10, 14, 16]);
     
     window.heap = heap;
 

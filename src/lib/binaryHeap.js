@@ -11,6 +11,7 @@
  * | size      |  O(1)       |
  * | insert    |  O(log(n))  |
  * | delete    |  O(log(n))  |
+ * | heapify   |  O(nlog(n)) |
  * +-------------------------+
  * 
  * TODO: let user set a custom `equal` function
@@ -136,13 +137,24 @@ BinaryHeap.prototype.insert = function(data){
 
 /**
  * Removes the min in the heap and reorders heap with new min.
- * @param {void}
+ * @param {number} if specified, removes that node
  * @return {void}
  */
-BinaryHeap.prototype.delete = function(){
-  // If the heap is empty
-  if(this.heap.length <= 1){
-    throw new Error("Attempted to remove min element from an empty binary heap in BinaryHeap.delete");
+BinaryHeap.prototype.delete = function(i){
+  // Add +1 to index to account for the fact we hold index 0 hostage
+  // internally, so the elements are really +1 index higher
+  if(typeof i === 'number'){
+    ++i;
+  }else{
+    i = 1;
+  }
+
+  if(typeof i !== 'number'){
+    throw new TypeError("Expected a number as argument in BinaryHeap.delete");
+  }else if(i < 0 || i >= this.heap.length){
+    throw new Error('Index out of bounds in BinaryHeap.delete');
+  }else if(this.heap.length <= 1){
+    throw new Error("Attempted to remove min element from an empty heap in BinaryHeap.delete");
   }
   // If only one element left before deletion, remove last element and exit
   if(this.heap.length === 2){
@@ -151,7 +163,7 @@ BinaryHeap.prototype.delete = function(){
   }
 
   // Swap min with last element, and delete last element
-  this.heap[1] = this.heap.pop();
+  this.heap[i] = this.heap.pop();
 
   // If there's one element left in the heap
   if(this.heap.length === 2){
@@ -199,10 +211,64 @@ BinaryHeap.prototype.delete = function(){
 
       ++errorControl;
       if(errorControl > 1000){
-        throw new Error("Timeout error in BinaryHeap.removeMin. Please report this to https://github.com/nickzuber/needle/issues");
+        throw new Error("Timeout error in BinaryHeap.delete. Please report this to https://github.com/nickzuber/needle/issues");
       }
     }
   }
 };
+
+
+/**
+ * Actually does the heapify-ing.
+ * @param {number} the index of the current parent node
+ * @return {void}
+ */
+BinaryHeap.prototype._heapify = function(i){
+  var left = i*2,
+      right = left+1,
+      cur = i,
+      inBounds = this.heap.length;
+
+  if(left < this.heap.length && safeCompare(this.heap[left], this.heap[cur], this.compare)){
+    cur = left;
+  }
+  if(right < this.heap.length && safeCompare(this.heap[right], this.heap[cur], this.compare)){
+    cur = right;
+  }
+  if(cur != i){
+    this.heap.swap(i, cur);
+    this._heapify(cur);
+  }
+
+
+  // Check if current node is a leaf
+  if(!(typeof this.heap[i*2] === 'undefined' && typeof this.heap[i*2+1] === 'undefined')){
+    if(safeCompare(this.heap[i*2], this.heap[i], this.compare) || safeCompare(this.heap[i*2+1], this.heap[i], this.compare)){
+      if(safeCompare(this.heap[i*2], this.heap[i*2+1], this.compare)){
+        this.heap.swap(i, i*2);
+        this._heapify(i*2);
+      }else{
+        this.heap.swap(i, i*2+1);
+        this._heapify(i*2+1);
+      }
+    }
+  }
+}
+
+/**
+ * Reorganizes the input array into a legal binary heap.
+ * @param {number} the array to turn into a heap
+ * @return {array} the new array in heap form
+ */
+BinaryHeap.prototype.heapify = function(arr){
+  this.heap = arr;
+  this.heap.unshift(null);
+  console.log(this.heap);
+  for(var i = Math.floor(arr.length-1); i >= 1; --i){
+    this._heapify(i);
+  }
+  console.log(this.heap);
+};
+
 
 module.exports = BinaryHeap;
