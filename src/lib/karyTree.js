@@ -33,6 +33,9 @@ const KaryTree = function(data){
  * @return {boolean} returns true if node is a leaf
  */
 KaryTree.prototype.isLeaf = function(node){
+  if(typeof node === 'undefined' || node === null){
+    throw new TypeError('Attempting to check the leaves of undefined node in KaryTree.isLeaf');
+  }
   return (node.children.length === 0);
 }
 
