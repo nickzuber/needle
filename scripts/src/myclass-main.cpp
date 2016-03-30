@@ -1,18 +1,28 @@
-#include <node.h>
-#include <v8.h>
+#include <cmath>
+#include <nan.h>
 
-using namespace v8;
+void Pow(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 
-void Method(const v8::FunctionCallbackInfo<Value>& args) {
-  Isolate* isolate = Isolate::GetCurrent();
-  HandleScope scope(isolate);
-  args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world"));
+    if (info.Length() < 2) {
+        Nan::ThrowTypeError("Wrong number of arguments");
+        return;
+    }
+
+    if (!info[0]->IsNumber() || !info[1]->IsNumber()) {
+        Nan::ThrowTypeError("Both arguments should be numbers");
+        return;
+    }
+
+    double arg0 = info[0]->NumberValue();
+    double arg1 = info[1]->NumberValue();
+    v8::Local<v8::Number> num = Nan::New(pow(arg0, arg1));
+
+    info.GetReturnValue().Set(num);
 }
 
-void Init(Handle<Object> exports) {
-  Isolate* isolate = Isolate::GetCurrent();
-  exports->Set(String::NewFromUtf8(isolate, "hello"),
-      FunctionTemplate::New(isolate, Method)->GetFunction());
+void Init(v8::Local<v8::Object> exports) {  
+    exports->Set(Nan::New("pow").ToLocalChecked(),
+                 Nan::New<v8::FunctionTemplate>(Pow)->GetFunction());
 }
 
-NODE_MODULE(hello, Init)
+NODE_MODULE(addon, Init)  
