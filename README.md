@@ -1,4 +1,4 @@
-## [Needle](https://github.com/nickzuber/needle)
+# [Needle](https://github.com/nickzuber/needle)
 
 <img src="https://travis-ci.org/nickzuber/needle.svg?branch=master" />
 <img src="https://badge.fury.io/js/node-needle.svg" />
