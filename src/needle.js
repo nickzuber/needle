@@ -1,5 +1,7 @@
-
-// # Needle object that contains all core data structures
+/**
+ * Native Needle definition file for Node and browser.
+ * All of the data structures are bound to the Needle object and shipped.
+ */
 
 'use strict';
 
