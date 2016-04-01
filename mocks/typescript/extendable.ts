@@ -12,6 +12,16 @@ class Map extends Needle.Hashmap {
   }
 }
 
+class List extends Needle.SinglyLinkedList {
+  constructor() {
+    super();
+  }
+
+  resolveScope() {
+    console.log(this);
+  }
+}
+
 var myMap = new Map();
 
 console.log(myMap.resolveScope());
