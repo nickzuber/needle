@@ -1,8 +1,45 @@
 /**
  * TypeScript Needle definition file.
- * All of the data structures are bound to the Needle object and shipped.
+ * Forms the object.
  */
 
-declare module "needle" {
-  export var name: string;
+declare module 'Needle' {
+  export class SinglyLinkedList {
+    //
+  }
+  export class Queue {
+    //
+  }
+  export class Stack {
+    //
+  }
+  export class DoublyLinkedList {
+    //
+  }
+  export class BinaryHeap {
+    heap: Array<any>;
+    compare: Function;
+    constructor(compare?);
+    peek(): Number;
+    size(): Number;
+    insert(data: any): void;
+  }
+  export class BinarySearchTree {
+    //
+  }
+  export class Hashmap {
+    //
+  }
+  export class SortedArray {
+    //
+  }
+  export class RollingHash {
+    //
+  }
+  export class BitArray {
+    //
+  }
+  export class KaryTree {
+    //
+  }
 }
