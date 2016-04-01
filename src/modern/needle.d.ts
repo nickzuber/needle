@@ -1,6 +1,6 @@
 /**
  * TypeScript Needle definition file.
- * Forms the object.
+ * Forms the object. 
  */
 
 declare module 'Needle' {
