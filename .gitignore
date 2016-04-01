@@ -8,4 +8,3 @@ scripts/testing
 scripts/build
 
 # Various Builds
-mocks/**/*.js
