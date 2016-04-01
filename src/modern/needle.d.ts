@@ -5,96 +5,24 @@
 
 declare module 'Needle' {
   export class SinglyLinkedList {
-    size: Number;
-    data: Array<Number>;
-
-    constructor(size?);
-    set(index: Number, value: boolean): void;
-    get(index: Number): Number;
-    size(): Number;
-    resize(size: Number): void;
-    complement(BitArray?): BitArray;
-    union(BitArray?): BitArray;
-    intersection(BitArray?): BitArray;
-    difference(BitArray?): BitArray;
-
-    // Private Members
-    private shred(n: any): Number;
-    private INTEGER_SIZE: Number;
-    private INT_MIN: Number;
-    private INT_MAX: Number;
     // Public Members
 
     // Private Members
   }
 
   export class Queue {
-    size: Number;
-    data: Array<Number>;
-
-    constructor(size?);
-    set(index: Number, value: boolean): void;
-    get(index: Number): Number;
-    size(): Number;
-    resize(size: Number): void;
-    complement(BitArray?): BitArray;
-    union(BitArray?): BitArray;
-    intersection(BitArray?): BitArray;
-    difference(BitArray?): BitArray;
-
-    // Private Members
-    private shred(n: any): Number;
-    private INTEGER_SIZE: Number;
-    private INT_MIN: Number;
-    private INT_MAX: Number;
     // Public Members
 
     // Private Members
   }
 
   export class Stack {
-    size: Number;
-    data: Array<Number>;
-
-    constructor(size?);
-    set(index: Number, value: boolean): void;
-    get(index: Number): Number;
-    size(): Number;
-    resize(size: Number): void;
-    complement(BitArray?): BitArray;
-    union(BitArray?): BitArray;
-    intersection(BitArray?): BitArray;
-    difference(BitArray?): BitArray;
-
-    // Private Members
-    private shred(n: any): Number;
-    private INTEGER_SIZE: Number;
-    private INT_MIN: Number;
-    private INT_MAX: Number;
     // Public Members
 
     // Private Members
   }
 
   export class DoublyLinkedList {
-    size: Number;
-    data: Array<Number>;
-
-    constructor(size?);
-    set(index: Number, value: boolean): void;
-    get(index: Number): Number;
-    size(): Number;
-    resize(size: Number): void;
-    complement(BitArray?): BitArray;
-    union(BitArray?): BitArray;
-    intersection(BitArray?): BitArray;
-    difference(BitArray?): BitArray;
-
-    // Private Members
-    private shred(n: any): Number;
-    private INTEGER_SIZE: Number;
-    private INT_MIN: Number;
-    private INT_MAX: Number;
     // Public Members
 
     // Private Members
@@ -140,72 +68,18 @@ declare module 'Needle' {
   }
 
   export class Hashmap {
-    size: Number;
-    data: Array<Number>;
-
-    constructor(size?);
-    set(index: Number, value: boolean): void;
-    get(index: Number): Number;
-    size(): Number;
-    resize(size: Number): void;
-    complement(BitArray?): BitArray;
-    union(BitArray?): BitArray;
-    intersection(BitArray?): BitArray;
-    difference(BitArray?): BitArray;
-
-    // Private Members
-    private shred(n: any): Number;
-    private INTEGER_SIZE: Number;
-    private INT_MIN: Number;
-    private INT_MAX: Number;
     // Public Members
 
     // Private Members
   }
 
   export class SortedArray {
-    size: Number;
-    data: Array<Number>;
-
-    constructor(size?);
-    set(index: Number, value: boolean): void;
-    get(index: Number): Number;
-    size(): Number;
-    resize(size: Number): void;
-    complement(BitArray?): BitArray;
-    union(BitArray?): BitArray;
-    intersection(BitArray?): BitArray;
-    difference(BitArray?): BitArray;
-
-    // Private Members
-    private shred(n: any): Number;
-    private INTEGER_SIZE: Number;
-    private INT_MIN: Number;
-    private INT_MAX: Number;
     // Public Members
 
     // Private Members
   }
 
   export class RollingHash {
-    size: Number;
-    data: Array<Number>;
-
-    constructor(size?);
-    set(index: Number, value: boolean): void;
-    get(index: Number): Number;
-    size(): Number;
-    resize(size: Number): void;
-    complement(BitArray?): BitArray;
-    union(BitArray?): BitArray;
-    intersection(BitArray?): BitArray;
-    difference(BitArray?): BitArray;
-
-    // Private Members
-    private shred(n: any): Number;
-    private INTEGER_SIZE: Number;
-    private INT_MIN: Number;
-    private INT_MAX: Number;
     // Public Members
 
     // Private Members
@@ -213,7 +87,6 @@ declare module 'Needle' {
 
   export class BitArray {
     // Public Members
-    size: Number;
     data: Array<Number>;
 
     constructor(size?);
@@ -234,24 +107,6 @@ declare module 'Needle' {
   }
 
   export class KaryTree {
-    size: Number;
-    data: Array<Number>;
-
-    constructor(size?);
-    set(index: Number, value: boolean): void;
-    get(index: Number): Number;
-    size(): Number;
-    resize(size: Number): void;
-    complement(BitArray?): BitArray;
-    union(BitArray?): BitArray;
-    intersection(BitArray?): BitArray;
-    difference(BitArray?): BitArray;
-
-    // Private Members
-    private shred(n: any): Number;
-    private INTEGER_SIZE: Number;
-    private INT_MIN: Number;
-    private INT_MAX: Number;
     // Public Members
 
     // Private Members

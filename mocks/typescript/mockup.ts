@@ -3,15 +3,15 @@
 import * as Needle from "../../src/needle";
 
 const SinglyLinkedList = new Needle.SinglyLinkedList();
-const Queue = new Needle.SinglyLinkedList();
-const Stack = new Needle.SinglyLinkedList();
-const DoublyLinkedList = new Needle.SinglyLinkedList();
-const BinaryHeap = new Needle.SinglyLinkedList();
-const BinarySearchTree = new Needle.SinglyLinkedList();
-const Hashmap = new Needle.SinglyLinkedList();
-const SortedArray = new Needle.SinglyLinkedList();
-const RollingHash = new Needle.SinglyLinkedList();
-const BitArray = new Needle.SinglyLinkedList();
-const KaryTree = new Needle.SinglyLinkedList();
+const Queue = new Needle.Queue();
+const Stack = new Needle.Stack();
+const DoublyLinkedList = new Needle.DoublyLinkedList();
+const BinaryHeap = new Needle.BinaryHeap();
+const BinarySearchTree = new Needle.BinarySearchTree();
+const Hashmap = new Needle.Hashmap();
+const SortedArray = new Needle.SortedArray();
+const RollingHash = new Needle.RollingHash(256);
+const BitArray = new Needle.BitArray();
+const KaryTree = new Needle.KaryTree();
 
 console.log(Needle);
