@@ -5,19 +5,27 @@
 
 declare module 'Needle' {
   export class SinglyLinkedList {
-    //
+    // Public Members
+
+    // Private Members
   }
 
   export class Queue {
-    //
+    // Public Members
+
+    // Private Members
   }
 
   export class Stack {
-    //
+    // Public Members
+
+    // Private Members
   }
 
   export class DoublyLinkedList {
-    //
+    // Public Members
+
+    // Private Members
   }
 
   export class BinaryHeap {
@@ -25,7 +33,6 @@ declare module 'Needle' {
     heap: Array<any>;
     compare: Function;
 
-    // Public functions
     constructor(compare?);
     peek(): Number;
     size(): Number;
@@ -33,7 +40,7 @@ declare module 'Needle' {
     delete(i: Number): void;
     heapify(arr: Array<any>): void;
 
-    // Private functions
+    // Private Members
     private defaultCompare(a: any, b: any): boolean;
     private safeCompare(a: any, b: any, callback: Function): boolean;
   }
@@ -43,7 +50,6 @@ declare module 'Needle' {
     root: Node;
     compare: Function;
 
-    // Public functions
     constructor(compare?);
     hasRight(node: Node): boolean;
     hashLeft(node: Node): boolean;
@@ -56,28 +62,54 @@ declare module 'Needle' {
     insert(data: any): void;
     search(data: any): Node;
 
-    // Private functions
+    // Private Members
     private defaultCompare(a: any, b: any): boolean;
     private safeCompare(a: any, b: any, callback: Function): boolean;
   }
 
   export class Hashmap {
-    //
+    // Public Members
+
+    // Private Members
   }
 
   export class SortedArray {
-    //
+    // Public Members
+
+    // Private Members
   }
 
   export class RollingHash {
-    //
+    // Public Members
+
+    // Private Members
   }
 
   export class BitArray {
-    //
+    // Public Members
+    size: Number;
+    data: Array<Number>;
+
+    constructor(size?);
+    set(index: Number, value: boolean): void;
+    get(index: Number): Number;
+    size(): Number;
+    resize(size: Number): void;
+    complement(BitArray?): BitArray;
+    union(BitArray?): BitArray;
+    intersection(BitArray?): BitArray;
+    difference(BitArray?): BitArray;
+
+    // Private Members
+    private shred(n: any): Number;
+    private INTEGER_SIZE: Number;
+    private INT_MIN: Number;
+    private INT_MAX: Number;
   }
 
   export class KaryTree {
-    //
+    // Public Members
+
+    // Private Members
   }
 }

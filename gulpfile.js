@@ -5,7 +5,6 @@ var rename = require('gulp-rename'); // custom name for build files
 var browserify = require('gulp-browserify'); // compiles Needle module
 var header = require('gulp-header'); // custom comment header on build files
 var watch = require('gulp-watch'); // auto compile when editing
-var ts = require('gulp-typescript'); // compile typescript
 
 // Set banner for production file
 var pkg = require('./package.json');
