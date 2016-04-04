@@ -2,12 +2,13 @@
 
 
 >Needle is a standalone extensive data structure library in JavaScript.
+Install as an [npm package](https://www.npmjs.com/package/node-needle) or download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/build/needle.min.js).
 
 
 ## Installation 
 
 
-You can install Needle inside your [Node environment with NPM](https://www.npmjs.com/package/node-needle), and it's as easy as:
+You can install Needle as a [node package with npm](https://www.npmjs.com/package/node-needle), and it's as easy as:
 ```
 $ npm install --save node-needle
 ```
