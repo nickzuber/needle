@@ -1,3 +1,3 @@
 'use strict';
 
-require('bindings')('myclass');
+require('bindings')('addon.node');
