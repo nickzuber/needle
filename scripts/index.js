@@ -1,3 +1,3 @@
 'use strict';
 
-require('bindings')('addon.node');
+require('bindings')('addon');

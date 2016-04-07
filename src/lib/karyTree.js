@@ -14,7 +14,7 @@
  * 
  */
 
- 'use strict';
+'use strict';
 
 const Node = require('./multidirectional_tree_node.js');
 
@@ -27,7 +27,7 @@ const KaryTree = function(data){
   this.root = new Node(data);
 }
 
-/**
+/** @description
  * Checks if the given node is a leaf.
  * @param {Node} the node being checked
  * @return {boolean} returns true if node is a leaf
@@ -39,7 +39,7 @@ KaryTree.prototype.isLeaf = function(node){
   return (node.children.length === 0);
 }
 
-/**
+/** @description
  * Empties the subtree of the given node.
  * @param {Node} the root of the subtree being emptied
  * @return {void}
@@ -55,7 +55,7 @@ KaryTree.prototype.emptySubtree = function(node){
   node = null;
 }
 
-/**
+/** @description
  * Empties the entire tree.
  * @param {void}
  * @return {void}
@@ -68,7 +68,7 @@ KaryTree.prototype.emptyTree = function(){
   this.root = null;
 }
 
-/**
+/** @description
  * Search for a node in the tree.
  * @param {*} the data of the node being searched for
  * @param {Node} [node] the node where to begin the insertion. This should be left blank when called
