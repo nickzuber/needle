@@ -7,7 +7,8 @@
     "build": "gulp",
     "test": "node --harmony unit/*.js",
     "lint": "eslint src/*.js",
-    "ci": "node --harmony unit/*.js"
+    "ci": "node --harmony unit/*.js",
+    "gyp": "node-gyp configure build && gulp patch"
   },
   "repository": {
     "type": "git",

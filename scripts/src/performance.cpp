@@ -1,7 +1,14 @@
 #include <nan.h>
 
-void Pow(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 
+/** 
+ * TODO: Design performance 
+ * @param Function, process to analyze
+ * @return Number, performance in ms
+ */
+void Perf(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+
+	// Not really relevant - just playing around with some code to get a feel for addons atm
 	if (info.Length() < 2) {
 		Nan::ThrowTypeError("Wrong number of arguments");
 		return;
@@ -17,11 +24,6 @@ void Pow(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 	v8::Local<v8::Number> num = Nan::New(pow(arg0, arg1));
 
 	info.GetReturnValue().Set(num);
-}
-
-void Init(v8::Local<v8::Object> exports) {
-	exports->Set(Nan::New("pow").ToLocalChecked(),
-		Nan::New<v8::FunctionTemplate>(Pow)->GetFunction());
 }
 
 NODE_MODULE(addon, Init)

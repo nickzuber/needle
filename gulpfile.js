@@ -28,6 +28,12 @@ gulp.task('dispatch', function(){
     .pipe(gulp.dest('bin'));
 });
 
+// Temporary patch to node-gyp searching wrong directory
+gulp.task('patch', function(){
+    gulp.src(['scripts/build/**'])
+    .pipe(gulp.dest('build'));
+});
+
 // Watch files
 gulp.task('watch', function(){
     gulp.watch(['src/lib/*.js'], ['dispatch']);
