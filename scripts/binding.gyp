@@ -3,7 +3,7 @@
     {
       "target_name": "addon",
       "sources": [ 
-        "src/myclass-main.cpp"
+        "src/performance.cpp"
       ],
       "include_dirs": [
         "<!(node -e \"require('nan')\")"

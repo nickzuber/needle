@@ -60,6 +60,7 @@ var safePOW = function(a, b, m){
  * Computes the ascii digits of a string.
  * @param {string} the string to compute
  * @return {number} the ascii digits of the string as a number
+ * TODO: Convert to independent function - mutating string object is bad practice
  */
 String.prototype.ascii = function(){
   var ascii="";

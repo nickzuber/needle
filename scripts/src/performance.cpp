@@ -26,4 +26,8 @@ void Perf(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 	info.GetReturnValue().Set(num);
 }
 
+void Init(v8::Local<v8::Object> exports) {
+  exports->Set(Nan::New("test").ToLocalChecked(), Nan::New<v8::FunctionTemplate>(Perf)->GetFunction());
+}
+
 NODE_MODULE(addon, Init)
