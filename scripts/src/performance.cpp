@@ -2,7 +2,7 @@
 
 
 /** 
- * TODO: Design performance 
+ * TODO: Design performance class
  * @param Function, process to analyze
  * @return Number, performance in ms
  */
