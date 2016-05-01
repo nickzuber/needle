@@ -5,9 +5,9 @@
   "main": "src/needle.js",
   "scripts": {
     "build": "gulp",
-    "test": "node --harmony unit/*.js",
+    "bench": "node --harmony benchmarks/runTests.js",
+    "unit": "node --harmony unit/runTests.js",
     "lint": "eslint src/*.js",
-    "ci": "node --harmony unit/*.js",
     "gyp": "node-gyp configure build && gulp patch"
   },
   "repository": {

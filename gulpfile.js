@@ -29,6 +29,8 @@ gulp.task('dispatch', function(){
 });
 
 // Temporary patch to node-gyp searching wrong directory
+// UPDATE: Don't think I need this anymore but keeping just
+//         in case.
 gulp.task('patch', function(){
     gulp.src(['scripts/build/**'])
     .pipe(gulp.dest('build'));

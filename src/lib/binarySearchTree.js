@@ -14,8 +14,8 @@
  * | heightSubtree    | O(n)      |
  * | numNodesSubtree  | O(1)      |
  * | numLeavesSubtree | O(1)      |
- * | insert           | O(log(n)) |
- * | search           | O(log(n)) |
+ * | insert           | O(n)      |
+ * | search           | O(n)      |
  * +------------------------------+
  * 
  * TODO: let user set a custom `equal` function

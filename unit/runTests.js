@@ -14,7 +14,7 @@ var blackListedDirectories = [
 ];
 
 // Get all benchmark files to run
-recurseAllFilesInDirectory('./benchmarks', files);
+recurseAllFilesInDirectory('./unit', files);
 
 // Synchronously execute each file
 files.map(function(file){
@@ -48,13 +48,13 @@ function recurseAllFilesInDirectory(path, allFiles){
       }
     });
   }catch(e){
-    console.log('Unable to locate benchmark directory. Make sure you\'re running this file from the root directory.\n'+e.message);
+    console.log('Unable to locate unit directory. Make sure you\'re running this file from the root directory.\n'+e.message);
   }
 }
 
 function validFilePath(file){
   if(typeof file === 'string'){
-    var minimalSyntax = /^(([0-9a-zA-Z])+(:?\.)?)+(.spec.js)$/ig;
+    var minimalSyntax = /^(([0-9a-zA-Z])+(:?\.)?)+(.unit.js)$/ig;
     return file.match(minimalSyntax);
   }else if(file instanceof Array){
     if(!file.length){
@@ -62,7 +62,7 @@ function validFilePath(file){
     }
     var _fileTokens = file.split(".");
     var _extension = fileTokens.pop();
-    var _spec = fileTokens.pop();
-    return (_extension === 'js' && _spec === 'spec');
+    var _unit = fileTokens.pop();
+    return (_extension === 'js' && _unit === 'unit');
   }
 }
