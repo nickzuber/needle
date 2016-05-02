@@ -4,6 +4,8 @@
 'use strict';
 
 var Needle = require('../src/needle.js');
+var winston = require('winston');
+winston.log('info', 'running speed tests on sorted array');
 var start, end, time, iterations, i;
 
 var arr = new Needle.SortedArray();
@@ -28,7 +30,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SortedArray.insert() " + iterations.toLocaleString() + " (create) iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SortedArray.insert() " + iterations.toLocaleString() + " (create) iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -47,7 +49,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SortedArray.get() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SortedArray.get() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -67,4 +69,4 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SortedArray.delete() " + iterations.toLocaleString() + " (update) iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SortedArray.delete() " + iterations.toLocaleString() + " (update) iterations took " + (end-start)/1000 + " seconds to execute.");

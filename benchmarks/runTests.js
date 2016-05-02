@@ -7,11 +7,14 @@
  */
 
 var fs = require('fs');
+var winston = require('winston');
 var files = [];
 var blackListedDirectories = [
   '.git',
   'node_modules'
 ];
+
+winston.add(winston.transports.File, { filename: 'benchmarks/benchmarks.log' });
 
 // Get all benchmark files to run
 recurseAllFilesInDirectory('./benchmarks', files);

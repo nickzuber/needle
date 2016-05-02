@@ -4,6 +4,8 @@
 'use strict';
 
 var Needle = require('../src/needle.js');
+var winston = require('winston');
+winston.log('info', 'running speed tests on stack');
 var start, end, time, iterations, i;
 
 var stack = new Needle.Stack();
@@ -26,7 +28,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Stack.push() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("Stack.push() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -43,7 +45,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Stack.peek() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("Stack.peek() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -60,4 +62,4 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Stack.pop() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("Stack.pop() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");

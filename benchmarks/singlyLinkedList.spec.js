@@ -4,6 +4,8 @@
 'use strict';
 
 var Needle = require('../src/needle.js');
+var winston = require('winston');
+winston.log('info', 'running speed tests on singly linked list');
 var start, end, time, iterations, i;
 
 var list = new Needle.SinglyLinkedList();
@@ -26,7 +28,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SinglyLinkedList.insertFront() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SinglyLinkedList.insertFront() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -46,7 +48,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SinglyLinkedList.insertBack() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SinglyLinkedList.insertBack() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -70,7 +72,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SinglyLinkedList.insertNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SinglyLinkedList.insertNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -90,7 +92,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SinglyLinkedList.remove() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SinglyLinkedList.remove() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -112,7 +114,7 @@ for(i=1; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SinglyLinkedList.insertAfter() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SinglyLinkedList.insertAfter() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -129,7 +131,7 @@ list.find("item: " + (iterations/2));
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SinglyLinkedList.find() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SinglyLinkedList.find() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -145,7 +147,7 @@ list.findNth(iterations/2);
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SinglyLinkedList.findNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SinglyLinkedList.findNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -166,7 +168,7 @@ for(i=0; i<size; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("SinglyLinkedList.removeNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("SinglyLinkedList.removeNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 

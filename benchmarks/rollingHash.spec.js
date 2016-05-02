@@ -5,6 +5,8 @@
 
 var Needle = require('../src/needle.js');
 var LONG_TEXT = require('./long_text.js');
+var winston = require('winston');
+winston.log('info', 'running speed tests on rolling hash');
 var start, end, time, iterations, i;
 
 var rh = new Needle.RollingHash(256);
@@ -40,15 +42,15 @@ for(var i=0; i<LONG_TEXT.length-needle.length; ++i){
 }
 
 if(found){
-  console.warn("Item was successfully found.");
+  winston.info("Item was successfully found.");
 }else{
-  console.warn("Warning: Item was not found. If this was not intentional, then something is wrong with the rolling hash.");
+  winston.info("Warning: Item was not found. If this was not intentional, then something is wrong with the rolling hash.");
 }
 
 end = new Date().getTime();
 time = end - start;
 
-console.warn("RollingHash.slide() rolled over " + LONG_TEXT.length.toLocaleString() + " characters in " + (end-start)/1000 + " seconds.");
+winston.info("RollingHash.slide() rolled over " + LONG_TEXT.length.toLocaleString() + " characters in " + (end-start)/1000 + " seconds.");
 
 
 
@@ -70,7 +72,7 @@ for(var i=0; i<LONG_TEXT.length-needle.length; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Brute string matching searched through " + LONG_TEXT.length.toLocaleString() + " characters in " + (end-start)/1000 + " seconds.");
+winston.info("Brute string matching searched through " + LONG_TEXT.length.toLocaleString() + " characters in " + (end-start)/1000 + " seconds.");
 
 
 /** @sample
@@ -95,4 +97,4 @@ for(var i=0; i<LONG_TEXT.length-needle.length; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Traditional substring locator searched through " + LONG_TEXT.length.toLocaleString() + " characters in " + (end-start)/1000 + " seconds.");
+winston.info("Traditional substring locator searched through " + LONG_TEXT.length.toLocaleString() + " characters in " + (end-start)/1000 + " seconds.");

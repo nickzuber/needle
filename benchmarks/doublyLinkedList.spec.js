@@ -4,6 +4,8 @@
 'use strict';
 
 var Needle = require('../src/needle.js');
+var winston = require('winston');
+winston.log('info', 'running speed tests on doubly linked list');
 var start, end, time, iterations, i;
 
 var list = new Needle.DoublyLinkedList();
@@ -26,7 +28,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("DoublyLinkedList.insertFront() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("DoublyLinkedList.insertFront() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -46,7 +48,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("DoublyLinkedList.insertBack() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("DoublyLinkedList.insertBack() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -68,7 +70,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("DoublyLinkedList.insertNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("DoublyLinkedList.insertNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -90,7 +92,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("DoublyLinkedList.remove() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("DoublyLinkedList.remove() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -109,7 +111,7 @@ for(i=1; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("DoublyLinkedList.insertAfter() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("DoublyLinkedList.insertAfter() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -126,7 +128,7 @@ list.find("item: " + (iterations/2));
 end = new Date().getTime();
 time = end - start;
 
-console.warn("DoublyLinkedList.find() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("DoublyLinkedList.find() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -142,7 +144,7 @@ list.findNth(iterations/2);
 end = new Date().getTime();
 time = end - start;
 
-console.warn("DoublyLinkedList.findNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("DoublyLinkedList.findNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -163,7 +165,7 @@ for(i=0; i<size; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("DoublyLinkedList.removeNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("DoublyLinkedList.removeNth() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 

@@ -4,6 +4,8 @@
 'use strict';
 
 var Needle = require('../src/needle.js');
+var winston = require('winston');
+winston.log('info', 'running speed tests on hashmap');
 var start, end, time, iterations, i;
 
 var map = new Needle.Hashmap();
@@ -27,7 +29,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Hashmap.put() " + iterations.toLocaleString() + " (create) iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("Hashmap.put() " + iterations.toLocaleString() + " (create) iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -45,7 +47,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Hashmap.put() " + iterations.toLocaleString() + " (update) iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("Hashmap.put() " + iterations.toLocaleString() + " (update) iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -63,7 +65,7 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Hashmap.get() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("Hashmap.get() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -82,7 +84,7 @@ while(i !== null){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Hashmap.next() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("Hashmap.next() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
 
 
 
@@ -100,4 +102,4 @@ for(i=0; i<iterations; ++i){
 end = new Date().getTime();
 time = end - start;
 
-console.warn("Hashmap.delete() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
+winston.info("Hashmap.delete() " + iterations.toLocaleString() + " iterations took " + (end-start)/1000 + " seconds to execute.");
