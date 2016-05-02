@@ -14,7 +14,7 @@ var blackListedDirectories = [
   'node_modules'
 ];
 
-winston.add(winston.transports.File, { filename: 'benchmarks/benchmarks.log' });
+winston.add(winston.transports.File, { filename: 'benchmarks/logs/benchmarks.log' });
 
 // Get all benchmark files to run
 recurseAllFilesInDirectory('./benchmarks', files);
