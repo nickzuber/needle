@@ -26,7 +26,7 @@ var modInverse = function(n, p){
   // Make sure our modular base is prime
   var g = gcd(n, p);
   if(g !== 1){
-    throw new Error("Modular base is not prime and inverse is no guarenteed in RollingHash.modInverse\n"+p);
+    throw new Error("Modular base is not prime and inverse is not guarenteed in RollingHash.modInverse\n"+p);
   }
   return safePOW(n, p-2, p);
 }
@@ -79,7 +79,7 @@ const PRIME_BASE = 2147483647;
 
 /**
  * Single argument constructor which defines the base of the working 
- * @param {number} the base of which
+ * @param {number} the base value of the rolling hash to compute its operations
  * @return {void}
  */
 const RollingHash = function(base){
@@ -99,19 +99,20 @@ const RollingHash = function(base){
   this.CACHE = 1;
 
   // The amount of digits a number can hold given the base
-  this.BUFFER_SIZE = Math.log(base-1) * Math.LOG10E + 1 | 0;
+  // TODO: unused.. figure out why I thought I needed this
+  this.BUFFER_SIZE = Math.log(base) * Math.LOG10E + 1 | 0;
 
   // The modular inverse of the base
   this.INVERSE_BASE = modInverse(this.BASE, PRIME_BASE) % PRIME_BASE;
 
-  // An offset to add when calulating a modular product, to make sure it can not go negative
+  // An offset to add when calculating a modular product, to make sure it can not go negative
   this.OFFSET_IF_NEGATIVE = PRIME_BASE * this.BASE;
 }
 
 /**
  * Computes a hash on the input assuming it is of the same base of
  * the instance of the rolling hash. 
- * @param {number || string || Array} the item to hash; if array
+ * @param {number || string || Array} the item to hash
  * @return {number} the hash of the argument
  */
 RollingHash.prototype.hash = function(k){
@@ -192,7 +193,7 @@ RollingHash.prototype.skip = function(o){
 /**
  * Shifts the window over by one iteration and returns the new internal hash value.
  * @param {string || number} the old item to disjoin
- * @param {string || number} the old item to disjoin
+ * @param {string || number} the new item to append
  * @return {number} returns the new internal hash
  */
 RollingHash.prototype.slide = function(o, n){
