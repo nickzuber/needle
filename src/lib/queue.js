@@ -12,7 +12,7 @@
  * 
  */
 
-const Node = require('./unidirectional_node.js');
+const Node = require('./nodes/unidirectional_node.js');
 
 /**
  * Single argument constructor.

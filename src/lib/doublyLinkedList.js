@@ -20,7 +20,7 @@
  
 'use strict';
 
-const Node = require('./bidirectional_node.js');
+const Node = require('./nodes/bidirectional_node.js');
 
 /**
  * Single argument constructor.

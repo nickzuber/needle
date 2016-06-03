@@ -24,7 +24,7 @@
 
  'use strict';
 
-const Node = require('./bidirectional_tree_node.js');
+const Node = require('./nodes/bidirectional_tree_node.js');
 
 /** @private @default
  * Compares two elements and returns.

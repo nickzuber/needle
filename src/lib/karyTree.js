@@ -16,7 +16,7 @@
 
 'use strict';
 
-const Node = require('./multidirectional_tree_node.js');
+const Node = require('./nodes/multidirectional_tree_node.js');
 
 /**
  * Creates an empty k-ary tree.
