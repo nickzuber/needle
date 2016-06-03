@@ -41,7 +41,7 @@ var bst = new Needle.BinarySearchTree();
 
 Needle has a variety of different data structures at its disposal. Here is a reference to all of the currently available data structures that Needle supports. Some data structures have not been added yet and they will appear unavailable.
 
-*If you feel that there should be additional data structures added to this library, [send me a message and let me know your ideas.](mailto:zuber.nicholas@gmail.com)*
+*If you feel that there should be additional data structures added to this library, [send me a message and let me know what you had in mind.](mailto:zuber.nicholas@gmail.com)*
 
 **Note:** In the API, `*` refers to any type. This is commonly used when specifying the type of data; since all types of data are supported when inserting custom data into a data structure.
 
@@ -64,6 +64,11 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - Binomial Heap
  - Soft Heap
 
+#### General Trees
+ - Trie
+ - Radix Tree
+ - B Trie
+
 #### Binary Trees
  - [Binary Search Tree](#bst)
  - AVL Tree
@@ -71,15 +76,16 @@ Needle has a variety of different data structures at its disposal. Here is a ref
  - B+ Tree
  - Red-Black Tree
 
-#### Trees
- - Trie
- - Radix Tree
- - B Trie
-
 #### Multiway Trees
  - Ternary Tree
  - [K-ary Tree](#karytree)
  - And-Or Tree
+
+#### Metric Trees
+ - VP Tree
+ - BK Tree
+ - M Tree
+ - Cover Tree
 
 #### Hashes
  - [Hashmap](#hashmap)
