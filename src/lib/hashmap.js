@@ -17,7 +17,7 @@
 
 'use strict';
 
-const DoublyLinkedList = require('./nodes/doublyLinkedList.js');
+const DoublyLinkedList = require('./doublyLinkedList.js');
 
 /** @private
  * Takes in an argument and creates a unique hash derived from the given
