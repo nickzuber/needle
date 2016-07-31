@@ -15,7 +15,7 @@
  * +-------------------------+
  * 
  * TODO: let user set a custom `equal` function
- * 
+ * @TODO dude redo this.. too messy 
  */
  
 'use strict';
@@ -190,7 +190,13 @@ BinaryHeap.prototype.delete = function(i){
     // This function runs in O(log(n)), therefore capping out the amount of times this
     // function can iterate at 1000 *should* be way more than enough for any non-error
     // removal operations.
-    var errorControl = 0;
+		var errorControl = 0;
+
+		// Case 1: Newly positioned element is greater than its parent
+
+		// Case 2: Newly positioned element is less than its parent
+
+		// Case 3: Newly positioned element is equal to its parent
 
     // Fix the order of the list to find new min
     // Look at root and compare to its children and swap with minimum
@@ -269,6 +275,5 @@ BinaryHeap.prototype.heapify = function(arr){
   }
   console.log(this.heap);
 };
-
 
 module.exports = BinaryHeap;
