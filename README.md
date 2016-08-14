@@ -1,7 +1,5 @@
 # [Needle](https://github.com/nickzuber/needle) <img src="https://travis-ci.org/nickzuber/needle.svg?branch=master" /> <img src="https://badge.fury.io/js/node-needle.svg" /> <img src="https://david-dm.org/nickzuber/Needle.svg" /> <img src="https://david-dm.org/nickzuber/Needle/dev-status.svg" />
 
-[![NPM](https://nodei.co/npm/node-needle.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/node-needle/)[![NPM](https://nodei.co/npm-dl/node-needle.png?months=9&height=3)](https://nodei.co/npm/node-needle/)
-
 >Needle is a standalone extensive data structure library in JavaScript.
 
 Install as an [npm package](https://www.npmjs.com/package/node-needle) or download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/bin/needle.min.js).

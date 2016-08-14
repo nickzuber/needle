@@ -7,7 +7,7 @@
     "build": "gulp",
     "bench": "node --harmony benchmarks/runTests.js",
     "unit": "node --harmony unit/runTests.js",
-    "lint": "eslint src/*.js",
+    "lint": "./node_modules/.bin/eslint src/*.js",
     "gyp": "node-gyp configure build && gulp patch"
   },
   "repository": {
@@ -30,7 +30,9 @@
     "library"
   ],
   "homepage": "https://github.com/nickzuber/needle#readme",
-  "dependencies": {},
+  "dependencies": {
+    "eslint": "^3.3.0"
+  },
   "devDependencies": {
     "bindings": "^1.2.1",
     "express": "^4.13.3",
