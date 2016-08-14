@@ -93,6 +93,33 @@ BinaryHeap.prototype.peek = function(){
 };
 
 /**
+ * Returns the parent element of a given index in the heap.
+ * @param {number} index The index of the child.
+ * @return {*}           The parent of the child.
+ */
+BinaryHead.prototype.getParent = function (index) {
+	return this.heap[Math.floor(index / 2)];
+}
+
+/**
+ * Returns the left child element of a given index in the heap.
+ * @param {number} index The index of the parent.
+ * @return {*}           The left child of the parent.
+ */
+BinaryHead.prototype.getLeftChild = function (index) {
+	return this.heap[(index * 2)];
+}
+
+/**
+ * Returns the right child element of a given index in the heap.
+ * @param {number} index The index of the parent.
+ * @return {*}           The right child of the parent.
+ */
+BinaryHead.prototype.getRightChild = function (index) {
+	return this.heap[(index * 2) + 1];
+}
+
+/**
  * Returns the size of the heap.
  * @param {void}
  * @return {number} the size of the binary heap
