@@ -97,7 +97,7 @@ BinaryHeap.prototype.peek = function(){
  * @param {number} index The index of the child.
  * @return {*}           The parent of the child.
  */
-BinaryHead.prototype.getParent = function (index) {
+BinaryHeap.prototype.getParent = function (index) {
 	return this.heap[Math.floor(index / 2)];
 }
 
@@ -106,7 +106,7 @@ BinaryHead.prototype.getParent = function (index) {
  * @param {number} index The index of the parent.
  * @return {*}           The left child of the parent.
  */
-BinaryHead.prototype.getLeftChild = function (index) {
+BinaryHeap.prototype.getLeftChild = function (index) {
 	return this.heap[(index * 2)];
 }
 
@@ -115,7 +115,7 @@ BinaryHead.prototype.getLeftChild = function (index) {
  * @param {number} index The index of the parent.
  * @return {*}           The right child of the parent.
  */
-BinaryHead.prototype.getRightChild = function (index) {
+BinaryHeap.prototype.getRightChild = function (index) {
 	return this.heap[(index * 2) + 1];
 }
 
@@ -127,6 +127,7 @@ BinaryHead.prototype.getRightChild = function (index) {
 BinaryHeap.prototype.size = function(){
   return this.heap.length - 1;
 };
+
 
 /**
  * Inserts a Node into the heap.
