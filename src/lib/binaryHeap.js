@@ -4,7 +4,7 @@
  * {size} number, the amount of elements inside of the binary heap
  * {compare} function, compares two elements to each other to determine the ordering of the heap
  *                     defaults to basic (a < b) => true
- * 
+ *
  * Asymptotic time complexities
  * +-------------------------+
  * | peek      |  O(1)       |
@@ -13,11 +13,11 @@
  * | delete    |  O(log(n))  |
  * | heapify   |  O(nlog(n)) |
  * +-------------------------+
- * 
+ *
  * TODO: let user set a custom `equal` function
- * @TODO dude redo this.. too messy 
+ * @TODO dude redo this.. too messy
  */
- 
+
 'use strict';
 
 /** @private
@@ -35,8 +35,8 @@ Array.prototype.swap = function(a, b){
 
 /** @private @default
  * Compares two elements and returns.
- * @param {number} first index to compare
- * @param {number} second index to compare
+ * @param  {number} first index to compare
+ * @param  {number} second index to compare
  * @return {boolean} returns true if left hand element is less than right hand element
  */
 function defaultCompare(a, b){
@@ -74,7 +74,7 @@ function safeCompare(a, b, callback){
 const BinaryHeap = function(compare){
   // Initialize heap with nulled first element
   // because we aren't using first element (index 0).
-  // This is because of indexing reasons when finding 
+  // This is because of indexing reasons when finding
   // parent and children elements of the heap.
   this.heap = [null];
   this.compare = defaultCompare;
@@ -138,7 +138,7 @@ BinaryHeap.prototype.insert = function(data){
   if(typeof data === 'undefined'){
     throw new Error("Too few arguments for BinaryHeap.insert");
   }
-  // Insert element to the end of the heap 
+  // Insert element to the end of the heap
   this.heap.push(data);
 
   // If the heap only consists of the root, it's already in order so exit
