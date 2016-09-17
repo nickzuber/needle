@@ -1,9 +1,9 @@
-/** 
+/**
  * Binary Search Tree
  * {root} Node, the root of the tree
  * {compare} function, compares two elements to each other to determine the ordering of the heap
  *                     defaults to basic (a < b) => true
- * 
+ *
  * Asymptotic time complexities
  * +------------------------------+
  * | hasRight         | O(1)      |
@@ -17,14 +17,14 @@
  * | insert           | O(n)      |
  * | search           | O(n)      |
  * +------------------------------+
- * 
+ *
  * TODO: let user set a custom `equal` function
- * 
+ *
  */
 
  'use strict';
 
-const Node = require('./nodes/bidirectional_tree_node.js');
+const Node = require('../__Nodes__/bidirectional_tree_node.js');
 
 /** @private @default
  * Compares two elements and returns.

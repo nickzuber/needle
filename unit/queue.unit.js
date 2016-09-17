@@ -1,7 +1,7 @@
 
 // # Queue tests
 
-var Needle = require('../src/needle.js');
+var Needle = require('../src');
 var test = require('tape');
 
 test('Queue should run without errors', function(t){
