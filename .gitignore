@@ -6,6 +6,7 @@ node_modules
 npm-debug.log
 scripts/testing
 scripts/build
+.DS_Store
 
 # Various Builds
 build
