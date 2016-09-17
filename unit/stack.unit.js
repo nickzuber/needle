@@ -1,7 +1,7 @@
 
 // # Stack tests
 
-var Needle = require('../src/needle.js');
+var Needle = require('../src');
 var test = require('tape');
 
 test('Stack should run without errors', function(t){

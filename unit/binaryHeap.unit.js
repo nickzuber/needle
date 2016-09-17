@@ -1,7 +1,7 @@
 
 // # Binary Heap tests
 
-var Needle = require('../src/needle.js');
+var Needle = require('../src');
 var test = require('tape');
 
 test('Binary Heap should run without errors', function(t){

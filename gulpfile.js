@@ -29,8 +29,7 @@ gulp.task('dispatch', function(){
 });
 
 // Temporary patch to node-gyp searching wrong directory
-// UPDATE: Don't think I need this anymore but keeping just
-//         in case.
+// UPDATE: Don't think I need this anymore but keeping just in case.
 gulp.task('patch', function(){
     gulp.src(['scripts/build/**'])
     .pipe(gulp.dest('build'));
@@ -38,7 +37,7 @@ gulp.task('patch', function(){
 
 // Watch files
 gulp.task('watch', function(){
-    gulp.watch(['src/lib/*.js'], ['dispatch']);
+    gulp.watch(['src/**/*.js'], ['dispatch']);
 });
 
 // Set default to dispatch

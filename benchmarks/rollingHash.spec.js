@@ -3,7 +3,7 @@
 
 'use strict';
 
-var Needle = require('../src/needle.js');
+var Needle = require('../src');
 var LONG_TEXT = require('./long_text.js');
 var winston = require('winston');
 winston.log('info', 'running speed tests on rolling hash');

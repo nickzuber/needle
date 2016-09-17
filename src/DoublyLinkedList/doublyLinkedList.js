@@ -1,6 +1,7 @@
 /**
- * Singly Linked List
+ * Doubly Linked List
  * {head} Node, the head of the linked list
+ * {tail} Node, the end of the linked list
  * {size} number, the number of nodes in the linked list
  * 
  * Asymptotic time complexities
@@ -19,21 +20,24 @@
  
 'use strict';
 
-const Node = require('./nodes/unidirectional_node.js');
+const Node = require('../__Nodes__/bidirectional_node.js');
 
 /**
  * Single argument constructor.
  * @param {*} [data] data for head node of linked list
  * @return {void}
  */
-const SinglyLinkedList = function(data){
+const DoublyLinkedList = function(data){
   this.head;
+  this.tail;
   this.size;
   if(typeof data !== 'undefined'){
     this.head = new Node(data);
+    this.tail = this.head;
     this.size = 1;
   }else{
     this.head = null;
+    this.tail = null;
     this.size = 0;
   }
 }
@@ -44,22 +48,29 @@ const SinglyLinkedList = function(data){
  * @param {*} data for the new node
  * @return {void}
  */
-SinglyLinkedList.prototype.insertFront = function(data){
+DoublyLinkedList.prototype.insertFront = function(data){
   if(typeof data === 'undefined'){
-    throw new Error("Too few arguments for SinglyLinkedList.insertFront");
+    throw new Error("Too few arguments for DoublyLinkedList.insertFront");
   }
 
   var nodeToAdd = new Node(data);
   
   // If the head has not been set, add this node as the head 
-  if(this.head === null){
+  if(this.head === null && this.tail === null){
     this.head = nodeToAdd;
+    this.tail = this.head;
   }
-  // If head is set, add node to front of the list
-  else{
+  // If head and tail are set, add node to front of the list
+  else if(this.head !== null && this.tail !== null){
     var prevHead = this.head;
+    prevHead.prev = nodeToAdd;
     this.head = nodeToAdd;
     this.head.next = prevHead;
+    this.head.prev = null;
+  }
+  // If head and tail are not in sync, throw error
+  else{
+    throw new Error("Unsynced head and tail in an Doubly Linked List. Please report this to https://github.com/nickzuber/needle/issues");
   }
   ++this.size;
 }
@@ -71,17 +82,17 @@ SinglyLinkedList.prototype.insertFront = function(data){
  * @param {*} data for the new node
  * @return {void}
  */
-SinglyLinkedList.prototype.insertNth = function(index, data){
+DoublyLinkedList.prototype.insertNth = function(index, data){
   if(typeof data === 'undefined' || typeof index === 'undefined'){
-    throw new Error("Too few arguments for SinglyLinkedList.insertNth");
+    throw new Error("Too few arguments for DoublyLinkedList.insertNth");
   }else if(typeof index !== 'number'){
-    throw new TypeError("Invalid argument for SinglyLinkedList.insertNth");
+    throw new TypeError("Invalid argument for DoublyLinkedList.insertNth");
   }
   // Check for bounds (and if inserting at index 0 we want to allow)
   else if(index < 0 || index >= this.size && index !== 0){
-    throw new Error("Index out of bounds on SinglyLinkedList.insertNth");
+    throw new Error("Index out of bounds on DoublyLinkedList.insertNth");
   }
-
+  
   // Check if inserting at head
   if(index === 0){
     this.insertFront(data);
@@ -93,7 +104,14 @@ SinglyLinkedList.prototype.insertNth = function(index, data){
     return false;
   }
 
+  // Check if inserting at tail
+  if(index === this.size-1){
+    this.insertBack(data);
+    return;
+  }
+
   // Configure finder nodes
+  // We can assume we are not inserting at head
   var nodeToAdd = new Node(data),
       curNode = this.head;
 
@@ -103,19 +121,22 @@ SinglyLinkedList.prototype.insertNth = function(index, data){
 
   var tempNode = curNode.next;
   curNode.next = nodeToAdd;
+  tempNode.prev = nodeToAdd;
+  nodeToAdd.prev = curNode;
   nodeToAdd.next = tempNode;
   ++this.size;
 }
 
 /**
  * Create a node from given data and inserts after a given node.
+ * of linked list.
  * @param {*} the data of the node which the new node is to be inserted after
  * @param {*} data for the new node
  * @return {boolean} returns if node is inserted or not
  */
-SinglyLinkedList.prototype.insertAfter = function(targetData, data){
+DoublyLinkedList.prototype.insertAfter = function(targetData, data){
   if(typeof data === 'undefined' || typeof targetData === 'undefined'){
-    throw new Error("Too few arguments for SinglyLinkedList.insertAfter");
+    throw new Error("Too few arguments for DoublyLinkedList.insertAfter");
   }
   // If head is empty, we obviously won't find the targetNode
   if(this.head === null){
@@ -135,6 +156,17 @@ SinglyLinkedList.prototype.insertAfter = function(targetData, data){
   }else{
     _targetData = targetData;
   }
+  if(typeof curNode.data === 'object'){
+    _curNodedata = JSON.stringify(curNode.data);
+  }else{
+    _curNodedata = curNode.data;
+  }
+
+  // Check if inserting after tail
+  if(JSON.stringify(this.tail.data) === JSON.stringify(targetData)){
+    this.insertBack(data);
+    return true;
+  }
 
   while(curNode !== null){
     // JSON.stringify is very expensive - only perform if necessary
@@ -153,6 +185,8 @@ SinglyLinkedList.prototype.insertAfter = function(targetData, data){
   if(nodeFound){
     var tempNode = curNode.next;
     curNode.next = nodeToAdd;
+    tempNode.prev = nodeToAdd;
+    nodeToAdd.prev = curNode;
     nodeToAdd.next = tempNode;
     ++this.size;
     return true;
@@ -167,9 +201,9 @@ SinglyLinkedList.prototype.insertAfter = function(targetData, data){
  * @param {*} data for the new node
  * @return {void}
  */
-SinglyLinkedList.prototype.insertBack = function(data){
+DoublyLinkedList.prototype.insertBack = function(data){
   if(typeof data === 'undefined'){
-    throw new Error("Too few arguments for SinglyLinkedList.insertBack");
+    throw new Error("Too few arguments for DoublyLinkedList.insert");
   }
 
   var nodeToAdd = new Node(data);
@@ -177,15 +211,14 @@ SinglyLinkedList.prototype.insertBack = function(data){
   // If the head has not been set, add this node as the head 
   if(this.head === null){
     this.head = nodeToAdd;
+    this.tail = this.head;
   }
   // If head is set, add node to end of the list
   else{
-    var curNode = this.head;
-    // Find the node without a next element (will be the tail)
-    while(curNode.next !== null){
-      curNode = curNode.next;
-    }
-    curNode.next = nodeToAdd;
+    nodeToAdd.next = null;
+    nodeToAdd.prev = this.tail;
+    this.tail.next = nodeToAdd;
+    this.tail = nodeToAdd;
   }
   ++this.size;
 }
@@ -196,15 +229,16 @@ SinglyLinkedList.prototype.insertBack = function(data){
  * @return {boolean} true if node removal was successful
  *                   false if node not found
  */
-SinglyLinkedList.prototype.remove = function(data){
+DoublyLinkedList.prototype.remove = function(data){
   if(typeof data === 'undefined'){
-    throw new Error("Too few arguments for SinglyLinkedList.remove");
+    throw new Error("Too few arguments for DoublyLinkedList.remove");
   }
   else if(this.size <= 0){
-    throw new Error("Attempted to remove from an empty SinglyLinkedList");
+    throw new Error("Attempted to remove from an empty DoublyLinkedList");
   }
   else if(this.size === 1){
     this.head = null;
+    this.tail = null;
     this.size = 0;
     return;
   }
@@ -213,8 +247,7 @@ SinglyLinkedList.prototype.remove = function(data){
   }
 
   // Configure finder nodes
-  var prevNode = null,
-      curNode = this.head,
+  var curNode = this.head,
       nodeFound = false,
       _curNodedata,
       _data;
@@ -232,19 +265,28 @@ SinglyLinkedList.prototype.remove = function(data){
   }
 
   // Check if deleting head
-  if(_curNodedata === _data){
+  if(JSON.stringify(this.head.data) === JSON.stringify(data)){
     this.head = curNode.next;
+    this.head.prev = null;
+    curNode = null;
+    --this.size;
+    return true;
+  }
+
+  // Check if deleting tail
+  if(JSON.stringify(this.tail.data) === JSON.stringify(data)){
+    curNode = this.tail;
+    this.tail = curNode.prev;
+    this.tail.next = null;
     curNode = null;
     --this.size;
     return true;
   }
 
   // Update nodes to account for head not being the node to delete
-  prevNode = curNode;
-  curNode = prevNode.next;
+  curNode = curNode.next;
 
   while(curNode !== null){
-    // JSON.stringify is very expensive - only perform if necessary
     if(typeof curNode.data === 'object'){
       _curNodedata = JSON.stringify(curNode.data);
     }else{
@@ -252,12 +294,13 @@ SinglyLinkedList.prototype.remove = function(data){
     }
     if(_curNodedata === _data){
       nodeFound = true;
+      var prevNode = curNode.prev;
       prevNode.next = curNode.next;
+      curNode.next.prev = prevNode;
       curNode = null;
       --this.size;
       break;
     }
-    prevNode = curNode;
     curNode = curNode.next;
   }
 
@@ -270,43 +313,54 @@ SinglyLinkedList.prototype.remove = function(data){
  * @param {number} index of node to remove
  * @return {void}
  */
-SinglyLinkedList.prototype.removeNth = function(index){
+DoublyLinkedList.prototype.removeNth = function(index){
   if(typeof index === 'undefined'){
-    throw new Error("Too few arguments for SinglyLinkedList.removeNth");
+    throw new Error("Too few arguments for DoublyLinkedList.removeNth");
   }
   else if(typeof index !== 'number'){
-    throw new TypeError("Invalid argument for SinglyLinkedList.removeNth");
+    throw new TypeError("Invalid argument for DoublyLinkedList.removeNth");
   }
   // Check for bounds
   else if(index < 0 || index >= this.size){
-    throw new Error("Index out of bounds on SinglyLinkedList.removeNth: " + index);
+    throw new Error("Index out of bounds on DoublyLinkedList.removeNth: " + index);
   }
   else if(this.size === 1){
     this.head = null;
+    this.tail = null;
     this.size = 0;
     return;
   }
 
-  var prevNode = null;
   var curNode = this.head;
   
   // Check if deleting head
   if(index === 0){
     this.head = curNode.next;
+    this.head.prev = null;
     curNode = null;
     --this.size;
     return;
   }
 
-  prevNode = curNode;
+  // Check if deleting tail
+  if(index === this.size-1){
+    curNode = this.tail;
+    this.tail = curNode.prev;
+    this.tail.next = null;
+    curNode = null;
+    --this.size;
+    return true;
+  }
+
   curNode = curNode.next;
 
   for(var i=1; i<index; ++i){
-    prevNode = curNode;
     curNode = curNode.next;
   }
 
+  var prevNode = curNode.prev;
   prevNode.next = curNode.next;
+  curNode.next.prev = prevNode;
   curNode = null;
   --this.size;
   return;
@@ -318,12 +372,12 @@ SinglyLinkedList.prototype.removeNth = function(index){
  * @param {*} data of node to find
  * @return {boolean || Node} returns node found and false if not found
  */
-SinglyLinkedList.prototype.find = function(data){
+DoublyLinkedList.prototype.find = function(data){
   if(typeof data === 'undefined'){
-    throw new Error("Too few arguments for SinglyLinkedList.find");
+    throw new Error("Too few arguments for DoublyLinkedList.find");
   }
   else if(this.size <= 0){
-    throw new Error("Attempted to find a node from an empty SinglyLinkedList");
+    throw new Error("Attempted to find a node from an empty DoublyLinkedList");
   }
   else if(this.head === null && this.size > 0){
     throw new Error("Null head in an unemptied list. Please report this to https://github.com/nickzuber/needle/issues");
@@ -353,11 +407,11 @@ SinglyLinkedList.prototype.find = function(data){
  * @param {number} index of node to find
  * @returm {Node} the node at the given position
  */
-SinglyLinkedList.prototype.findNth = function(index){
+DoublyLinkedList.prototype.findNth = function(index){
   if(typeof index === 'undefined'){
-    throw new TypeError("Too few arguments for SinglyLinkedList.findNth");
+    throw new TypeError("Too few arguments for DoublyLinkedList.findNth");
   }else if(typeof index !== 'number'){
-    throw new TypeError("Invalid argument for SinglyLinkedList.findNth");
+    throw new TypeError("Invalid argument for DoublyLinkedList.findNth");
   }
   // Check for bounds
   else if(index < 0 || index >= this.size){
@@ -376,4 +430,4 @@ SinglyLinkedList.prototype.findNth = function(index){
   return curNode;
 }
 
-module.exports = SinglyLinkedList;
+module.exports = DoublyLinkedList;

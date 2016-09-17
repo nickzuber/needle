@@ -2,7 +2,7 @@
  * Hashmap
  * {buckets} Array, the container of all the entries in the hashmap
  * {current} Node, the node of the current entry in the hashmap
- * 
+ *
  * Asymptotic time complexities
  * +-------------------+
  * | put      |  O(1)  |
@@ -12,12 +12,12 @@
  * | iterator |  O(1)  |
  * | size     |  O(1)  |
  * +-------------------+
- * 
+ *
  */
 
 'use strict';
 
-const DoublyLinkedList = require('./doublyLinkedList.js');
+const DoublyLinkedList = require('../DoublyLinkedList');
 
 /** @private
  * Takes in an argument and creates a unique hash derived from the given
@@ -68,7 +68,7 @@ function removeCustom(key, list){
 const Hashmap = function(){
   this.buckets = {};
   this.current = undefined;
-  
+
   // This linked list will cache our entries locally so we can
   // easily iterate through our entries.
   this.list = new DoublyLinkedList();
