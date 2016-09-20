@@ -50,22 +50,6 @@
 
  - **search**(< _Node_ >[node], < _any_ >the) - *Node || false* - Search for a node in the tree.
 
- - **DoublyLinkedList**(< _any_ >[data]) - *void* - Single argument constructor.
-
- - **insertFront**(< _any_ >data) - *void* - Create a node from given data and insert to front of linked list.
-
- - **insertNth**(< _any_ >data, < _number_ >position) - *void* - Create a node from given data and insert in given location of linked list.
-
- - **insertAfter**(< _any_ >data, < _any_ >the) - *boolean* - Create a node from given data and inserts after a given node. of linked list.
-
- - **insertBack**(< _any_ >data) - *void* - Create a node from given data and insert to end of linked list.
-
- - **remove**(< _any_ >data) - *boolean* - Remove a node based on its given data
-
- - **removeNth**(< _number_ >index) - *void* - Remove a node based on the given position in the linked list
-
- - **find**(< _any_ >data) - *boolean || Node* - Find a node by a given value
-
  - **shred**(< _any_ >input) - *number* - Transforms input into a number.
 
  - **BitArray**(< _number_ >[size) - *void* - Instantiates a bit array with given size.
@@ -87,6 +71,22 @@
  - **difference**(< _BitArray_ >[bitarray) - *BitArray* - Resolve the difference bit array.
 
  - **toString**(< _void_ >) - *string* - Converts the bit array into a string of bits.
+
+ - **DoublyLinkedList**(< _any_ >[data]) - *void* - Single argument constructor.
+
+ - **insertFront**(< _any_ >data) - *void* - Create a node from given data and insert to front of linked list.
+
+ - **insertNth**(< _any_ >data, < _number_ >position) - *void* - Create a node from given data and insert in given location of linked list.
+
+ - **insertAfter**(< _any_ >data, < _any_ >the) - *boolean* - Create a node from given data and inserts after a given node. of linked list.
+
+ - **insertBack**(< _any_ >data) - *void* - Create a node from given data and insert to end of linked list.
+
+ - **remove**(< _any_ >data) - *boolean* - Remove a node based on its given data
+
+ - **removeNth**(< _number_ >index) - *void* - Remove a node based on the given position in the linked list
+
+ - **find**(< _any_ >data) - *boolean || Node* - Find a node by a given value
 
  - **hash**(< _any_ >the) - *number* - 
 
@@ -184,19 +184,27 @@
 
  - **pop**(< _void_ >) - *Node* - Removes the node at the top of the stack.
 
+### <a href="#bidirectional_node" name="bidirectional_node">Needle.Bidirectional_Node()</a>
+**data** - *any* -  Any data for the node to hold.
+**next** - *Bidirectional_node* -  Points to the next node.
+**prev** - *Bidirectional_node* -  Points to the previous node.
+
+ - **Bidirectional_Node**(< _any_ >data) - *void* - Constructs a bidirectional node.
+
+### <a href="#bidirectional_tree_node" name="bidirectional_tree_node">Needle.Bidirectional_Tree_Node()</a>
+**data** - *any* -  Any data for the node to hold.
+**right** - *Bidirectional_Tree_Node* -  Points to the right child node.
+**left** - *Bidirectional_Tree_Node* -  Points to the left child node.
+
+ - **Bidirectional_Tree_Node**(< _any_ >data) - *void* - Constructs a bidirectional tree node.
+
 ### <a href="#multidirectional_tree_node" name="multidirectional_tree_node">Needle.Multidirectional_Tree_Node()</a>
-propertyproperty
+**data** - *any* -  Any data for the node to hold.
+**children** - *Array* -  The set of Multidirectional_Tree_Node which are direct children to this node.
+
  - **Multidirectional_Tree_Node**(< _any_ >data) - *void* - Single argument constructor.
 
  - **appendChild**(< _any_ >data) - *void* - Appends data as a node as a direct child to the tree.
 
-### <a href="#bidirectional_tree_node" name="bidirectional_tree_node">Needle.Bidirectional_Tree_Node()</a>
-propertypropertyproperty
- - **Bidirectional_Tree_Node**(< _any_ >data) - *void* - Constructs a bidirectional tree node.
-
  - **Unidirectional_Node**(< _any_ >data) - *void* - Constructs a unidirectional node.
-
-### <a href="#bidirectional_node" name="bidirectional_node">Needle.Bidirectional_Node()</a>
-propertypropertyproperty
- - **Bidirectional_Node**(< _any_ >data) - *void* - Constructs a bidirectional node.
 
