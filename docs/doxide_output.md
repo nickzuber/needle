@@ -185,22 +185,22 @@
  - **pop**(< _void_ >) - *Node* - Removes the node at the top of the stack.
 
 ### <a href="#bidirectional_node" name="bidirectional_node">Needle.Bidirectional_Node()</a>
-**data** - *any* -  Any data for the node to hold.
-**next** - *Bidirectional_node* -  Points to the next node.
-**prev** - *Bidirectional_node* -  Points to the previous node.
+**data** - *any* -  Any data for the node to hold.<br />
+**next** - *Bidirectional_node* -  Points to the next node.<br />
+**prev** - *Bidirectional_node* -  Points to the previous node.<br />
 
  - **Bidirectional_Node**(< _any_ >data) - *void* - Constructs a bidirectional node.
 
 ### <a href="#bidirectional_tree_node" name="bidirectional_tree_node">Needle.Bidirectional_Tree_Node()</a>
-**data** - *any* -  Any data for the node to hold.
-**right** - *Bidirectional_Tree_Node* -  Points to the right child node.
-**left** - *Bidirectional_Tree_Node* -  Points to the left child node.
+**data** - *any* -  Any data for the node to hold.<br />
+**right** - *Bidirectional_Tree_Node* -  Points to the right child node.<br />
+**left** - *Bidirectional_Tree_Node* -  Points to the left child node.<br />
 
  - **Bidirectional_Tree_Node**(< _any_ >data) - *void* - Constructs a bidirectional tree node.
 
 ### <a href="#multidirectional_tree_node" name="multidirectional_tree_node">Needle.Multidirectional_Tree_Node()</a>
-**data** - *any* -  Any data for the node to hold.
-**children** - *Array* -  The set of Multidirectional_Tree_Node which are direct children to this node.
+**data** - *any* -  Any data for the node to hold.<br />
+**children** - *Array* -  The set of Multidirectional_Tree_Node which are direct children to this node.<br />
 
  - **Multidirectional_Tree_Node**(< _any_ >data) - *void* - Single argument constructor.
 
