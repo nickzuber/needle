@@ -1,0 +1,6 @@
+{
+  "targets" : [
+    "./src"
+  ],
+  "output" : "./docs/doxide_output.md"
+}

@@ -1,14 +1,14 @@
 /**
- * Basic unidirectional node
- * {data} *, any data for the node to hold
- * {next} Unidirectional_node, points to the next node
+ * Unidirectional_Node
+ * @property {any} data Any data for the node to hold
+ * @property {Unidirectional_node} next Points to the next node
  */
- 
+
 'use strict';
 
 /**
- * Single argument constructor.
- * @param {*} any data for the node to hold
+ * Constructs a unidirectional node.
+ * @param {*} data Any data for the node to hold
  * @return {void}
  */
 const Unidirectional_Node = function(data){

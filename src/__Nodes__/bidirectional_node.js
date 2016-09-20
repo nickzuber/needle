@@ -1,15 +1,15 @@
-/**
- * Basic bidirectional node
- * {data} *, any data for the node to hold
- * {next} Bidirectional_node, points to the next node
- * {prev} Bidirectional_node, points to the previous node
+/** @header
+ * Bidirectional_Node
+ * @property {any} data Any data for the node to hold
+ * @property {Bidirectional_node} next Points to the next node
+ * @property {Bidirectional_node} prev Points to the previous node
  */
- 
+
 'use strict';
 
 /**
- * Single argument constructor.
- * @param {*} any data for the node to hold
+ * Constructs a bidirectional node.
+ * @param {*} data Any data for the node to hold
  * @return {void}
  */
 const Bidirectional_Node = function(data){

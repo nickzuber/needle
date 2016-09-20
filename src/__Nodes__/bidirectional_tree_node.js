@@ -1,15 +1,15 @@
-/**
- * Basic bidirectional tree node
- * {data} *, any data for the node to hold
- * {right} Bidirectional_Tree_Node, points to the right child node
- * {left} Bidirectional_Tree_Node, points to the left child node
+/** @header
+ * Bidirectional_Tree_Node
+ * @property {any} data Any data for the node to hold
+ * @property {Bidirectional_Tree_Node} right Points to the right child node
+ * @property {Bidirectional_Tree_Node} left Points to the left child node
  */
- 
+
 'use strict';
 
 /**
- * Single argument constructor.
- * @param {*} any data for the node to hold
+ * Constructs a bidirectional tree node.
+ * @param {*} data Any data for the node to hold
  * @return {void}
  */
 const Bidirectional_Tree_Node = function(data){
