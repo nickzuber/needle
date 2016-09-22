@@ -6,8 +6,8 @@
 
 'use strict';
 
-/**
- * Single argument constructor.
+/** @constructor
+ * Creates a multidirectional tree node.
  * @param {*} data Any data for the node to hold
  * @return {void}
  */

@@ -7,7 +7,7 @@
 
 'use strict';
 
-/**
+/** @constructor
  * Constructs a bidirectional tree node.
  * @param {*} data Any data for the node to hold
  * @return {void}

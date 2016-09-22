@@ -7,7 +7,7 @@
 
 'use strict';
 
-/**
+/** @constructor
  * Constructs a bidirectional node.
  * @param {*} data Any data for the node to hold
  * @return {void}
