@@ -50,24 +50,6 @@
 
  - **search**(< _Node_ >[node], < _any_ >the) - *Node || false* - Search for a node in the tree.
 
- - **hash**(< _any_ >the) - *number* - 
-
- - **removeCustom**(< _DoublyLinkedList_ >the, < _any_ >the) - *void* - 
-
- - **Hashmap**(< _void_ >) - *void* - No argument constructor.
-
- - **put**(< _any_ >the, < _any_ >the) - *void* - Inserts an entry into the hashmap.
-
- - **get**(< _any_ >the) - * || false* - Returns an entry based on a given key.
-
- - **delete**(< _any_ >the) - *boolean* - Deletes an entry based on a given key.
-
- - **next**(< _void_ >) - *key* - Updates the current node to the next node after returning the current node.
-
- - **iterator**(< _void_ >) - *key* - Resets the internal iterator to the first entry and returns it.
-
- - **size**(< _void_ >) - *number* - Returns the amount of unique entries within the hashmap.
-
  - **shred**(< _any_ >input) - *number* - Transforms input into a number.
 
  - **BitArray**(< _number_ >[size) - *void* - Instantiates a bit array with given size.
@@ -106,6 +88,24 @@
 
  - **find**(< _any_ >data) - *boolean || Node* - Find a node by a given value
 
+ - **hash**(< _any_ >the) - *number* - 
+
+ - **removeCustom**(< _DoublyLinkedList_ >the, < _any_ >the) - *void* - 
+
+ - **Hashmap**(< _void_ >) - *void* - No argument constructor.
+
+ - **put**(< _any_ >the, < _any_ >the) - *void* - Inserts an entry into the hashmap.
+
+ - **get**(< _any_ >the) - * || false* - Returns an entry based on a given key.
+
+ - **delete**(< _any_ >the) - *boolean* - Deletes an entry based on a given key.
+
+ - **next**(< _void_ >) - *key* - Updates the current node to the next node after returning the current node.
+
+ - **iterator**(< _void_ >) - *key* - Resets the internal iterator to the first entry and returns it.
+
+ - **size**(< _void_ >) - *number* - Returns the amount of unique entries within the hashmap.
+
  - **KaryTree**(< _Node_ >the) - *void* - Creates an empty k-ary tree.
 
  - **isLeaf**(< _Node_ >the) - *boolean* - Checks if the given node is a leaf.
@@ -142,6 +142,22 @@
 
  - **set**(< _string || Array_ >either) - *number* - Sets the internal window of the rolling hash. Usually set with the beginning elements that fit within the window of the item to find.
 
+ - **SinglyLinkedList**(< _any_ >[data]) - *void* - Single argument constructor.
+
+ - **insertFront**(< _any_ >data) - *void* - Create a node from given data and insert to front of linked list.
+
+ - **insertNth**(< _any_ >data, < _number_ >position) - *void* - Create a node from given data and insert in given location of linked list.
+
+ - **insertAfter**(< _any_ >data, < _any_ >the) - *boolean* - Create a node from given data and inserts after a given node.
+
+ - **insertBack**(< _any_ >data) - *void* - Create a node from given data and insert to end of linked list.
+
+ - **remove**(< _any_ >data) - *boolean* - Remove a node based on its given data
+
+ - **removeNth**(< _number_ >index) - *void* - Remove a node based on the given position in the linked list
+
+ - **find**(< _any_ >data) - *boolean || Node* - Find a node by a given value
+
  - **defaultCompare**(< _number_ >second, < _number_ >first) - *boolean* - 
 
  - **equal**(< _any_ >second, < _any_ >first) - *boolean* - 
@@ -160,21 +176,13 @@
 
  - **toString**(< _void_ >) - *string* - 
 
- - **SinglyLinkedList**(< _any_ >[data]) - *void* - Single argument constructor.
+ - **Stack**(< _any_ >[data]) - *void* - Single argument constructor.
 
- - **insertFront**(< _any_ >data) - *void* - Create a node from given data and insert to front of linked list.
+ - **peek**(< _void_ >) - *Node* - Returns the top of the stack.
 
- - **insertNth**(< _any_ >data, < _number_ >position) - *void* - Create a node from given data and insert in given location of linked list.
+ - **push**(< _any_ >data) - *void* - Creates a node with the given data and adds that node to the top of the stack
 
- - **insertAfter**(< _any_ >data, < _any_ >the) - *boolean* - Create a node from given data and inserts after a given node.
-
- - **insertBack**(< _any_ >data) - *void* - Create a node from given data and insert to end of linked list.
-
- - **remove**(< _any_ >data) - *boolean* - Remove a node based on its given data
-
- - **removeNth**(< _number_ >index) - *void* - Remove a node based on the given position in the linked list
-
- - **find**(< _any_ >data) - *boolean || Node* - Find a node by a given value
+ - **pop**(< _void_ >) - *Node* - Removes the node at the top of the stack.
 
 ### <a href="#multidirectional_tree_node" name="multidirectional_tree_node">Needle.Multidirectional_Tree_Node()</a>
 **data** - *any* -  Any data for the node to hold.<br />
@@ -183,16 +191,6 @@
  - **Multidirectional_Tree_Node**(< _any_ >data) - *void* - Creates a multidirectional tree node.
 
  - **appendChild**(< _any_ >data) - *void* - Appends data as a node as a direct child to the tree.
-
- - **Unidirectional_Node**(< _any_ >data) - *void* - Constructs a unidirectional node.
-
- - **Stack**(< _any_ >[data]) - *void* - Single argument constructor.
-
- - **peek**(< _void_ >) - *Node* - Returns the top of the stack.
-
- - **push**(< _any_ >data) - *void* - Creates a node with the given data and adds that node to the top of the stack
-
- - **pop**(< _void_ >) - *Node* - Removes the node at the top of the stack.
 
 ### <a href="#bidirectional_tree_node" name="bidirectional_tree_node">Needle.Bidirectional_Tree_Node()</a>
 **data** - *any* -  Any data for the node to hold.<br />
@@ -207,4 +205,6 @@
 **prev** - *Bidirectional_node* -  Points to the previous node.<br />
 
  - **Bidirectional_Node**(< _any_ >data) - *void* - Constructs a bidirectional node.
+
+ - **Unidirectional_Node**(< _any_ >data) - *void* - Constructs a unidirectional node.
 
