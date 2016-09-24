@@ -16,8 +16,10 @@ var banner = ['/*!',
 
 // Contacat & compress javascript files
 gulp.task('dispatch', function(){
-    gulp.src(['src/*.js'])
-    .pipe(browserify({}))
+    gulp.src(['src/index.js'])
+    .pipe(browserify({
+      entries: ['./index.js']
+    }))
     .pipe(uglify())
     .pipe(rename({
         basename: 'needle',
