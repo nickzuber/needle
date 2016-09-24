@@ -18,14 +18,18 @@
  * | search           | O(n)      |
  * +------------------------------+
  *
- * TODO: let user set a custom `equal` function
- *
  */
 
- 'use strict';
+'use strict';
 
-const Node = require('../__Nodes__/bidirectional_tree_node.js');
+const Node = require('../Nodes/bidirectional_tree_node.js');
 
+const Types = {
+  LEFT: 'left',
+  RIGHT: 'right'
+}
+
+// @TODO: let user set a custom `compare` function
 /** @private @default
  * Compares two elements and returns.
  * @param {number} first index to compare
@@ -203,6 +207,57 @@ BinarySearchTree.prototype.insert = function(data, node){
     }else{
       this.insert(data, node.right);
     }
+  }
+}
+
+/**
+ * Deletes a node from the tree with the value of `data`.
+ * @param  {any}  data The data of the node to delete.
+ * @return {boolean}   Returns the success of the deletion success.
+ */
+BinarySearchTree.prototype.delete = function (data) {
+  deleteHelper = deleteHelper.bind(this);
+  return deleteHelper(data, this.root, null, null);
+}
+
+/**
+ * Deletes a node from the tree with the value of `data`.
+ * @param  {any}  data       The data of the node to delete.
+ * @param  {Node} node       The current node being analyzed.
+ * @param  {Node} nodeType   The type of child of the current node being analyzed.
+ * @param  {Node} parentNode The last node that was analyzed.
+ * @return {boolean}         Returns the success of the deletion success.
+ */
+function deleteHelper (data, node, nodeType, parentNode) {
+  if (node === null) {
+    return false;
+  }
+
+  // @TODO handle object comparisons -- doing a stringify is horrible dont do that
+  if (data === node.data) {
+    if (nodeType === Types.RIGHT) {
+      parentNode.right = null;
+    } else {
+      parentNode.left = null;
+    }
+
+    // Fix tree
+    if (node.left) {
+      var nodeRightSubtree = node.right;
+      parentNode[nodeType] = node.left;
+      parentNode[nodeType].right = nodeRightSubtree;
+    } else if (node.right) {
+      var nodeLeftSubtree = node.left;
+      parentNode[nodeType] = node.right;
+      parentNode[nodeType].left = nodeLeftSubtree;
+    }
+    return true;
+  }
+
+  if (safeCompare(data, node.data, this.compare)) {
+    return deleteHelper(data, node.left, Types.LEFT, node);
+  } else {
+    return deleteHelper(data, node.right, Types.RIGHT, node);
   }
 }
 

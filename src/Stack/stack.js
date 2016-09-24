@@ -14,7 +14,7 @@
 
 'use strict';
 
-const Node = require('../__Nodes__/unidirectional_node.js');
+const Node = require('../Nodes/unidirectional_node.js');
 
 /**
  * Single argument constructor.
