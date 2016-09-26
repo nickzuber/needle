@@ -5,12 +5,9 @@
   "main": "src/needle.js",
   "scripts": {
     "build": "gulp",
-<<<<<<< Updated upstream
-    "dev": "gulp watch",
-=======
     "dev": "gulp && gulp watch || true",
     "examples": "node ./examples/app.js || true",
->>>>>>> Stashed changes
+    "dev": "gulp && gulp watch || true",
     "bench": "node --harmony benchmarks/runTests.js || true",
     "unit": "node --harmony unit/runTests.js || true",
     "lint": "./node_modules/.bin/eslint src/*.js || true",
