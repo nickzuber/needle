@@ -78,3 +78,43 @@
 {"level":"info","message":"Stack.push() 1,000,000 iterations took 0.434 seconds to execute.","timestamp":"2016-09-17T07:18:40.530Z"}
 {"level":"info","message":"Stack.peek() 1,000,000 iterations took 0.003 seconds to execute.","timestamp":"2016-09-17T07:18:40.533Z"}
 {"level":"info","message":"Stack.pop() 1,000,000 iterations took 0.013 seconds to execute.","timestamp":"2016-09-17T07:18:40.546Z"}
+{"level":"info","message":"running speed tests on binary heap","timestamp":"2016-10-21T22:49:19.852Z"}
+{"level":"info","message":"running speed tests on binary search tree","timestamp":"2016-10-21T22:49:19.854Z"}
+{"level":"info","message":"running speed tests on doubly linked list","timestamp":"2016-10-21T22:49:19.856Z"}
+{"level":"info","message":"DoublyLinkedList.insertFront() 30,000 iterations took 0.007 seconds to execute.","timestamp":"2016-10-21T22:49:19.869Z"}
+{"level":"info","message":"DoublyLinkedList.insertBack() 30,000 iterations took 0.008 seconds to execute.","timestamp":"2016-10-21T22:49:19.878Z"}
+{"level":"info","message":"DoublyLinkedList.insertNth() 30,000 iterations took 1.769 seconds to execute.","timestamp":"2016-10-21T22:49:21.647Z"}
+{"level":"info","message":"DoublyLinkedList.remove() 30,000 iterations took 0.031 seconds to execute.","timestamp":"2016-10-21T22:49:21.678Z"}
+{"level":"info","message":"DoublyLinkedList.insertAfter() 30,000 iterations took 0.03 seconds to execute.","timestamp":"2016-10-21T22:49:21.708Z"}
+{"level":"info","message":"DoublyLinkedList.find() 30,000 iterations took 0.016 seconds to execute.","timestamp":"2016-10-21T22:49:21.724Z"}
+{"level":"info","message":"DoublyLinkedList.findNth() 30,000 iterations took 0 seconds to execute.","timestamp":"2016-10-21T22:49:21.725Z"}
+{"level":"info","message":"DoublyLinkedList.removeNth() 30,000 iterations took 1.159 seconds to execute.","timestamp":"2016-10-21T22:49:22.884Z"}
+{"level":"info","message":"running speed tests on hashmap","timestamp":"2016-10-21T22:49:22.889Z"}
+{"level":"info","message":"Hashmap.put() 1,000,000 (create) iterations took 2.248 seconds to execute.","timestamp":"2016-10-21T22:49:25.138Z"}
+{"level":"info","message":"Hashmap.put() 1,000,000 (update) iterations took 1.647 seconds to execute.","timestamp":"2016-10-21T22:49:26.786Z"}
+{"level":"info","message":"Hashmap.get() 1,000,000 iterations took 0.775 seconds to execute.","timestamp":"2016-10-21T22:49:27.561Z"}
+{"level":"info","message":"Hashmap.next() 1,000,000 iterations took 0.017 seconds to execute.","timestamp":"2016-10-21T22:49:27.580Z"}
+{"level":"info","message":"Hashmap.delete() 1,000,000 iterations took 1.921 seconds to execute.","timestamp":"2016-10-21T22:49:29.501Z"}
+{"level":"info","message":"running speed tests on queue","timestamp":"2016-10-21T22:49:29.504Z"}
+{"level":"info","message":"running speed tests on rolling hash","timestamp":"2016-10-21T22:49:29.521Z"}
+{"level":"info","message":"Item was successfully found.","timestamp":"2016-10-21T22:49:29.904Z"}
+{"level":"info","message":"RollingHash.slide() rolled over 2,114,349 characters in 0.383 seconds.","timestamp":"2016-10-21T22:49:29.904Z"}
+{"level":"info","message":"Brute string matching searched through 2,114,349 characters in 0.209 seconds.","timestamp":"2016-10-21T22:49:30.114Z"}
+{"level":"info","message":"Traditional substring locator searched through 2,114,349 characters in 54.469 seconds.","timestamp":"2016-10-21T22:50:24.584Z"}
+{"level":"info","message":"running speed tests on singly linked list","timestamp":"2016-10-21T22:50:24.586Z"}
+{"level":"info","message":"SinglyLinkedList.insertFront() 30,000 iterations took 0.004 seconds to execute.","timestamp":"2016-10-21T22:50:24.591Z"}
+{"level":"info","message":"SinglyLinkedList.insertBack() 30,000 iterations took 1.979 seconds to execute.","timestamp":"2016-10-21T22:50:26.570Z"}
+{"level":"info","message":"SinglyLinkedList.insertNth() 30,000 iterations took 1.755 seconds to execute.","timestamp":"2016-10-21T22:50:28.325Z"}
+{"level":"info","message":"SinglyLinkedList.remove() 30,000 iterations took 2.367 seconds to execute.","timestamp":"2016-10-21T22:50:30.692Z"}
+{"level":"info","message":"SinglyLinkedList.insertAfter() 30,000 iterations took 4.432 seconds to execute.","timestamp":"2016-10-21T22:50:35.124Z"}
+{"level":"info","message":"SinglyLinkedList.find() 30,000 iterations took 0.009 seconds to execute.","timestamp":"2016-10-21T22:50:35.133Z"}
+{"level":"info","message":"SinglyLinkedList.findNth() 30,000 iterations took 0 seconds to execute.","timestamp":"2016-10-21T22:50:35.133Z"}
+{"level":"info","message":"SinglyLinkedList.removeNth() 30,000 iterations took 1.232 seconds to execute.","timestamp":"2016-10-21T22:50:36.365Z"}
+{"level":"info","message":"running speed tests on sorted array","timestamp":"2016-10-21T22:50:36.368Z"}
+{"level":"info","message":"SortedArray.insert() 500,000 (create) iterations took 57.918 seconds to execute.","timestamp":"2016-10-21T22:51:34.287Z"}
+{"level":"info","message":"SortedArray.get() 500,000 iterations took 0.035 seconds to execute.","timestamp":"2016-10-21T22:51:34.322Z"}
+{"level":"info","message":"SortedArray.delete() 500,000 (update) iterations took 0.437 seconds to execute.","timestamp":"2016-10-21T22:51:34.759Z"}
+{"level":"info","message":"running speed tests on stack","timestamp":"2016-10-21T22:51:34.762Z"}
+{"level":"info","message":"Stack.push() 1,000,000 iterations took 0.382 seconds to execute.","timestamp":"2016-10-21T22:51:35.144Z"}
+{"level":"info","message":"Stack.peek() 1,000,000 iterations took 0.003 seconds to execute.","timestamp":"2016-10-21T22:51:35.147Z"}
+{"level":"info","message":"Stack.pop() 1,000,000 iterations took 0.009 seconds to execute.","timestamp":"2016-10-21T22:51:35.157Z"}
