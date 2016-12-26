@@ -7,9 +7,9 @@
 <img src="https://david-dm.org/nickzuber/Needle/dev-status.svg" />
 <img src="https://david-dm.org/nickzuber/Needle.svg" />
 
->Needle is a standalone extensive data structure library in JavaScript.
+Needle is a standalone extensive data structure library in JavaScript.
 
-Install as an [npm package](https://www.npmjs.com/package/node-needle) or download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/bin/needle.min.js).
+> Install as an [npm package](https://www.npmjs.com/package/node-needle) or download the [minified file of the latest version](https://github.com/nickzuber/needle/blob/master/bin/needle.min.js).
 
 
 ## Installation 
