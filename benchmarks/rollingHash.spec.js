@@ -63,7 +63,7 @@ start = new Date().getTime();
 
 for(var i=0; i<LONG_TEXT.length-needle.length; ++i){
   var attempt = new String(LONG_TEXT.substr(i+1, needle.length));
-    if(needle === attempt){
+    if(needle == attempt){
       found = true;
       break;
     }
