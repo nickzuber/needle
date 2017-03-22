@@ -1,7 +1,7 @@
 # [Needle](https://github.com/nickzuber/needle) 
 
 <img src="https://travis-ci.org/nickzuber/needle.svg?branch=master" />
-[![License](https://img.shields.io/badge/license-mit-blue.svg?style=flat)](/LICENSE)
+<img src="https://img.shields.io/badge/license-mit-blue.svg?style=flat" />
 <img src="https://badge.fury.io/js/node-needle.svg" />
 <br />
 <img src="https://david-dm.org/nickzuber/Needle/dev-status.svg" />
