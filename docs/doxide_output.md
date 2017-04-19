@@ -1,3 +1,33 @@
+ - **defaultCompare**(< _number_ >second, < _number_ >first) - *boolean* - 
+
+ - **safeCompare**(< _function_ >the, < _number_ >second, < _number_ >first) - *boolean* - 
+
+ - **BinarySearchTree**(< _function_ >[compare]) - *void* - Single argument constructor.
+
+ - **hasRight**(< _Node_ >the) - *boolean* - Checks if the given node has a right branch.
+
+ - **hasLeft**(< _Node_ >the) - *boolean* - Checks if the given node has a left branch.
+
+ - **isLeaf**(< _Node_ >the) - *boolean* - Checks if the given node is a leaf.
+
+ - **emptySubtree**(< _Node_ >the) - *void* - Empties the subtree of the given node.
+
+ - **emptyTree**(< _void_ >) - *void* - Empties the entire tree.
+
+ - **heightSubtree**(< _Node_ >the) - *number* - Find the height of a subtree.
+
+ - **numNodesSubtree**(< _Node_ >the) - *number* - Find the number of nodes in a subtree.
+
+ - **numLeavesSubtree**(< _Node_ >the) - *number* - Find the number of leaves in a subtree.
+
+ - **insert**(< _Node_ >[node], < _any_ >the) - *void* - Insert a node into the tree.
+
+ - **delete**(< _any_ >data) - *boolean* - Deletes a node from the tree with the value of `data`.
+
+ - **deleteHelper**(< _Node_ >parentNode, < _Node_ >nodeType, < _Node_ >node, < _any_ >data) - *boolean* - Deletes a node from the tree with the value of `data`.
+
+ - **search**(< _Node_ >[node], < _any_ >the) - *Node || false* - Search for a node in the tree.
+
  - **swap**(< _number_ >second, < _number_ >first) - *void* - 
 
  - **defaultCompare**(< _number_ >second, < _number_ >first) - *boolean* - 
@@ -23,32 +53,6 @@
  - **_heapify**(< _number_ >the) - *void* - Actually does the heapify-ing.
 
  - **heapify**(< _number_ >the) - *array* - Reorganizes the input array into a legal binary heap.
-
- - **defaultCompare**(< _number_ >second, < _number_ >first) - *boolean* - 
-
- - **safeCompare**(< _function_ >the, < _number_ >second, < _number_ >first) - *boolean* - 
-
- - **BinarySearchTree**(< _function_ >[compare]) - *void* - Single argument constructor.
-
- - **hasRight**(< _Node_ >the) - *boolean* - Checks if the given node has a right branch.
-
- - **hasLeft**(< _Node_ >the) - *boolean* - Checks if the given node has a left branch.
-
- - **isLeaf**(< _Node_ >the) - *boolean* - Checks if the given node is a leaf.
-
- - **emptySubtree**(< _Node_ >the) - *void* - Empties the subtree of the given node.
-
- - **emptyTree**(< _void_ >) - *void* - Empties the entire tree.
-
- - **heightSubtree**(< _Node_ >the) - *number* - Find the height of a subtree.
-
- - **numNodesSubtree**(< _Node_ >the) - *number* - Find the number of nodes in a subtree.
-
- - **numLeavesSubtree**(< _Node_ >the) - *number* - Find the number of leaves in a subtree.
-
- - **insert**(< _Node_ >[node], < _any_ >the) - *void* - Insert a node into the tree.
-
- - **search**(< _Node_ >[node], < _any_ >the) - *Node || false* - Search for a node in the tree.
 
  - **shred**(< _any_ >input) - *number* - Transforms input into a number.
 
@@ -106,6 +110,20 @@
 
  - **size**(< _void_ >) - *number* - Returns the amount of unique entries within the hashmap.
 
+### <a href="#bidirectional_node" name="bidirectional_node">Needle.Bidirectional_Node()</a>
+**data** - *any* -  Any data for the node to hold.<br />
+**next** - *Bidirectional_node* -  Points to the next node.<br />
+**prev** - *Bidirectional_node* -  Points to the previous node.<br />
+
+ - **Bidirectional_Node**(< _any_ >data) - *void* - Constructs a bidirectional node.
+
+### <a href="#bidirectional_tree_node" name="bidirectional_tree_node">Needle.Bidirectional_Tree_Node()</a>
+**data** - *any* -  Any data for the node to hold.<br />
+**right** - *Bidirectional_Tree_Node* -  Points to the right child node.<br />
+**left** - *Bidirectional_Tree_Node* -  Points to the left child node.<br />
+
+ - **Bidirectional_Tree_Node**(< _any_ >data) - *void* - Constructs a bidirectional tree node.
+
  - **KaryTree**(< _Node_ >the) - *void* - Creates an empty k-ary tree.
 
  - **isLeaf**(< _Node_ >the) - *boolean* - Checks if the given node is a leaf.
@@ -116,11 +134,37 @@
 
  - **search**(< _Node_ >[node], < _any_ >the) - *Node || false* - Search for a node in the tree.
 
+### <a href="#multidirectional_tree_node" name="multidirectional_tree_node">Needle.Multidirectional_Tree_Node()</a>
+**data** - *any* -  Any data for the node to hold.<br />
+**children** - *Array* -  The set of Multidirectional_Tree_Node which are direct children to this node.<br />
+
+ - **Multidirectional_Tree_Node**(< _any_ >data) - *void* - Creates a multidirectional tree node.
+
+ - **appendChild**(< _any_ >data) - *void* - Appends data as a node as a direct child to the tree.
+
+ - **Unidirectional_Node**(< _any_ >data) - *void* - Constructs a unidirectional node.
+
  - **Queue**(< _any_ >[data]) - *void* - Single argument constructor.
 
  - **enqueue**(< _any_ >data) - *void* - Creates a node with the given data and adds that node to the back of the queue
 
  - **dequeue**(< _void_ >) - *void* - Removes the node at the front of the queue
+
+ - **SinglyLinkedList**(< _any_ >[data]) - *void* - Single argument constructor.
+
+ - **insertFront**(< _any_ >data) - *void* - Create a node from given data and insert to front of linked list.
+
+ - **insertNth**(< _any_ >data, < _number_ >position) - *void* - Create a node from given data and insert in given location of linked list.
+
+ - **insertAfter**(< _any_ >data, < _any_ >the) - *boolean* - Create a node from given data and inserts after a given node.
+
+ - **insertBack**(< _any_ >data) - *void* - Create a node from given data and insert to end of linked list.
+
+ - **remove**(< _any_ >data) - *boolean* - Remove a node based on its given data
+
+ - **removeNth**(< _number_ >index) - *void* - Remove a node based on the given position in the linked list
+
+ - **find**(< _any_ >data) - *boolean || Node* - Find a node by a given value
 
  - **modInverse**(< _number_ >the, < _number_ >the) - *number* - 
 
@@ -141,22 +185,6 @@
  - **slide**(< _string || number_ >the, < _string || number_ >the) - *number* - Shifts the window over by one iteration and returns the new internal hash value.
 
  - **set**(< _string || Array_ >either) - *number* - Sets the internal window of the rolling hash. Usually set with the beginning elements that fit within the window of the item to find.
-
- - **SinglyLinkedList**(< _any_ >[data]) - *void* - Single argument constructor.
-
- - **insertFront**(< _any_ >data) - *void* - Create a node from given data and insert to front of linked list.
-
- - **insertNth**(< _any_ >data, < _number_ >position) - *void* - Create a node from given data and insert in given location of linked list.
-
- - **insertAfter**(< _any_ >data, < _any_ >the) - *boolean* - Create a node from given data and inserts after a given node.
-
- - **insertBack**(< _any_ >data) - *void* - Create a node from given data and insert to end of linked list.
-
- - **remove**(< _any_ >data) - *boolean* - Remove a node based on its given data
-
- - **removeNth**(< _number_ >index) - *void* - Remove a node based on the given position in the linked list
-
- - **find**(< _any_ >data) - *boolean || Node* - Find a node by a given value
 
  - **defaultCompare**(< _number_ >second, < _number_ >first) - *boolean* - 
 
@@ -183,28 +211,4 @@
  - **push**(< _any_ >data) - *void* - Creates a node with the given data and adds that node to the top of the stack
 
  - **pop**(< _void_ >) - *Node* - Removes the node at the top of the stack.
-
-### <a href="#multidirectional_tree_node" name="multidirectional_tree_node">Needle.Multidirectional_Tree_Node()</a>
-**data** - *any* -  Any data for the node to hold.<br />
-**children** - *Array* -  The set of Multidirectional_Tree_Node which are direct children to this node.<br />
-
- - **Multidirectional_Tree_Node**(< _any_ >data) - *void* - Creates a multidirectional tree node.
-
- - **appendChild**(< _any_ >data) - *void* - Appends data as a node as a direct child to the tree.
-
-### <a href="#bidirectional_tree_node" name="bidirectional_tree_node">Needle.Bidirectional_Tree_Node()</a>
-**data** - *any* -  Any data for the node to hold.<br />
-**right** - *Bidirectional_Tree_Node* -  Points to the right child node.<br />
-**left** - *Bidirectional_Tree_Node* -  Points to the left child node.<br />
-
- - **Bidirectional_Tree_Node**(< _any_ >data) - *void* - Constructs a bidirectional tree node.
-
-### <a href="#bidirectional_node" name="bidirectional_node">Needle.Bidirectional_Node()</a>
-**data** - *any* -  Any data for the node to hold.<br />
-**next** - *Bidirectional_node* -  Points to the next node.<br />
-**prev** - *Bidirectional_node* -  Points to the previous node.<br />
-
- - **Bidirectional_Node**(< _any_ >data) - *void* - Constructs a bidirectional node.
-
- - **Unidirectional_Node**(< _any_ >data) - *void* - Constructs a unidirectional node.
 
